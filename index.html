@@ -1,10 +1,226 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>Mini Toolkit</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>쿠팡 계약직 오후조 급여계산기</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>환영합니다! Mini Toolkit 웹사이트입니다. 🚀</h1>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-badge" aria-hidden="true">C</div>
+        <div>
+          <h1>쿠팡 계약직 오후조 급여계산기</h1>
+          <p class="subtitle">오후조(19:00~04:00) 캘린더 근무 기록 · 209시간 기준 명세서 및 실수령액 계산</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="grid-layout calendar-layout">
+        <!-- 캘린더 카드 -->
+        <div class="card calendar-card">
+          <div class="card-header calendar-header">
+            <div class="month-nav">
+              <button type="button" id="btn-prev-month" class="btn-icon" aria-label="이전 달">&lt;</button>
+              <h2 id="cal-month-title">2026년 3월</h2>
+              <button type="button" id="btn-next-month" class="btn-icon" aria-label="다음 달">&gt;</button>
+            </div>
+            <div class="calendar-actions">
+              <button type="button" id="btn-clear-month" class="btn-text text-danger">전일 근무로 초기화</button>
+            </div>
+          </div>
+
+          <!-- 빠른 입력 브러시 -->
+          <div class="brush-bar">
+            <span class="brush-label">클릭 시 체크할 상태:</span>
+            <div class="brush-options" id="cal-brush-options">
+              <button type="button" class="brush-btn active" data-brush="off">휴일 (휴무)</button>
+              <button type="button" class="brush-btn" data-brush="leave">연차 (유급)</button>
+              <button type="button" class="brush-btn" data-brush="afternoon">근무 (오후조)</button>
+              <button type="button" class="brush-btn" data-brush="public_holiday">공휴 (국경일)</button>
+              <button type="button" class="brush-btn" data-brush="special">특근 (내 휴일)</button>
+              <button type="button" class="brush-btn" data-brush="late">지각</button>
+              <button type="button" class="brush-btn" data-brush="early">조퇴</button>
+            </div>
+            <div class="brush-hours-wrap hidden" id="brush-hours-wrap">
+              <label for="brush-hours-input">시간:</label>
+              <input type="number" id="brush-hours-input" class="brush-hours-input" value="1" min="0.5" max="8" step="0.5" />
+              <span>h</span>
+            </div>
+          </div>
+
+          <!-- 캘린더 그리드 -->
+          <div class="calendar-weekdays">
+            <div class="sun">일</div>
+            <div>월</div>
+            <div>화</div>
+            <div>수</div>
+            <div>목</div>
+            <div>금</div>
+            <div class="sat">토</div>
+          </div>
+          <div class="calendar-grid" id="cal-grid"></div>
+        </div>
+
+        <!-- 급여 조건 & 요약 카드 -->
+        <div class="card result-card">
+          <div class="card-header">
+            <h2>급여 조건 · 실수령 요약</h2>
+            <span class="badge" id="cal-work-days-badge">0일 근무</span>
+          </div>
+
+          <div class="summary-hero">
+            <div class="hero-label">월 예상 실수령액 (차인지급액)</div>
+            <div class="hero-amount" id="cal-net-pay">0원</div>
+            <div class="hero-sub">
+              <span>지급총액 <strong id="cal-gross-pay">0원</strong></span>
+              <span class="dot">·</span>
+              <span>공제총액 <strong id="cal-total-tax" class="text-danger">-0원</strong></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cal-hourly-wage" class="form-label">기본시급 (원)</label>
+              <input type="number" id="cal-hourly-wage" class="form-control" value="10340" min="0" step="10" />
+            </div>
+            <div class="form-group">
+              <label for="cal-forklift-pay" class="form-label">지게차수당 (원)</label>
+              <input type="number" id="cal-forklift-pay" class="form-control" value="400000" min="0" step="10000" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cal-attendance-bonus" class="form-label">만근보너스 (원)</label>
+              <input type="number" id="cal-attendance-bonus" class="form-control" value="140000" min="0" step="10000" />
+            </div>
+            <div class="form-group">
+              <label for="cal-overtime-hours" class="form-label">추가 연장(잔업) 시간</label>
+              <input type="number" id="cal-overtime-hours" class="form-control" value="0" min="0" max="120" step="0.5" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cal-late-hours" class="form-label">추가 지각 (시간)</label>
+              <input type="number" id="cal-late-hours" class="form-control" value="0" min="0" max="209" step="0.5" />
+            </div>
+            <div class="form-group">
+              <label for="cal-early-hours" class="form-label">추가 조퇴 (시간)</label>
+              <input type="number" id="cal-early-hours" class="form-control" value="0" min="0" max="209" step="0.5" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cal-prorate-days" class="form-label">일할일수 (공란=전일)</label>
+              <input type="number" id="cal-prorate-days" class="form-control" placeholder="전일" min="1" max="31" />
+            </div>
+            <div class="form-group">
+              <label for="cal-cashback-pay" class="form-label">캐쉬백프로그램 (원)</label>
+              <input type="number" id="cal-cashback-pay" class="form-control" value="0" min="0" step="100" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cal-pension-base" class="form-label">국민연금 기준소득월액 (원, 공란=당월 지급총액)</label>
+            <input type="number" id="cal-pension-base" class="form-control" value="3433000" placeholder="당월 지급총액" min="0" step="1000" />
+          </div>
+
+          <div class="info-box">
+            <p>
+              통상시급은 <strong>(기본급 + 지게차수당 + 만근보너스) ÷ 209시간</strong>으로 산출되어 야간·휴일·연장·근태공제에 적용됩니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 달력 밑 급여명세서 표 -->
+      <section class="card payslip-card">
+        <div class="card-header">
+          <h2>급여 명세서 (지급내역 · 공제내역)</h2>
+          <span class="badge" id="cal-ordinary-wage-badge">통상시급 12,924원</span>
+        </div>
+
+        <div class="payslip-table-wrap">
+          <table class="payslip-table">
+            <thead>
+              <tr>
+                <th colspan="3">지급내역</th>
+                <th colspan="2">공제내역</th>
+              </tr>
+            </thead>
+            <tbody id="payslip-tbody"></tbody>
+          </table>
+        </div>
+
+        <div class="payslip-meta-grid">
+          <div class="meta-box">
+            <div class="meta-box-label">기준시간 / (일)소정근로</div>
+            <div class="meta-box-val">209시간 / 8시간</div>
+          </div>
+          <div class="meta-box">
+            <div class="meta-box-label">월력일수 / 일할일수</div>
+            <div class="meta-box-val" id="cal-meta-days">31일 / 31일</div>
+          </div>
+          <div class="meta-box">
+            <div class="meta-box-label">휴일근로시간(당월)</div>
+            <div class="meta-box-val" id="cal-meta-holiday-hours">0시간</div>
+          </div>
+          <div class="meta-box">
+            <div class="meta-box-label">야간근로시간(당월)</div>
+            <div class="meta-box-val" id="cal-meta-night-hours">0시간</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 급여 계산 기준 안내 -->
+      <section class="card guide-card">
+        <div class="card-header">
+          <h2>급여 계산 기준 안내 (특근 · 공휴 · 세금)</h2>
+        </div>
+
+        <div class="guide-grid">
+          <div class="guide-box">
+            <h3>1. 기본급(209시간) · 통상시급</h3>
+            <ul class="guide-list">
+              <li><strong>기본급</strong>: <code>기본시급 × 209시간</code>으로 주휴수당과 유급공휴일 1.0배가 이미 포함되어 있습니다.</li>
+              <li><strong>통상시급</strong>: <code>(기본급 + 지게차수당 + 만근보너스) ÷ 209시간</code>으로 산출되며 야간·휴일·연장·근태공제 계산에 적용됩니다.</li>
+              <li><strong>월력일수 · 재직일수 · 일할일수</strong>: 한 달 내내 재직하면 모두 동일하여 월급에 영향이 없으며, 중도 입·퇴사 시에만 일할 계산에 쓰입니다.</li>
+            </ul>
+          </div>
+
+          <div class="guide-box">
+            <h3>2. 근무별 수당 (오후조 19~04시)</h3>
+            <ul class="guide-list">
+              <li><strong>일반 근무</strong>: 기본 8시간은 월급에 포함되며, 휴게 1시간을 제외한 <strong>야간 5시간(×0.5배)</strong>만 추가됩니다.</li>
+              <li><strong>공휴 (일하는 공휴일)</strong>: 원래 근무일이라도 공휴일 출근 시 기본급 외에 <strong>휴일근로 1.5배 + 야간 5시간</strong>이 추가됩니다. <em>(쉬는 공휴일은 휴일로 체크)</em></li>
+              <li><strong>특근 (내 휴일 근무)</strong>: 휴무일 추가 출근 시 <strong>1.5배 + 야간 5시간</strong>이 추가되며, 공휴일 근무와 추가 금액은 동일합니다.</li>
+              <li><strong>연차 (유급)</strong>: 기본급은 유지되지만 실제 야간근무를 하지 않으므로 야간수당에서는 제외됩니다.</li>
+            </ul>
+          </div>
+
+          <div class="guide-box">
+            <h3>3. 세금 · 4대보험 공제 기준</h3>
+            <ul class="guide-list">
+              <li><strong>4대보험 (2026년)</strong>: 건강보험 <code>3.595%</code>, 장기요양 <code>건보의 13.14%</code>, 고용보험 <code>0.9%</code>는 당월 지급합계 기준이며, 국민연금(<code>4.75%</code>)은 공단 신고 기준소득월액(1년 고정)이 적용됩니다.</li>
+              <li><strong>소득세 · 주민세</strong>: 국세청 근로소득 간이세액표(1인 기준)를 따르며, 주민세는 소득세의 10%입니다.</li>
+              <li><strong>전체 vs 특근 공제율</strong>: 소득세는 누진 구조라 전체 월급 공제율은 약 <strong>13~14%</strong> 수준이지만, 특근처럼 윗부분에 추가되는 금액에는 상위 세율(15% 구간)과 보험료가 바로 적용되어 추가분 기준 약 <strong>16~17%</strong>가 공제됩니다.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>※ 본 계산기는 쿠팡 물류센터 계약직 근로기준법 및 2026년 4대보험 요율에 따른 모의 계산기이며, 실제 급여명세서와 차이가 있을 수 있습니다.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
