@@ -557,6 +557,20 @@ body {
   color: #be185d;
 }
 
+.cal-tag.ot {
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 10px;
+  padding: 2px 4px;
+  margin-top: 2px;
+}
+
+.cal-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .brush-hours-wrap {
   display: inline-flex;
   align-items: center;

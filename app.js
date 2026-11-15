@@ -3,13 +3,15 @@
 
   const AFTERNOON_SHIFT = { start: '19:00', end: '04:00', breakMin: 60 };
   const STORAGE_KEY = 'coupang_contract_wage_calc_v2';
-  const SETTINGS_KEY = 'coupang_contract_settings_v5';
+  const OT_STORAGE_KEY = 'coupang_contract_ot_v1';
+  const SETTINGS_KEY = 'coupang_contract_settings_v6';
 
   const BRUSH_LABELS = {
     afternoon: '오후조',
     leave: '연차',
     public_holiday: '공휴',
     special: '특근',
+    ot: '연장',
     late: '지각',
     early: '조퇴',
     off: '휴일'
@@ -35,8 +37,19 @@
   }
 
   function formatHours(hours) {
-    const rounded = Math.round(hours * 10) / 10;
-    return Number.isInteger(rounded) ? `${rounded}시간` : `${rounded.toFixed(1)}시간`;
+    const totalMin = Math.round(hours * 60);
+    if (totalMin === 0) return '0시간';
+    const h = Math.floor(totalMin / 60);
+    const m = totalMin % 60;
+    if (h === 0) return `${m}분`;
+    if (m === 0) return `${h}시간`;
+    return `${h}시간 ${m}분`;
+  }
+
+  function formatShortTag(hours) {
+    const totalMin = Math.round(hours * 60);
+    if (totalMin > 0 && totalMin % 60 === 0) return `${totalMin / 60}h`;
+    return `${totalMin}분`;
   }
 
   function parseTimeToMinutes(timeStr) {
@@ -165,16 +178,21 @@
   let activeBrush = 'off';
 
   let calRecords = {};
+  let otRecords = {};
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) calRecords = JSON.parse(saved) || {};
+    const savedOt = localStorage.getItem(OT_STORAGE_KEY);
+    if (savedOt) otRecords = JSON.parse(savedOt) || {};
   } catch {
     calRecords = {};
+    otRecords = {};
   }
 
   function saveRecords() {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(calRecords));
+      localStorage.setItem(OT_STORAGE_KEY, JSON.stringify(otRecords));
     } catch {
       // ignore storage quota errors
     }
@@ -244,7 +262,10 @@
       if (data.activeBrush && BRUSH_LABELS[data.activeBrush]) {
         activeBrush = data.activeBrush;
         cEls.brushBtns.forEach((b) => b.classList.toggle('active', b.dataset.brush === activeBrush));
-        cEls.brushHoursWrap.classList.toggle('hidden', activeBrush !== 'late' && activeBrush !== 'early');
+        cEls.brushHoursWrap.classList.toggle(
+          'hidden',
+          activeBrush !== 'late' && activeBrush !== 'early' && activeBrush !== 'ot'
+        );
       }
       if (data.brushHours !== undefined) cEls.brushHoursInput.value = data.brushHours;
       if (data.calHourlyWage !== undefined) cEls.hourlyWage.value = data.calHourlyWage;
@@ -297,22 +318,44 @@
       numEl.textContent = day;
       cell.appendChild(numEl);
 
+      const tagsWrap = document.createElement('div');
+      tagsWrap.className = 'cal-tags';
+
       if (BRUSH_LABELS[shiftType]) {
         const tag = document.createElement('div');
         tag.className = `cal-tag ${shiftType}`;
         tag.textContent = (shiftType === 'late' || shiftType === 'early') && shiftHours > 0
-          ? `${BRUSH_LABELS[shiftType]} ${shiftHours}h`
+          ? `${BRUSH_LABELS[shiftType]} ${formatShortTag(shiftHours)}`
           : BRUSH_LABELS[shiftType];
-        cell.appendChild(tag);
+        tagsWrap.appendChild(tag);
       }
 
+      const dayOt = Number(otRecords[key]) || 0;
+      if (dayOt > 0 && shiftType !== 'off' && shiftType !== 'leave') {
+        const otTag = document.createElement('div');
+        otTag.className = 'cal-tag ot';
+        otTag.textContent = `+연장 ${formatShortTag(dayOt)}`;
+        tagsWrap.appendChild(otTag);
+      }
+
+      cell.appendChild(tagsWrap);
+
       cell.addEventListener('click', () => {
-        if (activeBrush === 'afternoon') {
+        const mins = Math.max(1, Math.min(480, Math.round(Number(cEls.brushHoursInput.value) || 10)));
+        const h = mins / 60;
+        if (activeBrush === 'ot') {
+          if (shiftType === 'off' || shiftType === 'leave') return;
+          if (Math.round((otRecords[key] || 0) * 60) === mins) {
+            delete otRecords[key];
+          } else {
+            otRecords[key] = h;
+          }
+        } else if (activeBrush === 'afternoon') {
           delete calRecords[key];
         } else if (activeBrush === 'late' || activeBrush === 'early') {
-          const h = Math.max(0.5, Math.min(8, Number(cEls.brushHoursInput.value) || 1));
           const val = `${activeBrush}:${h}`;
-          if (calRecords[key] === val) {
+          const prev = parseRecord(calRecords[key]);
+          if (prev.type === activeBrush && Math.round(prev.hours * 60) === mins) {
             delete calRecords[key];
           } else {
             calRecords[key] = val;
@@ -321,6 +364,9 @@
           delete calRecords[key];
         } else {
           calRecords[key] = activeBrush;
+          if (activeBrush === 'off' || activeBrush === 'leave') {
+            delete otRecords[key];
+          }
         }
         saveRecords();
         renderCalendar();
@@ -425,6 +471,8 @@
     let specialDays = 0;
     let calLateHours = 0;
     let calEarlyHours = 0;
+    let weekdayOtHours = 0;
+    let holidayOtHours = 0;
     let totalNightHours = 0;
     let totalPublicHolidayHours = 0;
     let totalSpecialHours = 0;
@@ -458,9 +506,22 @@
           specialDays += 1;
           totalSpecialHours += shift.regularHours;
         }
+
+        // 일별 연장근무 (04:00 이후 연장은 04~06시 최대 2시간까지 야간수당 추가)
+        const dayOt = Number(otRecords[key]) || 0;
+        if (dayOt > 0) {
+          if (type === 'public_holiday' || type === 'special') {
+            holidayOtHours += dayOt;
+          } else {
+            weekdayOtHours += dayOt;
+          }
+          totalNightHours += Math.min(2, dayOt);
+        }
       }
     }
 
+    const totalCalOtHours = weekdayOtHours + holidayOtHours;
+    const totalOtHours = totalCalOtHours + extraOtHours;
     const totalLateHours = calLateHours + manualLateHours;
     const totalEarlyHours = calEarlyHours + manualEarlyHours;
     const totalDeductHours = totalLateHours + totalEarlyHours;
@@ -478,10 +539,13 @@
     // 수당은 10원 단위 반올림, 근태공제는 10원 미만 절사
     const round10 = (v) => Math.round(v / 10) * 10;
     const floor10 = (v) => Math.floor(v / 10) * 10;
-    const publicHolidayPay = round10(totalPublicHolidayHours * ordinaryHourlyWage * 1.5);
-    const specialPay = round10(totalSpecialHours * ordinaryHourlyWage * 1.5);
+    const totalHolidayDays = publicHolidayDays + specialDays;
+    const totalHolidayWorkHours = totalPublicHolidayHours + totalSpecialHours + holidayOtHours;
+    const holidayPay = round10(totalHolidayWorkHours * ordinaryHourlyWage * 1.5);
+    const holidayOtAddPay = round10(holidayOtHours * ordinaryHourlyWage * 0.5);
     const nightPay = round10(totalNightHours * ordinaryHourlyWage * 0.5);
-    const otPay = round10(extraOtHours * ordinaryHourlyWage * 1.5);
+    const weekdayOtTotalHours = weekdayOtHours + extraOtHours;
+    const otPay = round10(weekdayOtTotalHours * ordinaryHourlyWage * 1.5);
     const lateDeduct = -floor10(totalLateHours * ordinaryHourlyWage);
     const earlyDeduct = -floor10(totalEarlyHours * ordinaryHourlyWage);
     const totalDeductPay = lateDeduct + earlyDeduct;
@@ -489,7 +553,7 @@
 
     const grossPay = Math.max(
       0,
-      basePay + actualForkliftPay + actualAttendanceBonus + publicHolidayPay + specialPay + nightPay + otPay + totalDeductPay + cashbackPay
+      basePay + actualForkliftPay + actualAttendanceBonus + holidayPay + holidayOtAddPay + nightPay + otPay + totalDeductPay + cashbackPay
     );
 
     const pensionBase = Math.max(0, Number(cEls.pensionBase.value) || 0);
@@ -506,6 +570,7 @@
     if (leaveDays > 0) badgeParts.push(`연차 ${leaveDays}일`);
     if (publicHolidayDays > 0) badgeParts.push(`공휴 ${publicHolidayDays}일`);
     if (specialDays > 0) badgeParts.push(`특근 ${specialDays}일`);
+    if (totalOtHours > 0) badgeParts.push(`연장 ${formatHours(totalOtHours)}`);
     if (totalLateHours > 0) badgeParts.push(`지각 ${formatHours(totalLateHours)}`);
     if (totalEarlyHours > 0) badgeParts.push(`조퇴 ${formatHours(totalEarlyHours)}`);
     cEls.workDaysBadge.textContent = badgeParts.join(' · ');
@@ -515,29 +580,31 @@
     cEls.grossPay.textContent = formatKRW(grossPay);
     cEls.totalTax.textContent = `-${formatKRW(totalTax)}`;
 
-    // 지급내역 행 구성 (이미지 레이아웃 동일)
-    const irregularRows = [];
-    if (publicHolidayPay > 0) {
-      irregularRows.push({ label: `공휴일근로수당 (${publicHolidayDays}일)`, amount: publicHolidayPay });
+    // 지급내역 행 구성 (명세서 레이아웃 동일: 휴일근로수당 / 휴일연장근로 가산수당 / 야간근로 가산수당)
+    const irregularRows = [
+      {
+        label: totalHolidayDays > 0 ? `휴일근로수당 (${formatHours(totalHolidayWorkHours)})` : '휴일근로수당',
+        amount: holidayPay
+      }
+    ];
+    if (holidayOtAddPay > 0) {
+      irregularRows.push({
+        label: `휴일연장근로 가산수당 (${formatHours(holidayOtHours)})`,
+        amount: holidayOtAddPay
+      });
     }
-    if (specialPay > 0) {
-      irregularRows.push({ label: `특근수당 (${specialDays}일)`, amount: specialPay });
-    }
-    if (publicHolidayPay === 0 && specialPay === 0) {
-      irregularRows.push({ label: '휴일근로수당', amount: 0 });
+    if (otPay > 0) {
+      irregularRows.push({
+        label: `연장근로수당 (${formatHours(weekdayOtTotalHours)})`,
+        amount: otPay
+      });
     }
     irregularRows.push({ label: `야간근로 가산수당 (${formatHours(totalNightHours)})`, amount: nightPay });
-    if (otPay > 0) {
-      irregularRows.push({ label: `연장근로수당 (${formatHours(extraOtHours)})`, amount: otPay });
-    }
     if (totalLateHours > 0) {
       irregularRows.push({ label: `근태공제 (지각 ${formatHours(totalLateHours)})`, amount: lateDeduct });
     }
     if (totalEarlyHours > 0) {
       irregularRows.push({ label: `근태공제 (조퇴 ${formatHours(totalEarlyHours)})`, amount: earlyDeduct });
-    }
-    if (totalDeductHours === 0) {
-      irregularRows.push({ label: '근태공제', amount: 0 });
     }
 
     const payRows = [
@@ -566,9 +633,8 @@
 
     renderPayslipTable(payRows, taxItems, grossPay, totalTax);
 
-    const totalHolidayHours = totalPublicHolidayHours + totalSpecialHours;
     cEls.metaDays.textContent = `${daysInMonth}일 / ${prorateDays}일`;
-    cEls.metaHolidayHours.textContent = formatHours(totalHolidayHours);
+    cEls.metaHolidayHours.textContent = formatHours(totalHolidayWorkHours);
     cEls.metaNightHours.textContent = formatHours(totalNightHours);
   }
 
@@ -577,7 +643,10 @@
     btn.addEventListener('click', () => {
       activeBrush = btn.dataset.brush;
       cEls.brushBtns.forEach((b) => b.classList.toggle('active', b === btn));
-      cEls.brushHoursWrap.classList.toggle('hidden', activeBrush !== 'late' && activeBrush !== 'early');
+      cEls.brushHoursWrap.classList.toggle(
+        'hidden',
+        activeBrush !== 'late' && activeBrush !== 'early' && activeBrush !== 'ot'
+      );
       saveSettings();
     });
   });
@@ -609,7 +678,9 @@
   cEls.clearBtn.addEventListener('click', () => {
     const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
     for (let day = 1; day <= daysInMonth; day++) {
-      delete calRecords[getDateKey(calYear, calMonth, day)];
+      const k = getDateKey(calYear, calMonth, day);
+      delete calRecords[k];
+      delete otRecords[k];
     }
     saveRecords();
     renderCalendar();
