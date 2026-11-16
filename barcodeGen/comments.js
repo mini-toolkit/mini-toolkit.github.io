@@ -84,11 +84,10 @@ function initGuestComments() {
   const commentsList = document.getElementById("commentsList");
   const commentCount = document.getElementById("commentCount");
 
-  // 실시간 댓글 목록 구독 (onSnapshot)
+  // tool 조건만 걸고, 정렬은 클라이언트에서 처리하여 Firestore 색인(Index) 오류를 원천 방지
   const q = query(
     collection(db, "comments"),
-    where("tool", "==", TOOL_ID),
-    orderBy("createdAt", "desc")
+    where("tool", "==", TOOL_ID)
   );
 
   onSnapshot(q, (snapshot) => {
@@ -100,7 +99,14 @@ function initGuestComments() {
       return;
     }
 
-    snapshot.forEach((docSnap) => {
+    // 최신순 정렬
+    const docs = [...snapshot.docs].sort((a, b) => {
+      const timeA = a.data().createdAt?.toMillis() || 0;
+      const timeB = b.data().createdAt?.toMillis() || 0;
+      return timeB - timeA;
+    });
+
+    docs.forEach((docSnap) => {
       const data = docSnap.data();
       const docId = docSnap.id;
       const dateStr = data.createdAt ? new Date(data.createdAt.toDate()).toLocaleString("ko-KR", {
@@ -141,8 +147,8 @@ function initGuestComments() {
       });
     });
   }, (err) => {
-    console.error(err);
-    commentsList.innerHTML = `<div class="comment-error">댓글을 불러오지 못했습니다. Firestore 규칙을 확인해주세요.</div>`;
+    console.error("Firestore 에러 상세:", err);
+    commentsList.innerHTML = `<div class="comment-error">댓글을 불러오지 못했습니다: ${err.message}</div>`;
   });
 
   // 댓글 등록 처리
