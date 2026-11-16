@@ -12,12 +12,8 @@
   --danger: #dc2626;
   --success: #16a34a;
 
-  --shift-day-bg: #e0f2fe;
-  --shift-day-fg: #0369a1;
   --shift-afternoon-bg: #fef3c7;
   --shift-afternoon-fg: #b45309;
-  --shift-night-bg: #ede9fe;
-  --shift-night-fg: #6d28d9;
   --shift-holiday-bg: #fee2e2;
   --shift-holiday-fg: #b91c1c;
 
@@ -90,40 +86,6 @@ body {
 .subtitle {
   font-size: 13px;
   color: var(--text-muted);
-}
-
-.tab-nav {
-  display: inline-flex;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 4px;
-  gap: 4px;
-}
-
-.tab-btn {
-  border: none;
-  background: transparent;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.tab-btn.active {
-  background: var(--primary);
-  color: #fff;
-}
-
-.tab-panel {
-  display: none;
-}
-
-.tab-panel.active {
-  display: block;
 }
 
 /* Grid */
@@ -373,44 +335,6 @@ body {
   color: #fca5a5;
 }
 
-/* Breakdown */
-.breakdown-section {
-  margin-bottom: 16px;
-}
-
-.breakdown-section h3 {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text-muted);
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-}
-
-.breakdown-list {
-  list-style: none;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-}
-
-.breakdown-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 12px;
-  font-size: 14px;
-  border-bottom: 1px solid var(--border);
-}
-
-.breakdown-list li:last-child {
-  border-bottom: none;
-}
-
-.breakdown-list li.hidden {
-  display: none;
-}
-
 .info-box {
   background: var(--surface-alt);
   border-radius: var(--radius-sm);
@@ -424,6 +348,12 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.month-nav h2 {
+  width: 112px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 
 .btn-icon {
@@ -583,22 +513,11 @@ body {
   text-overflow: ellipsis;
 }
 
-.cal-tag.day {
-  background: var(--shift-day-bg);
-  color: var(--shift-day-fg);
-}
-
 .cal-tag.afternoon {
   background: var(--shift-afternoon-bg);
   color: var(--shift-afternoon-fg);
 }
 
-.cal-tag.night {
-  background: var(--shift-night-bg);
-  color: var(--shift-night-fg);
-}
-
-.cal-tag.holiday,
 .cal-tag.special {
   background: var(--shift-holiday-bg);
   color: var(--shift-holiday-fg);

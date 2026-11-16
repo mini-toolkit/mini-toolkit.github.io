@@ -469,6 +469,8 @@
 
   function renderPayslipTable(payRows, taxItems, grossPay, totalTax) {
     const tbody = cEls.payslipTbody;
+    deltaClearTimers.forEach((timerId) => clearTimeout(timerId));
+    deltaClearTimers.clear();
     const frag = document.createDocumentFragment();
     const nextAmounts = {};
 
