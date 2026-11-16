@@ -4,7 +4,7 @@
   const AFTERNOON_SHIFT = { start: '19:00', end: '04:00', breakMin: 60 };
   const STORAGE_KEY = 'coupang_contract_wage_calc_v2';
   const OT_STORAGE_KEY = 'coupang_contract_ot_v1';
-  const SETTINGS_KEY = 'coupang_contract_settings_v6';
+  const SETTINGS_KEY = 'coupang_contract_settings_v7';
 
   const BRUSH_LABELS = {
     afternoon: '오후조',
@@ -174,7 +174,7 @@
   // ==================== 상태 & 저장 ====================
   const now = new Date();
   let calYear = now.getFullYear();
-  let calMonth = 2; // 3월
+  let calMonth = now.getMonth();
   let activeBrush = 'off';
 
   let calRecords = {};
