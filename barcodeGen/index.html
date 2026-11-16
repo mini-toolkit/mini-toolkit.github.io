@@ -283,8 +283,87 @@
             </div>
           </div>
         </div>
+
+        <div id="qrFontOptionsGroup" class="controls-grid font-options-panel">
+          <div class="control-row control-row-full">
+            <label class="control-label" for="qr-label">표시할 텍스트</label>
+            <input id="qr-label" class="text-input label-input" type="text" placeholder="QR코드에 함께 표시할 글 (비워두면 표시 안 됨)" autocomplete="off" />
+          </div>
+
+          <div class="control-row">
+            <span class="control-label">Text Position</span>
+            <div class="btn-group" role="group" aria-label="QR 텍스트 위치">
+              <button type="button" class="seg-btn qr-text-position" data-value="top">Top</button>
+              <button type="button" class="seg-btn active qr-text-position" data-value="bottom">Bottom</button>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <span class="control-label">Text Align</span>
+            <div class="btn-group" role="group" aria-label="QR 텍스트 정렬">
+              <button type="button" class="seg-btn qr-text-align" data-value="left">Left</button>
+              <button type="button" class="seg-btn active qr-text-align" data-value="center">Center</button>
+              <button type="button" class="seg-btn qr-text-align" data-value="right">Right</button>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="qr-font">Font</label>
+            <select id="qr-font" class="select-input">
+              <option value="sans-serif" selected>Sans-serif</option>
+              <option value="monospace">Monospace</option>
+              <option value="serif">Serif</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="cursive">Cursive</option>
+            </select>
+          </div>
+
+          <div class="control-row">
+            <span class="control-label">Font Options</span>
+            <div class="btn-group" role="group" aria-label="QR 폰트 스타일">
+              <button type="button" class="seg-btn qr-font-option" data-value="bold" style="font-weight:700">Bold</button>
+              <button type="button" class="seg-btn qr-font-option" data-value="italic" style="font-style:italic">Italic</button>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="qr-fontSize">Font Size</label>
+            <div class="control-range">
+              <input id="qr-fontSize" type="range" min="8" max="36" step="1" value="16" />
+              <span class="range-val" id="qr-fontSize-display">16</span>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="qr-text-margin">Text Margin</label>
+            <div class="control-range">
+              <input id="qr-text-margin" type="range" min="-10" max="30" step="1" value="4" />
+              <span class="range-val" id="qr-text-margin-display">4</span>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="qr-max-lines">Max Lines</label>
+            <div class="control-range">
+              <input id="qr-max-lines" type="range" min="1" max="10" step="1" value="3" />
+              <span class="range-val" id="qr-max-lines-display">3</span>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
+
+    <section class="card comments-card" aria-labelledby="comments-title">
+      <div class="comments-header">
+        <h2 id="comments-title">댓글</h2>
+        <p>사용 후기, 버그 제보, 기능 요청을 자유롭게 남겨주세요.</p>
+      </div>
+      <div id="comments"></div>
+      <div id="comments-setup" class="comments-setup" hidden>
+        <strong>댓글 기능이 아직 설정되지 않았습니다.</strong>
+        <span><code>comments.js</code> 상단의 <code>COMMENTS_CONFIG</code>에 Giscus 또는 Disqus 정보를 입력하면 댓글 창이 표시됩니다.</span>
+      </div>
+    </section>
 
     <footer class="app-footer">
       <span>모든 바코드 및 QR코드 생성은 브라우저 내에서 로컬로 처리되며 서버로 전송되지 않습니다.</span>
@@ -296,5 +375,6 @@
   <script src="lib/JsBarcode.all.min.js"></script>
   <script src="lib/qrcode.min.js"></script>
   <script src="app.js"></script>
+  <script src="comments.js"></script>
 </body>
 </html>

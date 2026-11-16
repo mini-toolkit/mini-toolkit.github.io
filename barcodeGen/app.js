@@ -336,6 +336,132 @@
     $('#copyQrcodeImg').disabled = disabled;
   }
 
+  // ----- QR text label state -----
+  const qrState = {
+    textPosition: 'bottom',
+    textAlign: 'center',
+    fontOptions: new Set()
+  };
+  let lastQrLayout = null;
+
+  const QR_MAX_BYTES = { L: 2953, M: 2331, Q: 1663, H: 1273 };
+  const ECC_ORDER = ['H', 'Q', 'M', 'L'];
+
+  function escapeXml(s) {
+    return s.replace(/[<>&"']/g, (ch) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', "'": '&apos;' }[ch]));
+  }
+
+  /** Wrap text to fit maxWidth (handles CJK without spaces by char-level breaking). */
+  function wrapText(ctx, text, maxWidth, maxLines) {
+    const lines = [];
+    const paragraphs = text.split(/\r?\n/);
+    for (const para of paragraphs) {
+      let current = '';
+      for (const ch of Array.from(para)) {
+        const test = current + ch;
+        if (ctx.measureText(test).width > maxWidth && current) {
+          // Prefer breaking at the last space if there is one
+          const sp = current.lastIndexOf(' ');
+          if (sp > 0 && ch !== ' ') {
+            lines.push(current.slice(0, sp));
+            current = current.slice(sp + 1) + ch;
+          } else {
+            lines.push(current);
+            current = ch === ' ' ? '' : ch;
+          }
+        } else {
+          current = test;
+        }
+      }
+      lines.push(current);
+    }
+
+    if (lines.length > maxLines) {
+      const kept = lines.slice(0, maxLines);
+      let last = kept[maxLines - 1];
+      while (last && ctx.measureText(last + '…').width > maxWidth) {
+        last = Array.from(last).slice(0, -1).join('');
+      }
+      kept[maxLines - 1] = last + '…';
+      return kept;
+    }
+    return lines;
+  }
+
+  function getQrSettings() {
+    const fontStyle = qrState.fontOptions.has('italic') ? 'italic ' : '';
+    const fontWeight = qrState.fontOptions.has('bold') ? 'bold ' : '';
+    const fontSize = Number($('#qr-fontSize').value);
+    const fontFamily = $('#qr-font').value;
+    return {
+      size: Number($('#qr-size').value),
+      marginModules: Number($('#qr-margin').value),
+      ecc: $('#qr-ecc').value,
+      bgColor: $('#qr-background-color').value,
+      fgColor: $('#qr-code-color').value,
+      fontSize,
+      fontFamily,
+      fontStyle: fontStyle.trim(),
+      fontWeight: fontWeight.trim(),
+      fontCss: `${fontStyle}${fontWeight}${fontSize}px ${fontFamily}`,
+      textMargin: Number($('#qr-text-margin').value),
+      maxLines: Number($('#qr-max-lines').value)
+    };
+  }
+
+  /** Compute full image layout: QR area + optional text block. */
+  function computeQrLayout(qr, s, labelText) {
+    const count = qr.getModuleCount();
+    const cellSize = s.size / (count + s.marginModules * 2);
+    const quietPx = s.marginModules * cellSize;
+
+    let lines = [];
+    let extra = 0; // extra height added for the text block
+    const lineHeight = Math.round(s.fontSize * 1.25);
+    // Padding between text and the image edge / sides (at least 8px)
+    const sidePad = Math.max(quietPx, 8);
+
+    if (labelText) {
+      const measureCtx = document.createElement('canvas').getContext('2d');
+      measureCtx.font = s.fontCss;
+      lines = wrapText(measureCtx, labelText, s.size - sidePad * 2, s.maxLines);
+      // Text sits inside the QR quiet zone, then extends the image as needed
+      extra = Math.max(0, lines.length * lineHeight + s.textMargin + sidePad - quietPx);
+    }
+
+    const isTop = qrState.textPosition === 'top';
+    const qrOffsetY = isTop ? extra : 0;
+    const textTop = isTop
+      ? extra - (lines.length * lineHeight + s.textMargin - quietPx)
+      : s.size - quietPx + s.textMargin;
+
+    let textX;
+    let anchor;
+    if (qrState.textAlign === 'left') {
+      textX = sidePad;
+      anchor = 'start';
+    } else if (qrState.textAlign === 'right') {
+      textX = s.size - sidePad;
+      anchor = 'end';
+    } else {
+      textX = s.size / 2;
+      anchor = 'middle';
+    }
+
+    return {
+      count,
+      cellSize,
+      width: s.size,
+      height: Math.ceil(s.size + extra),
+      qrOffsetY,
+      lines,
+      lineHeight,
+      textTop,
+      textX,
+      anchor
+    };
+  }
+
   function renderQRCode() {
     const text = qrText.value;
     if (!text.trim()) {
@@ -343,43 +469,70 @@
       qrInvalid.hidden = false;
       qrHint.textContent = 'QR코드로 변환할 텍스트나 URL을 입력해주세요.';
       lastQrModel = null;
+      lastQrLayout = null;
       setQrActionDisabled(true);
       return;
     }
 
-    const size = Number($('#qr-size').value);
-    const marginModules = Number($('#qr-margin').value);
-    const ecc = $('#qr-ecc').value;
-    const bgColor = $('#qr-background-color').value;
-    const fgColor = $('#qr-code-color').value;
+    const s = getQrSettings();
+    const byteLen = qrcode.stringToBytes(text).length;
 
     try {
-      const qr = qrcode(0, ecc);
-      qr.addData(text);
-      qr.make();
+      // Try selected level first, then fall back to lower levels automatically
+      const candidates = [s.ecc, ...ECC_ORDER.slice(ECC_ORDER.indexOf(s.ecc) + 1)];
+      let qr = null;
+      let usedEcc = null;
+      for (const level of candidates) {
+        try {
+          const q = qrcode(0, level);
+          q.addData(text);
+          q.make();
+          qr = q;
+          usedEcc = level;
+          break;
+        } catch {
+          /* try next lower level */
+        }
+      }
+      if (!qr) {
+        throw new Error(`overflow:${byteLen}`);
+      }
+      if (usedEcc !== s.ecc) {
+        showToast(`데이터가 길어 오류 복원 수준을 ${s.ecc} → ${usedEcc}(으)로 자동 조정했습니다.`);
+      }
       lastQrModel = qr;
 
-      const count = qr.getModuleCount();
-      const totalModules = count + marginModules * 2;
-      const cellSize = size / totalModules;
+      const labelText = $('#qr-label').value.trim();
+      const L = computeQrLayout(qr, s, labelText);
+      lastQrLayout = L;
 
-      qrCanvas.width = size;
-      qrCanvas.height = size;
+      qrCanvas.width = L.width;
+      qrCanvas.height = L.height;
       const ctx = qrCanvas.getContext('2d');
-      ctx.fillStyle = bgColor;
-      ctx.fillRect(0, 0, size, size);
+      ctx.fillStyle = s.bgColor;
+      ctx.fillRect(0, 0, L.width, L.height);
 
-      ctx.fillStyle = fgColor;
-      for (let r = 0; r < count; r++) {
-        for (let c = 0; c < count; c++) {
+      ctx.fillStyle = s.fgColor;
+      const m = s.marginModules;
+      for (let r = 0; r < L.count; r++) {
+        for (let c = 0; c < L.count; c++) {
           if (qr.isDark(r, c)) {
-            const x = Math.floor((c + marginModules) * cellSize);
-            const y = Math.floor((r + marginModules) * cellSize);
-            const w = Math.ceil((c + marginModules + 1) * cellSize) - x;
-            const h = Math.ceil((r + marginModules + 1) * cellSize) - y;
-            ctx.fillRect(x, y, w, h);
+            const x = Math.floor((c + m) * L.cellSize);
+            const y = Math.floor((r + m) * L.cellSize);
+            const w = Math.ceil((c + m + 1) * L.cellSize) - x;
+            const h = Math.ceil((r + m + 1) * L.cellSize) - y;
+            ctx.fillRect(x, y + L.qrOffsetY, w, h);
           }
         }
+      }
+
+      if (L.lines.length) {
+        ctx.font = s.fontCss;
+        ctx.textBaseline = 'top';
+        ctx.textAlign = L.anchor === 'start' ? 'left' : L.anchor === 'end' ? 'right' : 'center';
+        L.lines.forEach((line, i) => {
+          ctx.fillText(line, L.textX, L.textTop + i * L.lineHeight);
+        });
       }
 
       qrCanvas.style.display = 'block';
@@ -388,8 +541,9 @@
     } catch {
       qrCanvas.style.display = 'none';
       qrInvalid.hidden = false;
-      qrHint.textContent = '데이터 길이가 너무 깁니다. 텍스트를 줄이거나 오류 복원 수준(Error Correction)을 낮춰보세요.';
+      qrHint.textContent = `데이터가 너무 깁니다. 현재 ${byteLen.toLocaleString()} bytes / 최대 ${QR_MAX_BYTES.L.toLocaleString()} bytes (한글은 1자당 3 bytes)`;
       lastQrModel = null;
+      lastQrLayout = null;
       setQrActionDisabled(true);
     }
   }
@@ -397,10 +551,15 @@
   qrText.addEventListener('input', renderQRCode);
   $('#qr-btn').addEventListener('click', renderQRCode);
   $('#qr-ecc').addEventListener('change', renderQRCode);
+  $('#qr-font').addEventListener('change', renderQRCode);
+  $('#qr-label').addEventListener('input', renderQRCode);
 
   [
     ['qr-size', 'qr-size-display'],
-    ['qr-margin', 'qr-margin-display']
+    ['qr-margin', 'qr-margin-display'],
+    ['qr-fontSize', 'qr-fontSize-display'],
+    ['qr-text-margin', 'qr-text-margin-display'],
+    ['qr-max-lines', 'qr-max-lines-display']
   ].forEach(([inputId, displayId]) => {
     const input = $(`#${inputId}`);
     const display = $(`#${displayId}`);
@@ -413,6 +572,36 @@
   bindColorPair($('#qr-background-color'), $('#qr-background-color-hex'), renderQRCode);
   bindColorPair($('#qr-code-color'), $('#qr-code-color-hex'), renderQRCode);
 
+  $$('.qr-text-position').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      qrState.textPosition = btn.dataset.value;
+      $$('.qr-text-position').forEach((b) => b.classList.toggle('active', b === btn));
+      renderQRCode();
+    });
+  });
+
+  $$('.qr-text-align').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      qrState.textAlign = btn.dataset.value;
+      $$('.qr-text-align').forEach((b) => b.classList.toggle('active', b === btn));
+      renderQRCode();
+    });
+  });
+
+  $$('.qr-font-option').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const val = btn.dataset.value;
+      if (qrState.fontOptions.has(val)) {
+        qrState.fontOptions.delete(val);
+        btn.classList.remove('active');
+      } else {
+        qrState.fontOptions.add(val);
+        btn.classList.add('active');
+      }
+      renderQRCode();
+    });
+  });
+
   $('#saveQrcodePng').addEventListener('click', () => {
     qrCanvas.toBlob((blob) => {
       if (blob) {
@@ -422,29 +611,40 @@
   });
 
   $('#saveQrcodeSvg').addEventListener('click', () => {
-    if (!lastQrModel) return;
-    const size = Number($('#qr-size').value);
-    const marginModules = Number($('#qr-margin').value);
-    const bgColor = $('#qr-background-color').value;
-    const fgColor = $('#qr-code-color').value;
-    const count = lastQrModel.getModuleCount();
-    const total = count + marginModules * 2;
+    if (!lastQrModel || !lastQrLayout) return;
+    const s = getQrSettings();
+    const L = lastQrLayout;
+    const m = s.marginModules;
 
     const rects = [];
-    for (let r = 0; r < count; r++) {
-      for (let c = 0; c < count; c++) {
+    for (let r = 0; r < L.count; r++) {
+      for (let c = 0; c < L.count; c++) {
         if (lastQrModel.isDark(r, c)) {
-          rects.push(`<rect x="${c + marginModules}" y="${r + marginModules}" width="1" height="1"/>`);
+          rects.push(`<rect x="${c + m}" y="${r + m}" width="1" height="1"/>`);
         }
       }
     }
 
+    const textEls = L.lines.map((line, i) => {
+      // SVG text y is the baseline; approximate top-baseline offset as 0.8em
+      const y = (L.textTop + i * L.lineHeight + s.fontSize * 0.8).toFixed(2);
+      return `<text x="${L.textX.toFixed(2)}" y="${y}" text-anchor="${L.anchor}">${escapeXml(line)}</text>`;
+    });
+
+    const fontAttrs = [
+      `font-family="${s.fontFamily}"`,
+      `font-size="${s.fontSize}"`,
+      s.fontWeight ? `font-weight="${s.fontWeight}"` : '',
+      s.fontStyle ? `font-style="${s.fontStyle}"` : ''
+    ].filter(Boolean).join(' ');
+
     const svg = [
-      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${total} ${total}" width="${size}" height="${size}" shape-rendering="crispEdges">`,
-      `<rect width="${total}" height="${total}" fill="${bgColor}"/>`,
-      `<g fill="${fgColor}">`,
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${L.width} ${L.height}" width="${L.width}" height="${L.height}">`,
+      `<rect width="${L.width}" height="${L.height}" fill="${s.bgColor}"/>`,
+      `<g fill="${s.fgColor}" shape-rendering="crispEdges" transform="translate(0 ${L.qrOffsetY}) scale(${L.cellSize})">`,
       ...rects,
       `</g>`,
+      textEls.length ? `<g fill="${s.fgColor}" ${fontAttrs}>${textEls.join('')}</g>` : '',
       `</svg>`
     ].join('');
 
