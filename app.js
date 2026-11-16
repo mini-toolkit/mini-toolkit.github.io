@@ -39,6 +39,38 @@
     return `${formatNum(amount)}원`;
   }
 
+  function parseCommaNumber(val) {
+    const digits = String(val || '').replace(/[^\d]/g, '');
+    return digits ? Number(digits) : 0;
+  }
+
+  function formatCommaValue(val, allowEmpty = false) {
+    const digits = String(val || '').replace(/[^\d]/g, '');
+    if (!digits) return allowEmpty ? '' : '0';
+    return Number(digits).toLocaleString('ko-KR');
+  }
+
+  function formatCommaInput(el, allowEmpty = false) {
+    const raw = el.value;
+    const cursorPos = el.selectionStart ?? raw.length;
+    const digitsBefore = raw.slice(0, cursorPos).replace(/[^\d]/g, '').length;
+    const formatted = formatCommaValue(raw, allowEmpty);
+    el.value = formatted;
+
+    if (document.activeElement === el) {
+      let seen = 0;
+      let nextPos = formatted.length;
+      for (let i = 0; i < formatted.length; i++) {
+        if (/\d/.test(formatted[i])) seen += 1;
+        if (seen >= digitsBefore) {
+          nextPos = digitsBefore === 0 ? 0 : i + 1;
+          break;
+        }
+      }
+      el.setSelectionRange(nextPos, nextPos);
+    }
+  }
+
   function formatDecimalHours(hours) {
     return Math.round((hours || 0) * 100) / 100;
   }
@@ -271,13 +303,13 @@
         );
       }
       if (data.brushHours !== undefined) cEls.brushHoursInput.value = data.brushHours;
-      if (data.calHourlyWage !== undefined) cEls.hourlyWage.value = data.calHourlyWage;
-      if (data.calForkliftPay !== undefined) cEls.forkliftPay.value = data.calForkliftPay;
-      if (data.calAttendanceBonus !== undefined) cEls.attendanceBonus.value = data.calAttendanceBonus;
+      if (data.calHourlyWage !== undefined) cEls.hourlyWage.value = formatCommaValue(data.calHourlyWage);
+      if (data.calForkliftPay !== undefined) cEls.forkliftPay.value = formatCommaValue(data.calForkliftPay);
+      if (data.calAttendanceBonus !== undefined) cEls.attendanceBonus.value = formatCommaValue(data.calAttendanceBonus);
       if (data.calProrateDays !== undefined) cEls.prorateDays.value = data.calProrateDays;
-      if (data.calCashbackPay !== undefined) cEls.cashbackPay.value = data.calCashbackPay;
-      if (data.calOtherIncentive !== undefined) cEls.otherIncentive.value = data.calOtherIncentive;
-      if (data.calPensionBase !== undefined) cEls.pensionBase.value = data.calPensionBase;
+      if (data.calCashbackPay !== undefined) cEls.cashbackPay.value = formatCommaValue(data.calCashbackPay);
+      if (data.calOtherIncentive !== undefined) cEls.otherIncentive.value = formatCommaValue(data.calOtherIncentive);
+      if (data.calPensionBase !== undefined) cEls.pensionBase.value = formatCommaValue(data.calPensionBase, true);
     } catch {
       // ignore parse errors
     }
@@ -525,9 +557,9 @@
 
   function updateCalendarSummary() {
     const BASE_MONTHLY_HOURS = 209;
-    const hourlyWage = Math.max(0, Number(cEls.hourlyWage.value) || 0);
-    const forkliftPay = Math.max(0, Number(cEls.forkliftPay.value) || 0);
-    const attendanceBonus = Math.max(0, Number(cEls.attendanceBonus.value) || 0);
+    const hourlyWage = Math.max(0, parseCommaNumber(cEls.hourlyWage.value));
+    const forkliftPay = Math.max(0, parseCommaNumber(cEls.forkliftPay.value));
+    const attendanceBonus = Math.max(0, parseCommaNumber(cEls.attendanceBonus.value));
 
     const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
     const rawProrate = Number(cEls.prorateDays.value);
@@ -622,15 +654,15 @@
     const lateDeduct = -floor10(trunc2(totalLateHours) * ordinaryHourlyWage);
     const earlyDeduct = -floor10(trunc2(totalEarlyHours) * ordinaryHourlyWage);
     const totalDeductPay = lateDeduct + earlyDeduct;
-    const cashbackPay = Math.max(0, Number(cEls.cashbackPay.value) || 0);
-    const otherIncentive = Math.max(0, Number(cEls.otherIncentive.value) || 0);
+    const cashbackPay = Math.max(0, parseCommaNumber(cEls.cashbackPay.value));
+    const otherIncentive = Math.max(0, parseCommaNumber(cEls.otherIncentive.value));
 
     const grossPay = Math.max(
       0,
       basePay + actualForkliftPay + actualAttendanceBonus + holidayPay + holidayOtAddPay + nightPay + otPay + totalDeductPay + cashbackPay + otherIncentive
     );
 
-    const pensionBase = Math.max(0, Number(cEls.pensionBase.value) || 0);
+    const pensionBase = Math.max(0, parseCommaNumber(cEls.pensionBase.value));
     const taxResult = calculateContractTaxes(grossPay, pensionBase);
     const taxItems = [...taxResult.items, { label: '캐쉬백프로그램공제', amount: cashbackPay }];
     const totalTax = taxResult.totalTax + cashbackPay;
@@ -773,18 +805,23 @@
   cEls.clearBtn.addEventListener('click', () => setAllDaysInMonth(null));
 
   [
-    cEls.hourlyWage,
-    cEls.forkliftPay,
-    cEls.attendanceBonus,
-    cEls.prorateDays,
-    cEls.cashbackPay,
-    cEls.otherIncentive,
-    cEls.pensionBase
-  ].forEach((el) => {
+    { el: cEls.hourlyWage, allowEmpty: false },
+    { el: cEls.forkliftPay, allowEmpty: false },
+    { el: cEls.attendanceBonus, allowEmpty: false },
+    { el: cEls.cashbackPay, allowEmpty: false },
+    { el: cEls.otherIncentive, allowEmpty: false },
+    { el: cEls.pensionBase, allowEmpty: true }
+  ].forEach(({ el, allowEmpty }) => {
     el.addEventListener('input', () => {
+      formatCommaInput(el, allowEmpty);
       updateCalendarSummary();
       saveSettings();
     });
+  });
+
+  cEls.prorateDays.addEventListener('input', () => {
+    updateCalendarSummary();
+    saveSettings();
   });
 
   // 초기 렌더링

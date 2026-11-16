@@ -10,7 +10,14 @@
   <div class="app-shell">
     <header class="app-header">
       <div class="brand">
-        <div class="brand-badge" aria-hidden="true">C</div>
+        <a class="brand-badge" href="https://mini-toolkit.github.io/" title="Mini Toolkit 홈으로 이동" aria-label="Mini Toolkit 홈으로 이동">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="8" height="8" rx="2"></rect>
+            <rect x="13" y="3" width="8" height="8" rx="2"></rect>
+            <rect x="3" y="13" width="8" height="8" rx="2"></rect>
+            <path d="M17 13v8M13 17h8"></path>
+          </svg>
+        </a>
         <div>
           <h1>쿠팡 계약직 오후조 급여계산기</h1>
           <p class="subtitle">오후조(19:00~04:00) 캘린더 근무 기록 · 209시간 기준 명세서 및 실수령액 계산</p>
@@ -93,18 +100,18 @@
           <div class="form-row">
             <div class="form-group">
               <label for="cal-hourly-wage" class="form-label">기본시급 (원)</label>
-              <input type="number" id="cal-hourly-wage" class="form-control" value="10340" min="0" step="10" />
+              <input type="text" inputmode="numeric" id="cal-hourly-wage" class="form-control" value="10,340" />
             </div>
             <div class="form-group">
               <label for="cal-forklift-pay" class="form-label">지게차수당 (원)</label>
-              <input type="number" id="cal-forklift-pay" class="form-control" value="400000" min="0" step="10000" />
+              <input type="text" inputmode="numeric" id="cal-forklift-pay" class="form-control" value="400,000" />
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="cal-attendance-bonus" class="form-label">만근보너스 (원)</label>
-              <input type="number" id="cal-attendance-bonus" class="form-control" value="140000" min="0" step="10000" />
+              <input type="text" inputmode="numeric" id="cal-attendance-bonus" class="form-control" value="140,000" />
             </div>
             <div class="form-group">
               <label for="cal-prorate-days" class="form-label">일할일수 (공란=전일)</label>
@@ -115,17 +122,17 @@
           <div class="form-row">
             <div class="form-group">
               <label for="cal-cashback-pay" class="form-label">캐쉬백프로그램 (원)</label>
-              <input type="number" id="cal-cashback-pay" class="form-control" value="0" min="0" step="100" />
+              <input type="text" inputmode="numeric" id="cal-cashback-pay" class="form-control" value="0" />
             </div>
             <div class="form-group">
               <label for="cal-other-incentive" class="form-label">기타 인센티브 (원)</label>
-              <input type="number" id="cal-other-incentive" class="form-control" value="0" min="0" step="1000" />
+              <input type="text" inputmode="numeric" id="cal-other-incentive" class="form-control" value="0" />
             </div>
           </div>
 
           <div class="form-group">
             <label for="cal-pension-base" class="form-label">국민연금 기준소득월액 (원, 공란=당월 지급총액)</label>
-            <input type="number" id="cal-pension-base" class="form-control" value="3526000" placeholder="당월 지급총액" min="0" step="1000" />
+            <input type="text" inputmode="numeric" id="cal-pension-base" class="form-control" value="3,526,000" placeholder="당월 지급총액" />
           </div>
 
           <div class="info-box">

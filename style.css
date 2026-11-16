@@ -68,12 +68,17 @@ body {
   border-radius: 12px;
   background: linear-gradient(135deg, var(--accent-red), #ff5a36);
   color: #fff;
-  font-weight: 800;
-  font-size: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   box-shadow: 0 4px 12px rgba(229, 37, 40, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.brand-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(229, 37, 40, 0.35);
 }
 
 .brand h1 {
