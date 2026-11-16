@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>쿠팡 계약직 오후조 급여계산기</title>
-  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="stylesheet" href="style.css?v=4" />
 </head>
 <body>
   <div class="app-shell">
@@ -231,12 +231,78 @@
         </div>
 
         <div class="guide-box guide-compare">
-          <h3>5. 한눈에 보는 1일 급여 비교 (평일 · 공휴일 · 특근일 / 통상시급 12,924원 기준)</h3>
-          <ul class="guide-list">
-            <li><strong>평일 출근</strong>: 월급 추가 <code>+32,310원</code> (야간 5h) / 기본급 포함 하루 총 가치 <strong><code>135,702원</code></strong> <em>(기본급 103,392원 포함)</em></li>
-            <li><strong>공휴일 출근 (<code>공휴</code>)</strong>: 월급 추가 <code>+187,400원</code> (휴일 155,090원 + 야간 32,310원, 실수령 약 +15.5만 원) / 기본급 포함 하루 총 가치 <strong><code>290,790원</code></strong> <em>(유급공휴일분 103,392원 포함)</em></li>
-            <li><strong>특근일 출근 (<code>특근</code>)</strong>: 월급 추가 <code>+187,400원</code> (휴일 155,090원 + 야간 32,310원, 실수령 약 +15.5만 원) / 기본급 포함 하루 총 가치 <strong><code>187,400원</code></strong> <em>(무급휴무일 기준, 유급 주휴일 특근 시 <code>290,790원</code>)</em></li>
-          </ul>
+          <h3>5. 한눈에 보는 추가 수당표 (기본급 제외 · 통상시급 12,924원 기준)</h3>
+          <div class="guide-table-wrap">
+            <table class="guide-table">
+              <thead>
+                <tr>
+                  <th>구분</th>
+                  <th>계산식 (통상시급 기준)</th>
+                  <th class="center">추가 배수</th>
+                  <th class="num">추가 금액 (세전)</th>
+                  <th>비고</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>평일 주간</strong> <em>(19~22시, 3h)</em></td>
+                  <td>기본급에 이미 포함</td>
+                  <td class="center">—</td>
+                  <td class="num"><strong>0원</strong></td>
+                  <td>추가 없음</td>
+                </tr>
+                <tr>
+                  <td><strong>평일 야간</strong> <em>(22~04시, 5h)</em></td>
+                  <td><code>12,924원 × 5h × 0.5</code></td>
+                  <td class="center">0.5배</td>
+                  <td class="num"><strong>32,310원</strong></td>
+                  <td>야간 가산만 추가</td>
+                </tr>
+                <tr class="guide-table-sum">
+                  <td><strong>▶ 평일 추가 합계 (8h)</strong></td>
+                  <td>주간 0원 + 야간 32,310원</td>
+                  <td class="center">—</td>
+                  <td class="num"><strong>32,310원</strong></td>
+                  <td>명세서 야간수당</td>
+                </tr>
+                <tr>
+                  <td><strong>평일 연장</strong> <em>(04~06시, 1h당)</em></td>
+                  <td><code>12,924원 × 1h × (1.5 + 0.5)</code></td>
+                  <td class="center">2.0배</td>
+                  <td class="num"><strong>25,848원</strong></td>
+                  <td><code>06시 이후</code>는 <code>1.5배</code> (19,386원)</td>
+                </tr>
+                <tr>
+                  <td><strong>특근·공휴 주간</strong> <em>(19~22시, 3h)</em></td>
+                  <td><code>12,924원 × 3h × 1.5</code></td>
+                  <td class="center">1.5배</td>
+                  <td class="num"><strong>58,158원</strong></td>
+                  <td>휴일근로수당</td>
+                </tr>
+                <tr>
+                  <td><strong>특근·공휴 야간</strong> <em>(22~04시, 5h)</em></td>
+                  <td><code>12,924원 × 5h × (1.5 + 0.5)</code></td>
+                  <td class="center">2.0배</td>
+                  <td class="num"><strong>129,240원</strong></td>
+                  <td>휴일 96,930원 + 야간 32,310원</td>
+                </tr>
+                <tr class="guide-table-sum">
+                  <td><strong>▶ 특근·공휴 추가 합계 (8h)</strong></td>
+                  <td>주간 58,158원 + 야간 129,240원</td>
+                  <td class="center">—</td>
+                  <td class="num"><strong>187,398원</strong></td>
+                  <td>명세서 약 <strong>187,400원</strong> <em>(실수령 약 +15.5만 원)</em></td>
+                </tr>
+                <tr>
+                  <td><strong>특근·공휴 연장</strong> <em>(04~06시, 1h당)</em></td>
+                  <td><code>12,924원 × 1h × (1.5 + 0.5 + 0.5)</code></td>
+                  <td class="center">2.5배</td>
+                  <td class="num"><strong>32,310원</strong></td>
+                  <td><code>06시 이후</code>는 <code>2.0배</code> (25,848원)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
     </main>

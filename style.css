@@ -724,6 +724,55 @@ body {
   margin-top: 16px;
 }
 
+.guide-table-wrap {
+  overflow-x: auto;
+  margin-top: 8px;
+}
+
+.guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+}
+
+.guide-table th,
+.guide-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  color: #334155;
+  white-space: nowrap;
+}
+
+.guide-table thead th {
+  background: #f1f5f9;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.guide-table th.center,
+.guide-table td.center {
+  text-align: center;
+}
+
+.guide-table th.num,
+.guide-table td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.guide-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.guide-table-sum td {
+  background: #eff6ff;
+  color: var(--text);
+}
+
 .guide-box h3 {
   font-size: 14.5px;
   font-weight: 700;
