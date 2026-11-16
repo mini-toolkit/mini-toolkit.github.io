@@ -4,7 +4,7 @@
   const AFTERNOON_SHIFT = { start: '19:00', end: '04:00', breakMin: 60 };
   const STORAGE_KEY = 'coupang_contract_wage_calc_v2';
   const OT_STORAGE_KEY = 'coupang_contract_ot_v1';
-  const SETTINGS_KEY = 'coupang_contract_settings_v7';
+  const SETTINGS_KEY = 'coupang_contract_settings_v8';
 
   const BRUSH_LABELS = {
     afternoon: '오후조',
@@ -546,8 +546,9 @@
     const nightPay = round10(totalNightHours * ordinaryHourlyWage * 0.5);
     const weekdayOtTotalHours = weekdayOtHours + extraOtHours;
     const otPay = round10(weekdayOtTotalHours * ordinaryHourlyWage * 1.5);
-    const lateDeduct = -floor10(totalLateHours * ordinaryHourlyWage);
-    const earlyDeduct = -floor10(totalEarlyHours * ordinaryHourlyWage);
+    const trunc2 = (v) => Math.floor(v * 100 + 1e-9) / 100;
+    const lateDeduct = -floor10(trunc2(totalLateHours) * ordinaryHourlyWage);
+    const earlyDeduct = -floor10(trunc2(totalEarlyHours) * ordinaryHourlyWage);
     const totalDeductPay = lateDeduct + earlyDeduct;
     const cashbackPay = Math.max(0, Number(cEls.cashbackPay.value) || 0);
 
