@@ -4,11 +4,14 @@
   const AFTERNOON_SHIFT = { start: '19:00', end: '04:00', breakMin: 60 };
   const STORAGE_KEY = 'coupang_contract_wage_calc_v2';
   const OT_STORAGE_KEY = 'coupang_contract_ot_v1';
+  const PREV_STORAGE_KEY = 'coupang_contract_prev_v1';
   const SETTINGS_KEY = 'coupang_contract_settings_v8';
 
   const BRUSH_LABELS = {
     afternoon: '오후조',
     leave: '연차',
+    half_am: '전반차',
+    half_pm: '후반차',
     public_holiday: '공휴',
     special: '특근',
     ot: '연장',
@@ -36,20 +39,16 @@
     return `${formatNum(amount)}원`;
   }
 
+  function formatDecimalHours(hours) {
+    return Math.round((hours || 0) * 100) / 100;
+  }
+
   function formatHours(hours) {
-    const totalMin = Math.round(hours * 60);
-    if (totalMin === 0) return '0시간';
-    const h = Math.floor(totalMin / 60);
-    const m = totalMin % 60;
-    if (h === 0) return `${m}분`;
-    if (m === 0) return `${h}시간`;
-    return `${h}시간 ${m}분`;
+    return `${formatDecimalHours(hours)}시간`;
   }
 
   function formatShortTag(hours) {
-    const totalMin = Math.round(hours * 60);
-    if (totalMin > 0 && totalMin % 60 === 0) return `${totalMin / 60}h`;
-    return `${totalMin}분`;
+    return `${formatDecimalHours(hours)}h`;
   }
 
   function parseTimeToMinutes(timeStr) {
@@ -94,6 +93,8 @@
     };
   }
 
+  const SHIFT_HOURS = computeShiftHours(AFTERNOON_SHIFT.start, AFTERNOON_SHIFT.end, AFTERNOON_SHIFT.breakMin);
+
   /**
    * 계약직 4대보험(2026년 요율) 및 근로소득세(간이세액 추정) 계산
    */
@@ -102,12 +103,12 @@
       return {
         totalTax: 0,
         items: [
-          { label: '소득세', amount: 0 },
-          { label: '주민세', amount: 0 },
-          { label: '건강보험', amount: 0 },
-          { label: '장기요양보험', amount: 0 },
-          { label: '국민연금', amount: 0 },
-          { label: '고용보험', amount: 0 }
+          { label: '소득세 (간이세액)', amount: 0 },
+          { label: '주민세 (소득세 10%)', amount: 0 },
+          { label: '건강보험 (3.595%)', amount: 0 },
+          { label: '장기요양보험 (건강 13.14%)', amount: 0 },
+          { label: '국민연금 (4.75%)', amount: 0 },
+          { label: '고용보험 (0.9%)', amount: 0 }
         ]
       };
     }
@@ -159,12 +160,12 @@
     const localTax = Math.floor((incomeTax * 0.1) / 10) * 10;
 
     const items = [
-      { label: '소득세', amount: incomeTax },
-      { label: '주민세', amount: localTax },
-      { label: '건강보험', amount: health },
-      { label: '장기요양보험', amount: longTermCare },
-      { label: '국민연금', amount: pension },
-      { label: '고용보험', amount: empInsurance }
+      { label: '소득세 (간이세액)', amount: incomeTax },
+      { label: '주민세 (소득세 10%)', amount: localTax },
+      { label: '건강보험 (3.595%)', amount: health },
+      { label: '장기요양보험 (건강 13.14%)', amount: longTermCare },
+      { label: '국민연금 (4.75%)', amount: pension },
+      { label: '고용보험 (0.9%)', amount: empInsurance }
     ];
 
     const totalTax = pension + health + longTermCare + empInsurance + incomeTax + localTax;
@@ -179,20 +180,25 @@
 
   let calRecords = {};
   let otRecords = {};
+  let prevRecords = {};
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) calRecords = JSON.parse(saved) || {};
     const savedOt = localStorage.getItem(OT_STORAGE_KEY);
     if (savedOt) otRecords = JSON.parse(savedOt) || {};
+    const savedPrev = localStorage.getItem(PREV_STORAGE_KEY);
+    if (savedPrev) prevRecords = JSON.parse(savedPrev) || {};
   } catch {
     calRecords = {};
     otRecords = {};
+    prevRecords = {};
   }
 
   function saveRecords() {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(calRecords));
       localStorage.setItem(OT_STORAGE_KEY, JSON.stringify(otRecords));
+      localStorage.setItem(PREV_STORAGE_KEY, JSON.stringify(prevRecords));
     } catch {
       // ignore storage quota errors
     }
@@ -202,6 +208,7 @@
     monthTitle: document.getElementById('cal-month-title'),
     prevBtn: document.getElementById('btn-prev-month'),
     nextBtn: document.getElementById('btn-next-month'),
+    fillOffBtn: document.getElementById('btn-fill-off'),
     clearBtn: document.getElementById('btn-clear-month'),
     brushBtns: document.querySelectorAll('#cal-brush-options .brush-btn'),
     brushHoursWrap: document.getElementById('brush-hours-wrap'),
@@ -210,9 +217,6 @@
     hourlyWage: document.getElementById('cal-hourly-wage'),
     forkliftPay: document.getElementById('cal-forklift-pay'),
     attendanceBonus: document.getElementById('cal-attendance-bonus'),
-    overtimeHours: document.getElementById('cal-overtime-hours'),
-    lateHours: document.getElementById('cal-late-hours'),
-    earlyHours: document.getElementById('cal-early-hours'),
     prorateDays: document.getElementById('cal-prorate-days'),
     cashbackPay: document.getElementById('cal-cashback-pay'),
     otherIncentive: document.getElementById('cal-other-incentive'),
@@ -238,9 +242,6 @@
         calHourlyWage: cEls.hourlyWage.value,
         calForkliftPay: cEls.forkliftPay.value,
         calAttendanceBonus: cEls.attendanceBonus.value,
-        calOvertimeHours: cEls.overtimeHours.value,
-        calLateHours: cEls.lateHours.value,
-        calEarlyHours: cEls.earlyHours.value,
         calProrateDays: cEls.prorateDays.value,
         calCashbackPay: cEls.cashbackPay.value,
         calOtherIncentive: cEls.otherIncentive.value,
@@ -273,9 +274,6 @@
       if (data.calHourlyWage !== undefined) cEls.hourlyWage.value = data.calHourlyWage;
       if (data.calForkliftPay !== undefined) cEls.forkliftPay.value = data.calForkliftPay;
       if (data.calAttendanceBonus !== undefined) cEls.attendanceBonus.value = data.calAttendanceBonus;
-      if (data.calOvertimeHours !== undefined) cEls.overtimeHours.value = data.calOvertimeHours;
-      if (data.calLateHours !== undefined) cEls.lateHours.value = data.calLateHours;
-      if (data.calEarlyHours !== undefined) cEls.earlyHours.value = data.calEarlyHours;
       if (data.calProrateDays !== undefined) cEls.prorateDays.value = data.calProrateDays;
       if (data.calCashbackPay !== undefined) cEls.cashbackPay.value = data.calCashbackPay;
       if (data.calOtherIncentive !== undefined) cEls.otherIncentive.value = data.calOtherIncentive;
@@ -294,7 +292,7 @@
   // ==================== 렌더링 & 계산 ====================
   function renderCalendar() {
     cEls.monthTitle.textContent = `${calYear}년 ${calMonth + 1}월`;
-    cEls.grid.innerHTML = '';
+    const frag = document.createDocumentFragment();
 
     const firstDayOfWeek = new Date(calYear, calMonth, 1).getDay();
     const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
@@ -302,7 +300,7 @@
     for (let i = 0; i < firstDayOfWeek; i++) {
       const empty = document.createElement('div');
       empty.className = 'cal-cell empty';
-      cEls.grid.appendChild(empty);
+      frag.appendChild(empty);
     }
 
     for (let day = 1; day <= daysInMonth; day++) {
@@ -312,6 +310,7 @@
 
       const cell = document.createElement('div');
       cell.className = 'cal-cell';
+      cell.dataset.day = String(day);
       if (dow === 0) cell.classList.add('sun');
       if (dow === 6) cell.classList.add('sat');
       if (shiftType === 'off') cell.classList.add('is-off');
@@ -342,47 +341,104 @@
       }
 
       cell.appendChild(tagsWrap);
+      frag.appendChild(cell);
+    }
 
-      cell.addEventListener('click', () => {
-        const mins = Math.max(1, Math.min(480, Math.round(Number(cEls.brushHoursInput.value) || 10)));
-        const h = mins / 60;
-        if (activeBrush === 'ot') {
-          if (shiftType === 'off' || shiftType === 'leave') return;
-          if (Math.round((otRecords[key] || 0) * 60) === mins) {
-            delete otRecords[key];
-          } else {
-            otRecords[key] = h;
-          }
-        } else if (activeBrush === 'afternoon') {
-          delete calRecords[key];
-        } else if (activeBrush === 'late' || activeBrush === 'early') {
-          const val = `${activeBrush}:${h}`;
-          const prev = parseRecord(calRecords[key]);
-          if (prev.type === activeBrush && Math.round(prev.hours * 60) === mins) {
-            delete calRecords[key];
-          } else {
-            calRecords[key] = val;
-          }
-        } else if (calRecords[key] === activeBrush) {
-          delete calRecords[key];
-        } else {
-          calRecords[key] = activeBrush;
-          if (activeBrush === 'off' || activeBrush === 'leave') {
-            delete otRecords[key];
-          }
+    cEls.grid.replaceChildren(frag);
+  }
+
+  function handleCalendarCellClick(day) {
+    const key = getDateKey(calYear, calMonth, day);
+    const { type: shiftType } = parseRecord(calRecords[key]);
+    const mins = Math.max(1, Math.min(480, Math.round(Number(cEls.brushHoursInput.value) || 10)));
+    const h = mins / 60;
+
+    if (activeBrush === 'ot') {
+      if (shiftType === 'off' || shiftType === 'leave') return;
+      if (Math.round((otRecords[key] || 0) * 60) === mins) {
+        delete otRecords[key];
+      } else {
+        otRecords[key] = h;
+      }
+    } else if (activeBrush === 'afternoon') {
+      delete calRecords[key];
+      delete prevRecords[key];
+    } else if (activeBrush === 'late' || activeBrush === 'early') {
+      const val = `${activeBrush}:${h}`;
+      const prev = parseRecord(calRecords[key]);
+      if (prev.type === activeBrush && Math.round(prev.hours * 60) === mins) {
+        delete calRecords[key];
+      } else {
+        calRecords[key] = val;
+      }
+      delete prevRecords[key];
+    } else if (calRecords[key] === activeBrush) {
+      if (activeBrush !== 'off' && prevRecords[key]) {
+        calRecords[key] = prevRecords[key];
+        if (calRecords[key] === 'off' || calRecords[key] === 'leave') {
+          delete otRecords[key];
         }
-        saveRecords();
-        renderCalendar();
-        updateCalendarSummary();
-      });
+      } else {
+        delete calRecords[key];
+      }
+      delete prevRecords[key];
+    } else {
+      if (activeBrush === 'off' || activeBrush === 'leave') {
+        delete otRecords[key];
+        delete prevRecords[key];
+      } else if (calRecords[key] === 'off') {
+        prevRecords[key] = 'off';
+      } else {
+        delete prevRecords[key];
+      }
+      calRecords[key] = activeBrush;
+    }
 
-      cEls.grid.appendChild(cell);
+    saveRecords();
+    renderCalendar();
+    updateCalendarSummary();
+  }
+
+  let prevPayslipAmounts = null;
+  const deltaClearTimers = new Map();
+
+  function getPayslipKey(prefix, label) {
+    if (label.startsWith('근태공제 (지각')) return `${prefix}:근태공제-지각`;
+    if (label.startsWith('근태공제 (조퇴')) return `${prefix}:근태공제-조퇴`;
+    return `${prefix}:${label.replace(/\s*\([^)]*\)$/, '')}`;
+  }
+
+  function setPayslipAmountCell(td, key, amount, nextAmounts) {
+    nextAmounts[key] = amount;
+    const prev = prevPayslipAmounts ? prevPayslipAmounts[key] : undefined;
+    const diff = typeof prev === 'number' ? amount - prev : 0;
+
+    if (deltaClearTimers.has(key)) {
+      clearTimeout(deltaClearTimers.get(key));
+      deltaClearTimers.delete(key);
+    }
+
+    if (diff > 0) {
+      const deltaSpan = document.createElement('span');
+      deltaSpan.className = 'amt-delta';
+      deltaSpan.textContent = `+${formatNum(diff)}`;
+      td.appendChild(deltaSpan);
+      td.appendChild(document.createTextNode(formatNum(amount)));
+
+      const timerId = setTimeout(() => {
+        deltaSpan.remove();
+        deltaClearTimers.delete(key);
+      }, 10000);
+      deltaClearTimers.set(key, timerId);
+    } else {
+      td.textContent = formatNum(amount);
     }
   }
 
   function renderPayslipTable(payRows, taxItems, grossPay, totalTax) {
     const tbody = cEls.payslipTbody;
-    tbody.innerHTML = '';
+    const frag = document.createDocumentFragment();
+    const nextAmounts = {};
 
     const rowCount = Math.max(payRows.length, taxItems.length);
 
@@ -405,7 +461,7 @@
         const amtTd = document.createElement('td');
         amtTd.className = 'amt-cell';
         if (pay.amount < 0) amtTd.classList.add('text-danger');
-        amtTd.textContent = formatNum(pay.amount);
+        setPayslipAmountCell(amtTd, getPayslipKey('pay', pay.label), pay.amount, nextAmounts);
         tr.append(itemTd, amtTd);
       } else {
         const emptyCat = document.createElement('td');
@@ -420,7 +476,7 @@
         taxItemTd.textContent = tax.label;
         const taxAmtTd = document.createElement('td');
         taxAmtTd.className = 'amt-cell';
-        taxAmtTd.textContent = formatNum(tax.amount);
+        setPayslipAmountCell(taxAmtTd, getPayslipKey('tax', tax.label), tax.amount, nextAmounts);
         tr.append(taxItemTd, taxAmtTd);
       } else {
         const emptyTaxItem = document.createElement('td');
@@ -428,7 +484,7 @@
         tr.append(emptyTaxItem, emptyTaxAmt);
       }
 
-      tbody.appendChild(tr);
+      frag.appendChild(tr);
     }
 
     // 합계 행
@@ -440,17 +496,31 @@
     payTotalLabel.textContent = '지급 합계';
     const payTotalAmt = document.createElement('td');
     payTotalAmt.className = 'amt-cell';
-    payTotalAmt.textContent = formatNum(grossPay);
+    setPayslipAmountCell(payTotalAmt, 'total:pay', grossPay, nextAmounts);
 
     const taxTotalLabel = document.createElement('td');
     taxTotalLabel.style.textAlign = 'center';
     taxTotalLabel.textContent = '공제 합계';
     const taxTotalAmt = document.createElement('td');
     taxTotalAmt.className = 'amt-cell text-danger';
-    taxTotalAmt.textContent = formatNum(totalTax);
+    setPayslipAmountCell(taxTotalAmt, 'total:tax', totalTax, nextAmounts);
 
     totalTr.append(payTotalLabel, payTotalAmt, taxTotalLabel, taxTotalAmt);
-    tbody.appendChild(totalTr);
+    frag.appendChild(totalTr);
+    tbody.replaceChildren(frag);
+
+    prevPayslipAmounts = nextAmounts;
+  }
+
+  function appendIrregularGroup(payRows, rows) {
+    rows.forEach((row, idx) => {
+      payRows.push({
+        category: '부정기적지급<br>인센티브<br>기타지급',
+        catRowSpan: idx === 0 ? rows.length : 0,
+        label: row.label,
+        amount: row.amount
+      });
+    });
   }
 
   function updateCalendarSummary() {
@@ -458,15 +528,10 @@
     const hourlyWage = Math.max(0, Number(cEls.hourlyWage.value) || 0);
     const forkliftPay = Math.max(0, Number(cEls.forkliftPay.value) || 0);
     const attendanceBonus = Math.max(0, Number(cEls.attendanceBonus.value) || 0);
-    const extraOtHours = Math.max(0, Number(cEls.overtimeHours.value) || 0);
-    const manualLateHours = Math.max(0, Number(cEls.lateHours.value) || 0);
-    const manualEarlyHours = Math.max(0, Number(cEls.earlyHours.value) || 0);
 
     const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
     const rawProrate = Number(cEls.prorateDays.value);
     const prorateDays = rawProrate > 0 ? Math.min(daysInMonth, Math.max(1, rawProrate)) : daysInMonth;
-
-    const shift = computeShiftHours(AFTERNOON_SHIFT.start, AFTERNOON_SHIFT.end, AFTERNOON_SHIFT.breakMin);
 
     let workDays = 0;
     let leaveDays = 0;
@@ -488,26 +553,32 @@
       if (type === 'leave') {
         leaveDays += 1;
       } else {
-        workDays += 1;
-        if (type === 'late') {
-          calLateHours += hours;
-          // 오후조(19~04): 19~22시(3시간)는 비야간, 3시간 초과분만 야간시간 차감
-          const nightLost = Math.max(0, hours - 3);
-          totalNightHours += Math.max(0, shift.nightHours - nightLost);
-        } else if (type === 'early') {
-          calEarlyHours += hours;
-          // 오후조(19~04): 04시 기준 역산은 모두 야간시간대(22~04)에 포함
-          totalNightHours += Math.max(0, shift.nightHours - hours);
+        if (type === 'half_am' || type === 'half_pm') {
+          workDays += 0.5;
+          leaveDays += 0.5;
+          totalNightHours += type === 'half_am' ? 4 : 1;
         } else {
-          totalNightHours += shift.nightHours;
+          workDays += 1;
+          if (type === 'late') {
+            calLateHours += hours;
+            // 오후조(19~04): 19~22시(3시간)는 비야간, 3시간 초과분만 야간시간 차감
+            const nightLost = Math.max(0, hours - 3);
+            totalNightHours += Math.max(0, SHIFT_HOURS.nightHours - nightLost);
+          } else if (type === 'early') {
+            calEarlyHours += hours;
+            // 오후조(19~04): 04시 기준 역산은 모두 야간시간대(22~04)에 포함
+            totalNightHours += Math.max(0, SHIFT_HOURS.nightHours - hours);
+          } else {
+            totalNightHours += SHIFT_HOURS.nightHours;
+          }
         }
 
         if (type === 'public_holiday') {
           publicHolidayDays += 1;
-          totalPublicHolidayHours += shift.regularHours;
+          totalPublicHolidayHours += SHIFT_HOURS.regularHours;
         } else if (type === 'special') {
           specialDays += 1;
-          totalSpecialHours += shift.regularHours;
+          totalSpecialHours += SHIFT_HOURS.regularHours;
         }
 
         // 일별 연장근무 (04:00 이후 연장은 04~06시 최대 2시간까지 야간수당 추가)
@@ -523,11 +594,9 @@
       }
     }
 
-    const totalCalOtHours = weekdayOtHours + holidayOtHours;
-    const totalOtHours = totalCalOtHours + extraOtHours;
-    const totalLateHours = calLateHours + manualLateHours;
-    const totalEarlyHours = calEarlyHours + manualEarlyHours;
-    const totalDeductHours = totalLateHours + totalEarlyHours;
+    const totalOtHours = weekdayOtHours + holidayOtHours;
+    const totalLateHours = calLateHours;
+    const totalEarlyHours = calEarlyHours;
 
     const fullBasePay = Math.round(BASE_MONTHLY_HOURS * hourlyWage);
     const prorateRatio = prorateDays < daysInMonth ? prorateDays / daysInMonth : 1;
@@ -547,7 +616,7 @@
     const holidayPay = round10(totalHolidayWorkHours * ordinaryHourlyWage * 1.5);
     const holidayOtAddPay = round10(holidayOtHours * ordinaryHourlyWage * 0.5);
     const nightPay = round10(totalNightHours * ordinaryHourlyWage * 0.5);
-    const weekdayOtTotalHours = weekdayOtHours + extraOtHours;
+    const weekdayOtTotalHours = weekdayOtHours;
     const otPay = round10(weekdayOtTotalHours * ordinaryHourlyWage * 1.5);
     const trunc2 = (v) => Math.floor(v * 100 + 1e-9) / 100;
     const lateDeduct = -floor10(trunc2(totalLateHours) * ordinaryHourlyWage);
@@ -563,21 +632,17 @@
 
     const pensionBase = Math.max(0, Number(cEls.pensionBase.value) || 0);
     const taxResult = calculateContractTaxes(grossPay, pensionBase);
-    const taxItems = [...taxResult.items];
-    let totalTax = taxResult.totalTax;
-    if (cashbackPay > 0) {
-      taxItems.push({ label: '캐쉬백프로그램공제', amount: cashbackPay });
-      totalTax += cashbackPay;
-    }
+    const taxItems = [...taxResult.items, { label: '캐쉬백프로그램공제', amount: cashbackPay }];
+    const totalTax = taxResult.totalTax + cashbackPay;
     const netPay = Math.max(0, grossPay - totalTax);
 
     const badgeParts = [`${workDays}일 근무`];
     if (leaveDays > 0) badgeParts.push(`연차 ${leaveDays}일`);
     if (publicHolidayDays > 0) badgeParts.push(`공휴 ${publicHolidayDays}일`);
     if (specialDays > 0) badgeParts.push(`특근 ${specialDays}일`);
-    if (totalOtHours > 0) badgeParts.push(`연장 ${formatHours(totalOtHours)}`);
-    if (totalLateHours > 0) badgeParts.push(`지각 ${formatHours(totalLateHours)}`);
-    if (totalEarlyHours > 0) badgeParts.push(`조퇴 ${formatHours(totalEarlyHours)}`);
+    if (totalOtHours > 0) badgeParts.push(`연장 ${formatShortTag(totalOtHours)}`);
+    if (totalLateHours > 0) badgeParts.push(`지각 ${formatShortTag(totalLateHours)}`);
+    if (totalEarlyHours > 0) badgeParts.push(`조퇴 ${formatShortTag(totalEarlyHours)}`);
     cEls.workDaysBadge.textContent = badgeParts.join(' · ');
     cEls.ordinaryWageBadge.textContent = `통상시급 ${formatKRW(ordinaryHourlyWage)}`;
 
@@ -585,63 +650,46 @@
     cEls.grossPay.textContent = formatKRW(grossPay);
     cEls.totalTax.textContent = `-${formatKRW(totalTax)}`;
 
-    // 지급내역 행 구성 (명세서 레이아웃 동일: 휴일근로수당 / 휴일연장근로 가산수당 / 야간근로 가산수당)
+    // 지급내역 행 구성 (고정 행: 미발생 항목도 0원으로 표시해 테이블 크기 유지)
     const irregularRows = [
       {
-        label: totalHolidayDays > 0 ? `휴일근로수당 (${formatHours(totalHolidayWorkHours)})` : '휴일근로수당',
-        amount: holidayPay
-      }
-    ];
-    if (holidayOtAddPay > 0) {
-      irregularRows.push({
-        label: `휴일연장근로 가산수당 (${formatHours(holidayOtHours)})`,
-        amount: holidayOtAddPay
-      });
-    }
-    if (otPay > 0) {
-      irregularRows.push({
         label: `연장근로수당 (${formatHours(weekdayOtTotalHours)})`,
         amount: otPay
-      });
-    }
-    irregularRows.push({ label: `야간근로 가산수당 (${formatHours(totalNightHours)})`, amount: nightPay });
-    if (totalLateHours > 0) {
-      irregularRows.push({ label: `근태공제 (지각 ${formatHours(totalLateHours)})`, amount: lateDeduct });
-    }
-    if (totalEarlyHours > 0) {
-      irregularRows.push({ label: `근태공제 (조퇴 ${formatHours(totalEarlyHours)})`, amount: earlyDeduct });
-    }
+      },
+      {
+        label: `휴일근로수당 (${formatHours(totalHolidayWorkHours)})`,
+        amount: holidayPay
+      },
+      {
+        label: `휴일연장근로 가산수당 (${formatHours(holidayOtHours)})`,
+        amount: holidayOtAddPay
+      },
+      {
+        label: `야간근로 가산수당 (${formatHours(totalNightHours)})`,
+        amount: nightPay
+      },
+      {
+        label: `근태공제 (지각 ${formatHours(totalLateHours)})`,
+        amount: lateDeduct
+      },
+      {
+        label: `근태공제 (조퇴 ${formatHours(totalEarlyHours)})`,
+        amount: earlyDeduct
+      }
+    ];
 
     const payRows = [
       { category: '정기적지급', catRowSpan: 2, label: '기본급', amount: basePay },
       { category: '정기적지급', catRowSpan: 0, label: '지게차수당', amount: actualForkliftPay }
     ];
 
-    irregularRows.forEach((row, idx) => {
-      payRows.push({
-        category: '부정기적지급<br>인센티브<br>기타지급',
-        catRowSpan: idx === 0 ? irregularRows.length : 0,
-        label: row.label,
-        amount: row.amount
-      });
-    });
+    appendIrregularGroup(payRows, irregularRows);
 
     payRows.push({ category: '정기적지급', catRowSpan: 1, label: '만근보너스', amount: actualAttendanceBonus });
-    const extraPayRows = [];
-    if (otherIncentive > 0) {
-      extraPayRows.push({ label: '기타 인센티브', amount: otherIncentive });
-    }
-    if (cashbackPay > 0) {
-      extraPayRows.push({ label: '캐쉬백프로그램', amount: cashbackPay });
-    }
-    extraPayRows.forEach((row, idx) => {
-      payRows.push({
-        category: '부정기적지급<br>인센티브<br>기타지급',
-        catRowSpan: idx === 0 ? extraPayRows.length : 0,
-        label: row.label,
-        amount: row.amount
-      });
-    });
+    appendIrregularGroup(payRows, [
+      { label: '기타 인센티브', amount: otherIncentive },
+      { label: '캐쉬백프로그램', amount: cashbackPay }
+    ]);
 
     renderPayslipTable(payRows, taxItems, grossPay, totalTax);
 
@@ -664,48 +712,70 @@
   });
 
   cEls.brushHoursInput.addEventListener('input', saveSettings);
+  let brushHoursJustFocused = false;
+  cEls.brushHoursInput.addEventListener('focus', () => {
+    brushHoursJustFocused = true;
+    cEls.brushHoursInput.select();
+    setTimeout(() => {
+      brushHoursJustFocused = false;
+    }, 100);
+  });
+  cEls.brushHoursInput.addEventListener('mouseup', (e) => {
+    if (brushHoursJustFocused) {
+      e.preventDefault();
+      brushHoursJustFocused = false;
+    }
+  });
 
-  cEls.prevBtn.addEventListener('click', () => {
-    calMonth -= 1;
+  cEls.grid.addEventListener('click', (e) => {
+    const cell = e.target.closest('.cal-cell[data-day]');
+    if (!cell) return;
+    const day = Number(cell.dataset.day);
+    if (day > 0) handleCalendarCellClick(day);
+  });
+
+  function shiftMonth(delta) {
+    calMonth += delta;
     if (calMonth < 0) {
       calMonth = 11;
       calYear -= 1;
-    }
-    renderCalendar();
-    updateCalendarSummary();
-    saveSettings();
-  });
-
-  cEls.nextBtn.addEventListener('click', () => {
-    calMonth += 1;
-    if (calMonth > 11) {
+    } else if (calMonth > 11) {
       calMonth = 0;
       calYear += 1;
     }
+    prevPayslipAmounts = null;
     renderCalendar();
     updateCalendarSummary();
     saveSettings();
-  });
+  }
 
-  cEls.clearBtn.addEventListener('click', () => {
+  cEls.prevBtn.addEventListener('click', () => shiftMonth(-1));
+  cEls.nextBtn.addEventListener('click', () => shiftMonth(1));
+
+  function setAllDaysInMonth(type) {
     const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
     for (let day = 1; day <= daysInMonth; day++) {
       const k = getDateKey(calYear, calMonth, day);
-      delete calRecords[k];
+      if (type) {
+        calRecords[k] = type;
+      } else {
+        delete calRecords[k];
+      }
       delete otRecords[k];
+      delete prevRecords[k];
     }
     saveRecords();
     renderCalendar();
     updateCalendarSummary();
-  });
+  }
+
+  cEls.fillOffBtn.addEventListener('click', () => setAllDaysInMonth('off'));
+  cEls.clearBtn.addEventListener('click', () => setAllDaysInMonth(null));
 
   [
     cEls.hourlyWage,
     cEls.forkliftPay,
     cEls.attendanceBonus,
-    cEls.overtimeHours,
-    cEls.lateHours,
-    cEls.earlyHours,
     cEls.prorateDays,
     cEls.cashbackPay,
     cEls.otherIncentive,

@@ -29,41 +29,48 @@
               <button type="button" id="btn-next-month" class="btn-icon" aria-label="다음 달">&gt;</button>
             </div>
             <div class="calendar-actions">
-              <button type="button" id="btn-clear-month" class="btn-text text-danger">전일 근무로 초기화</button>
+              <button type="button" id="btn-fill-off" class="btn-text text-danger">전일 휴무</button>
+              <button type="button" id="btn-clear-month" class="btn-text">전일 근무</button>
             </div>
           </div>
 
-          <!-- 빠른 입력 브러시 -->
-          <div class="brush-bar">
-            <span class="brush-label">클릭 시 체크할 상태:</span>
-            <div class="brush-options" id="cal-brush-options">
-              <button type="button" class="brush-btn active" data-brush="off">휴무 (쉬는 날)</button>
-              <button type="button" class="brush-btn" data-brush="leave">연차 (유급)</button>
-              <button type="button" class="brush-btn" data-brush="afternoon">근무 (오후조)</button>
-              <button type="button" class="brush-btn" data-brush="public_holiday">공휴 (국경일)</button>
-              <button type="button" class="brush-btn" data-brush="special">특근 (내 휴일)</button>
-              <button type="button" class="brush-btn" data-brush="ot">연장 (잔업)</button>
-              <button type="button" class="brush-btn" data-brush="late">지각</button>
-              <button type="button" class="brush-btn" data-brush="early">조퇴</button>
+          <div class="calendar-body">
+            <!-- 빠른 입력 브러시 -->
+            <div class="brush-bar">
+              <span class="brush-label">체크할 상태</span>
+              <div class="brush-options" id="cal-brush-options">
+                <button type="button" class="brush-btn active" data-brush="off">휴무 (쉬는 날)</button>
+                <button type="button" class="brush-btn" data-brush="leave">연차 (유급)</button>
+                <button type="button" class="brush-btn" data-brush="half_am">전반차</button>
+                <button type="button" class="brush-btn" data-brush="half_pm">후반차</button>
+                <button type="button" class="brush-btn" data-brush="afternoon">근무 (오후조)</button>
+                <button type="button" class="brush-btn" data-brush="public_holiday">공휴 (국경일)</button>
+                <button type="button" class="brush-btn" data-brush="special">특근 (내 휴일)</button>
+                <button type="button" class="brush-btn" data-brush="ot">연장 (잔업)</button>
+                <button type="button" class="brush-btn" data-brush="late">지각</button>
+                <button type="button" class="brush-btn" data-brush="early">조퇴</button>
+              </div>
+              <div class="brush-hours-wrap hidden" id="brush-hours-wrap">
+                <label for="brush-hours-input">시간:</label>
+                <input type="number" id="brush-hours-input" class="brush-hours-input" value="10" min="1" max="480" step="5" />
+                <span>분</span>
+              </div>
             </div>
-            <div class="brush-hours-wrap hidden" id="brush-hours-wrap">
-              <label for="brush-hours-input">시간:</label>
-              <input type="number" id="brush-hours-input" class="brush-hours-input" value="10" min="1" max="480" step="5" />
-              <span>분</span>
-            </div>
-          </div>
 
-          <!-- 캘린더 그리드 -->
-          <div class="calendar-weekdays">
-            <div class="sun">일</div>
-            <div>월</div>
-            <div>화</div>
-            <div>수</div>
-            <div>목</div>
-            <div>금</div>
-            <div class="sat">토</div>
+            <!-- 캘린더 그리드 -->
+            <div class="calendar-grid-wrap">
+              <div class="calendar-weekdays">
+                <div class="sun">일</div>
+                <div>월</div>
+                <div>화</div>
+                <div>수</div>
+                <div>목</div>
+                <div>금</div>
+                <div class="sat">토</div>
+              </div>
+              <div class="calendar-grid" id="cal-grid"></div>
+            </div>
           </div>
-          <div class="calendar-grid" id="cal-grid"></div>
         </div>
 
         <!-- 급여 조건 & 요약 카드 -->
@@ -100,36 +107,20 @@
               <input type="number" id="cal-attendance-bonus" class="form-control" value="140000" min="0" step="10000" />
             </div>
             <div class="form-group">
-              <label for="cal-overtime-hours" class="form-label">추가 연장(잔업) 시간</label>
-              <input type="number" id="cal-overtime-hours" class="form-control" value="0" min="0" max="120" step="0.5" />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="cal-late-hours" class="form-label">추가 지각 (시간)</label>
-              <input type="number" id="cal-late-hours" class="form-control" value="0" min="0" max="209" step="0.5" />
-            </div>
-            <div class="form-group">
-              <label for="cal-early-hours" class="form-label">추가 조퇴 (시간)</label>
-              <input type="number" id="cal-early-hours" class="form-control" value="0" min="0" max="209" step="0.5" />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
               <label for="cal-prorate-days" class="form-label">일할일수 (공란=전일)</label>
               <input type="number" id="cal-prorate-days" class="form-control" placeholder="전일" min="1" max="31" />
             </div>
+          </div>
+
+          <div class="form-row">
             <div class="form-group">
               <label for="cal-cashback-pay" class="form-label">캐쉬백프로그램 (원)</label>
               <input type="number" id="cal-cashback-pay" class="form-control" value="0" min="0" step="100" />
             </div>
-          </div>
-
-          <div class="form-group">
-            <label for="cal-other-incentive" class="form-label">기타 인센티브 (원)</label>
-            <input type="number" id="cal-other-incentive" class="form-control" value="0" min="0" step="1000" />
+            <div class="form-group">
+              <label for="cal-other-incentive" class="form-label">기타 인센티브 (원)</label>
+              <input type="number" id="cal-other-incentive" class="form-control" value="0" min="0" step="1000" />
+            </div>
           </div>
 
           <div class="form-group">
@@ -154,6 +145,13 @@
 
         <div class="payslip-table-wrap">
           <table class="payslip-table">
+            <colgroup>
+              <col class="col-cat">
+              <col class="col-item">
+              <col class="col-amt">
+              <col class="col-item">
+              <col class="col-amt">
+            </colgroup>
             <thead>
               <tr>
                 <th colspan="3">지급내역</th>
