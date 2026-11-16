@@ -215,6 +215,7 @@
     earlyHours: document.getElementById('cal-early-hours'),
     prorateDays: document.getElementById('cal-prorate-days'),
     cashbackPay: document.getElementById('cal-cashback-pay'),
+    otherIncentive: document.getElementById('cal-other-incentive'),
     pensionBase: document.getElementById('cal-pension-base'),
     workDaysBadge: document.getElementById('cal-work-days-badge'),
     ordinaryWageBadge: document.getElementById('cal-ordinary-wage-badge'),
@@ -242,6 +243,7 @@
         calEarlyHours: cEls.earlyHours.value,
         calProrateDays: cEls.prorateDays.value,
         calCashbackPay: cEls.cashbackPay.value,
+        calOtherIncentive: cEls.otherIncentive.value,
         calPensionBase: cEls.pensionBase.value
       };
       localStorage.setItem(SETTINGS_KEY, JSON.stringify(data));
@@ -276,6 +278,7 @@
       if (data.calEarlyHours !== undefined) cEls.earlyHours.value = data.calEarlyHours;
       if (data.calProrateDays !== undefined) cEls.prorateDays.value = data.calProrateDays;
       if (data.calCashbackPay !== undefined) cEls.cashbackPay.value = data.calCashbackPay;
+      if (data.calOtherIncentive !== undefined) cEls.otherIncentive.value = data.calOtherIncentive;
       if (data.calPensionBase !== undefined) cEls.pensionBase.value = data.calPensionBase;
     } catch {
       // ignore parse errors
@@ -551,10 +554,11 @@
     const earlyDeduct = -floor10(trunc2(totalEarlyHours) * ordinaryHourlyWage);
     const totalDeductPay = lateDeduct + earlyDeduct;
     const cashbackPay = Math.max(0, Number(cEls.cashbackPay.value) || 0);
+    const otherIncentive = Math.max(0, Number(cEls.otherIncentive.value) || 0);
 
     const grossPay = Math.max(
       0,
-      basePay + actualForkliftPay + actualAttendanceBonus + holidayPay + holidayOtAddPay + nightPay + otPay + totalDeductPay + cashbackPay
+      basePay + actualForkliftPay + actualAttendanceBonus + holidayPay + holidayOtAddPay + nightPay + otPay + totalDeductPay + cashbackPay + otherIncentive
     );
 
     const pensionBase = Math.max(0, Number(cEls.pensionBase.value) || 0);
@@ -623,14 +627,21 @@
     });
 
     payRows.push({ category: '정기적지급', catRowSpan: 1, label: '만근보너스', amount: actualAttendanceBonus });
+    const extraPayRows = [];
+    if (otherIncentive > 0) {
+      extraPayRows.push({ label: '기타 인센티브', amount: otherIncentive });
+    }
     if (cashbackPay > 0) {
+      extraPayRows.push({ label: '캐쉬백프로그램', amount: cashbackPay });
+    }
+    extraPayRows.forEach((row, idx) => {
       payRows.push({
         category: '부정기적지급<br>인센티브<br>기타지급',
-        catRowSpan: 1,
-        label: '캐쉬백프로그램',
-        amount: cashbackPay
+        catRowSpan: idx === 0 ? extraPayRows.length : 0,
+        label: row.label,
+        amount: row.amount
       });
-    }
+    });
 
     renderPayslipTable(payRows, taxItems, grossPay, totalTax);
 
@@ -697,6 +708,7 @@
     cEls.earlyHours,
     cEls.prorateDays,
     cEls.cashbackPay,
+    cEls.otherIncentive,
     cEls.pensionBase
   ].forEach((el) => {
     el.addEventListener('input', () => {
