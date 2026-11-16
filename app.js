@@ -14,7 +14,7 @@
     ot: '연장',
     late: '지각',
     early: '조퇴',
-    off: '휴일'
+    off: '휴무'
   };
 
   function parseRecord(raw) {
