@@ -1,16 +1,9 @@
 // Firebase SDK v10 (CDN) 기반 자체 비회원 댓글 시스템
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { 
-  getFirestore, collection, addDoc, query, where, orderBy, onSnapshot, serverTimestamp, deleteDoc, doc 
+  getFirestore, collection, addDoc, query, where, onSnapshot, serverTimestamp, deleteDoc, doc 
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-/**
- * -------------------------------------------------------------
- * Firebase 설정 (구글 무료 DB)
- * Firebase 콘솔(https://console.firebase.google.com/)에서 프로젝트 생성 후
- * 웹 앱 추가 시 발급되는 config 값을 아래에 넣으시면 됩니다.
- * -------------------------------------------------------------
- */
 const FIREBASE_CONFIG = {
   apiKey: "AIzaSyD0Gtv43CVBXjff5NVUR4FLp4621GHsRQ0",
   authDomain: "mini-toolkit.firebaseapp.com",
@@ -20,27 +13,15 @@ const FIREBASE_CONFIG = {
   appId: "1:805511448383:web:11be15650c3beefbcbf58a"
 };
 
-// 도구 식별자 (나중에 다른 도구가 추가되어도 댓글이 섞이지 않도록 구분)
 const TOOL_ID = "barcodeGen";
 
 const commentsContainer = document.getElementById("comments");
 const setupNotice = document.getElementById("comments-setup");
 
-// 설정 누락 여부 확인
 const isConfigured = Boolean(FIREBASE_CONFIG.projectId && FIREBASE_CONFIG.apiKey);
 
 if (!isConfigured) {
-  if (setupNotice) {
-    setupNotice.hidden = false;
-    setupNotice.innerHTML = `
-      <strong>💡 비회원 댓글을 위한 Firebase 설정이 필요합니다.</strong>
-      <span style="margin-top:6px; line-height:1.6;">
-        1. <a href="https://console.firebase.google.com/" target="_blank" style="color:var(--primary); font-weight:600;">Firebase 콘솔</a>에 구글 로그인 후 <b>[프로젝트 만들기]</b> (이름: mini-toolkit)<br>
-        2. 좌측 메뉴 <b>[빌드] > [Firestore Database]</b> 클릭 후 <b>[데이터베이스 만들기]</b> (테스트 모드로 시작)<br>
-        3. 프로젝트 개요(톱니바퀴) > <b>[프로젝트 설정] > [내 앱] > 웹(&lt;/&gt;)</b> 추가 후 나오는 <code>firebaseConfig</code> 값을 <code>comments.js</code> 상단에 입력하면 끝납니다!
-      </span>
-    `;
-  }
+  if (setupNotice) setupNotice.hidden = false;
 } else {
   initGuestComments();
 }
@@ -48,11 +29,9 @@ if (!isConfigured) {
 function initGuestComments() {
   if (setupNotice) setupNotice.hidden = true;
 
-  // Firebase 초기화
   const app = initializeApp(FIREBASE_CONFIG);
   const db = getFirestore(app);
 
-  // UI 생성
   commentsContainer.innerHTML = `
     <div class="guest-comment-box">
       <form id="commentForm" class="comment-form">
@@ -84,7 +63,6 @@ function initGuestComments() {
   const commentsList = document.getElementById("commentsList");
   const commentCount = document.getElementById("commentCount");
 
-  // tool 조건만 걸고, 정렬은 클라이언트에서 처리하여 Firestore 색인(Index) 오류를 원천 방지
   const q = query(
     collection(db, "comments"),
     where("tool", "==", TOOL_ID)
@@ -99,7 +77,6 @@ function initGuestComments() {
       return;
     }
 
-    // 최신순 정렬
     const docs = [...snapshot.docs].sort((a, b) => {
       const timeA = a.data().createdAt?.toMillis() || 0;
       const timeB = b.data().createdAt?.toMillis() || 0;
@@ -126,7 +103,6 @@ function initGuestComments() {
       commentsList.appendChild(item);
     });
 
-    // 삭제 버튼 이벤트
     commentsList.querySelectorAll(".btn-del").forEach((btn) => {
       btn.addEventListener("click", async () => {
         const docId = btn.dataset.id;
@@ -151,7 +127,6 @@ function initGuestComments() {
     commentsList.innerHTML = `<div class="comment-error">댓글을 불러오지 못했습니다: ${err.message}</div>`;
   });
 
-  // 댓글 등록 처리
   commentForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const author = authorInput.value.trim();
