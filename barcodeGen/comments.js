@@ -15,11 +15,12 @@ const COMMENTS_CONFIG = {
   provider: 'giscus',
 
   giscus: {
-    repo: '',          // 예: 'username/barcodeGen'
-    repoId: '',        // 예: 'R_kgDOxxxxxxx'
+    repo: 'mini-toolkit/mini-toolkit.github.io',
+    repoId: 'R_kgDOVvuNTA',
     category: 'General',
-    categoryId: '',    // 예: 'DIC_kwDOxxxxxxx'
-    mapping: 'pathname',
+    categoryId: 'DIC_kwDOVvuNTM4DLSa1',
+    mapping: 'specific',
+    term: 'barcodeGen', // 이 도구 전용 댓글 스레드 이름 (도구마다 다르게)
     theme: 'light',
     lang: 'ko'
   },
@@ -52,6 +53,7 @@ const COMMENTS_CONFIG = {
       'data-category': g.category,
       'data-category-id': g.categoryId,
       'data-mapping': g.mapping,
+      ...(g.mapping === 'specific' && g.term ? { 'data-term': g.term } : {}),
       'data-strict': '0',
       'data-reactions-enabled': '1',
       'data-emit-metadata': '0',
