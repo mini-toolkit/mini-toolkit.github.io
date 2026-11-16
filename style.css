@@ -703,7 +703,7 @@ body {
 
 .guide-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 
@@ -718,6 +718,10 @@ body {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 16px;
+}
+
+.guide-compare {
+  margin-top: 16px;
 }
 
 .guide-box h3 {
