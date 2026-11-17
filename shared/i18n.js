@@ -260,6 +260,20 @@
     window.dispatchEvent(new CustomEvent("mini-toolkit-lang-change", { detail: { lang } }));
   }
 
+  function ensureHeaderCoffeeLink() {
+    const navContainer = document.querySelector(".nav-tabs, .site-nav-tabs");
+    if (!navContainer || navContainer.querySelector(".coffee-header")) return;
+
+    const a = document.createElement("a");
+    a.className = "coffee-link coffee-header";
+    a.href = "https://buymeacoffee.com/";
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.setAttribute("data-i18n", "footer.coffee");
+    a.textContent = t("footer.coffee", "☕ Buy Me a Coffee");
+    navContainer.appendChild(a);
+  }
+
   function ensureLangSwitcher() {
     const navContainer = document.querySelector(".nav-tabs, .site-nav-tabs");
     if (!navContainer || document.getElementById("langSelect")) return;
@@ -280,6 +294,7 @@
   }
 
   function init() {
+    ensureHeaderCoffeeLink();
     ensureLangSwitcher();
     applyTranslations();
   }

@@ -737,3 +737,16 @@ footer {
   background: #fef08a;
   border-color: #facc15;
 }
+
+.coffee-link.coffee-header {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .coffee-link.coffee-header {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+}
