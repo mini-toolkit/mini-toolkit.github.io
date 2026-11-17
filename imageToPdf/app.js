@@ -101,7 +101,8 @@
 
   function renderList() {
     imageListEl.innerHTML = "";
-    imageCountLabel.textContent = `선택된 이미지: ${items.length}장`;
+    const tpl = window.MiniToolkitI18n ? window.MiniToolkitI18n.t("pdf.count", "Selected images: {n}") : "Selected images: {n}";
+    imageCountLabel.textContent = tpl.replace("{n}", String(items.length));
     const hasItems = items.length > 0;
     clearAllBtn.disabled = !hasItems;
     convertBtn.disabled = !hasItems;
@@ -292,4 +293,6 @@
   addMoreBtn.addEventListener("click", () => fileInput.click());
   clearAllBtn.addEventListener("click", clearAll);
   convertBtn.addEventListener("click", convertToPdf);
+  window.addEventListener("mini-toolkit-lang-change", renderList);
+  renderList();
 })();
