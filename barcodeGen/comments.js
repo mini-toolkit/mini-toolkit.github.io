@@ -1,8 +1,11 @@
-// Firebase SDK v10 (CDN) 기반 자체 비회원 댓글 시스템 (스팸/폭탄댓글 방어 + 비밀번호 해싱 포함)
+// Firebase SDK v10 (CDN) 기반 자체 비회원 댓글 시스템 (스팸/폭탄댓글 방어 + 비밀번호 해싱 + 운영자 전용 대댓글)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import {
   getFirestore, collection, addDoc, query, where, onSnapshot, serverTimestamp, deleteDoc, doc
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import {
+  getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
 /**
  * -------------------------------------------------------------
@@ -23,10 +26,20 @@ const FIREBASE_CONFIG = {
 // 도구 식별자 (나중에 다른 도구가 추가되어도 댓글이 섞이지 않도록 구분)
 const TOOL_ID = "barcodeGen";
 
+/**
+ * 운영자(관리자) 구글 이메일 목록
+ * - 아래 배열에 본인 구글 이메일을 입력하고,
+ *   Firebase 콘솔 > Authentication > Sign-in method 에서 Google 로그인을 활성화하세요.
+ * - 로그인한 운영자만 댓글에 답글(대댓글)을 달 수 있습니다.
+ */
+const ADMIN_EMAILS = [
+  "jk424485@gmail.com"
+];
+
 // 스팸 / 연속·폭탄 댓글 방어 설정
 const GUARD_CONFIG = {
   cooldownMs: 30 * 1000,         // 댓글 등록 후 30초 쿨다운
-  burstWindowMs: 5 * 60 * 1000,  // 5분 내
+  burstWindowMs: 5 * 60 * 1000,  // 5분 
   burstMaxCount: 3,              // 최대 3개까지 허용
   dailyWindowMs: 24 * 60 * 60 * 1000, // 24시간 내
   dailyMaxCount: 15,             // 최대 15개까지 허용
@@ -65,14 +78,26 @@ if (!isConfigured) {
   initGuestComments();
 }
 
+function isAllowedAdminEmail(email) {
+  if (!email) return false;
+  const normalized = email.trim().toLowerCase();
+  return ADMIN_EMAILS.some((item) => item.trim().toLowerCase() === normalized);
+}
+
 function initGuestComments() {
   if (setupNotice) setupNotice.hidden = true;
 
   const app = initializeApp(FIREBASE_CONFIG);
   const db = getFirestore(app);
+  const auth = getAuth(app);
+  const googleProvider = new GoogleAuthProvider();
+
   const formInitAt = Date.now();
   let latestDocs = [];
+  let hasLoadedSnapshot = false;
   let cooldownTimerId = null;
+  let activeReplyParentId = null;
+  let isAdmin = false;
 
   // UI 생성 (허니팟 필드 포함)
   commentsContainer.innerHTML = `
@@ -98,6 +123,7 @@ function initGuestComments() {
 
       <div class="comments-list-header">
         <span id="commentCount">댓글 0개</span>
+        <button type="button" id="adminAuthBtn" class="btn-admin-auth" title="운영자 로그인">🔐 관리자</button>
       </div>
 
       <div id="commentsList" class="comments-list">
@@ -116,6 +142,7 @@ function initGuestComments() {
   const charCountEl = document.getElementById("commentCharCount");
   const commentsList = document.getElementById("commentsList");
   const commentCount = document.getElementById("commentCount");
+  const adminAuthBtn = document.getElementById("adminAuthBtn");
 
   function showNotice(msg, type = "error") {
     commentNotice.textContent = msg;
@@ -131,6 +158,64 @@ function initGuestComments() {
     updateCharCount();
     if (commentNotice.classList.contains("is-error")) {
       showNotice("");
+    }
+  });
+
+  function updateAdminButton() {
+    if (isAdmin) {
+      adminAuthBtn.textContent = "🛡️ 운영자 모드 (로그아웃)";
+      adminAuthBtn.classList.add("is-active");
+      adminAuthBtn.title = "클릭하면 운영자 로그아웃";
+    } else {
+      adminAuthBtn.textContent = "🔐 관리자";
+      adminAuthBtn.classList.remove("is-active");
+      adminAuthBtn.title = "운영자 Google 로그인";
+    }
+  }
+
+  adminAuthBtn.addEventListener("click", async () => {
+    if (isAdmin) {
+      await signOut(auth);
+      activeReplyParentId = null;
+      showNotice("운영자 모드에서 로그아웃되었습니다.", "info");
+      return;
+    }
+
+    if (ADMIN_EMAILS.length === 0) {
+      showNotice("comments.js 상단의 ADMIN_EMAILS에 운영자 구글 이메일을 먼저 등록해주세요.", "error");
+      return;
+    }
+
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      if (!isAllowedAdminEmail(result.user?.email)) {
+        await signOut(auth);
+        showNotice("등록된 운영자 계정이 아닙니다.", "error");
+      } else {
+        showNotice("운영자 모드로 로그인되었습니다. 이제 댓글에 답글을 달 수 있습니다.", "info");
+      }
+    } catch (err) {
+      if (err.code !== "auth/popup-closed-by-user") {
+        showNotice(`운영자 로그인 실패: ${err.message}`, "error");
+      }
+    }
+  });
+
+  onAuthStateChanged(auth, async (user) => {
+    if (user && !isAllowedAdminEmail(user.email)) {
+      await signOut(auth);
+      isAdmin = false;
+    } else {
+      isAdmin = Boolean(user && isAllowedAdminEmail(user.email));
+    }
+
+    if (!isAdmin) {
+      activeReplyParentId = null;
+    }
+
+    updateAdminButton();
+    if (hasLoadedSnapshot) {
+      renderComments();
     }
   });
 
@@ -172,68 +257,8 @@ function initGuestComments() {
 
   onSnapshot(q, (snapshot) => {
     latestDocs = snapshot.docs;
-    commentsList.innerHTML = "";
-    commentCount.textContent = `댓글 ${snapshot.docs.length}개`;
-
-    if (snapshot.empty) {
-      const emptyEl = document.createElement("div");
-      emptyEl.className = "comment-empty";
-      emptyEl.textContent = "첫 번째 댓글을 남겨보세요! ✨";
-      commentsList.appendChild(emptyEl);
-      return;
-    }
-
-    // 최신순 정렬
-    const docs = [...snapshot.docs].sort((a, b) => {
-      const timeA = a.data().createdAt?.toMillis() || 0;
-      const timeB = b.data().createdAt?.toMillis() || 0;
-      return timeB - timeA;
-    });
-
-    docs.forEach((docSnap) => {
-      const data = docSnap.data();
-      const docId = docSnap.id;
-      const dateStr = data.createdAt
-        ? new Date(data.createdAt.toDate()).toLocaleString("ko-KR", {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit"
-          })
-        : "방금 전";
-
-      // 안전한 DOM API로 렌더링 (XSS 원천 차단)
-      const item = document.createElement("div");
-      item.className = "comment-item";
-
-      const header = document.createElement("div");
-      header.className = "comment-item-header";
-
-      const authorEl = document.createElement("span");
-      authorEl.className = "comment-author";
-      authorEl.textContent = data.author || "익명";
-
-      const dateEl = document.createElement("span");
-      dateEl.className = "comment-date";
-      dateEl.textContent = dateStr;
-
-      const delBtn = document.createElement("button");
-      delBtn.type = "button";
-      delBtn.className = "btn-del";
-      delBtn.title = "삭제";
-      delBtn.textContent = "✕";
-      delBtn.addEventListener("click", () => handleDeleteComment(docId, data.password));
-
-      header.append(authorEl, dateEl, delBtn);
-
-      const contentEl = document.createElement("div");
-      contentEl.className = "comment-item-content";
-      contentEl.textContent = data.content || "";
-
-      item.append(header, contentEl);
-      commentsList.appendChild(item);
-    });
+    hasLoadedSnapshot = true;
+    renderComments();
   }, (err) => {
     console.error("Firestore 에러 상세:", err);
     commentsList.innerHTML = "";
@@ -243,11 +268,265 @@ function initGuestComments() {
     commentsList.appendChild(errEl);
   });
 
-  async function handleDeleteComment(docId, storedPassword) {
+  function formatCommentDate(createdAt) {
+    return createdAt
+      ? new Date(createdAt.toDate()).toLocaleString("ko-KR", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit"
+      })
+      : "방금 전";
+  }
+
+  function createCommentNode({ docId, data, isReply = false, rootParentId = null }) {
+    const item = document.createElement("div");
+    item.className = isReply ? "comment-reply-item" : "comment-item";
+
+    const header = document.createElement("div");
+    header.className = "comment-item-header";
+
+    const authorEl = document.createElement("span");
+    authorEl.className = "comment-author";
+    authorEl.textContent = data.author || "익명";
+    header.appendChild(authorEl);
+
+    if (data.isAdmin) {
+      const badge = document.createElement("span");
+      badge.className = "comment-admin-badge";
+      badge.textContent = "운영자";
+      header.appendChild(badge);
+    }
+
+    const dateEl = document.createElement("span");
+    dateEl.className = "comment-date";
+    dateEl.textContent = formatCommentDate(data.createdAt);
+    header.appendChild(dateEl);
+
+    // 운영자만 답글 버튼 노출
+    if (isAdmin && docId) {
+      const targetParentId = rootParentId || docId;
+      const replyBtn = document.createElement("button");
+      replyBtn.type = "button";
+      replyBtn.className = "btn-reply";
+      replyBtn.textContent = activeReplyParentId === targetParentId && !isReply ? "닫기" : "답글";
+      replyBtn.addEventListener("click", () => {
+        activeReplyParentId = (activeReplyParentId === targetParentId && !isReply) ? null : targetParentId;
+        renderComments();
+      });
+      header.appendChild(replyBtn);
+    }
+
+    if (docId) {
+      const delBtn = document.createElement("button");
+      delBtn.type = "button";
+      delBtn.className = "btn-del";
+      delBtn.title = "삭제";
+      delBtn.textContent = "✕";
+      delBtn.addEventListener("click", () => handleDeleteComment(docId, data));
+      header.appendChild(delBtn);
+    }
+
+    const contentEl = document.createElement("div");
+    contentEl.className = "comment-item-content";
+    contentEl.textContent = data.content || "";
+
+    item.append(header, contentEl);
+    return item;
+  }
+
+  function createInlineReplyForm(parentId) {
+    const form = document.createElement("form");
+    form.className = "reply-form";
+    form.noValidate = true;
+
+    const row = document.createElement("div");
+    row.className = "reply-form-row";
+
+    const nickInput = document.createElement("input");
+    nickInput.type = "text";
+    nickInput.className = "text-input reply-author-input";
+    nickInput.value = "운영자";
+    nickInput.maxLength = GUARD_CONFIG.maxAuthorLen;
+    nickInput.placeholder = "운영자 닉네임";
+    nickInput.required = true;
+
+    const submitReplyBtn = document.createElement("button");
+    submitReplyBtn.type = "submit";
+    submitReplyBtn.className = "btn btn-primary btn-sm";
+    submitReplyBtn.textContent = "답글 등록";
+
+    const cancelBtn = document.createElement("button");
+    cancelBtn.type = "button";
+    cancelBtn.className = "btn btn-sm btn-cancel";
+    cancelBtn.textContent = "취소";
+    cancelBtn.addEventListener("click", () => {
+      activeReplyParentId = null;
+      renderComments();
+    });
+
+    row.append(nickInput, submitReplyBtn, cancelBtn);
+
+    const textarea = document.createElement("textarea");
+    textarea.className = "text-input reply-textarea";
+    textarea.rows = 2;
+    textarea.maxLength = GUARD_CONFIG.maxContentLen;
+    textarea.placeholder = "운영자 답글을 입력하세요...";
+    textarea.required = true;
+
+    const noticeEl = document.createElement("div");
+    noticeEl.className = "comment-notice";
+
+    form.append(row, textarea, noticeEl);
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!isAdmin) {
+        noticeEl.textContent = "운영자 권한이 필요합니다.";
+        noticeEl.className = "comment-notice is-error";
+        return;
+      }
+
+      const author = sanitizeText(nickInput.value) || "운영자";
+      const content = sanitizeText(textarea.value);
+
+      if (content.length < GUARD_CONFIG.minContentLen || content.length > GUARD_CONFIG.maxContentLen) {
+        noticeEl.textContent = `답글은 ${GUARD_CONFIG.minContentLen}~${GUARD_CONFIG.maxContentLen}자로 입력해주세요.`;
+        noticeEl.className = "comment-notice is-error";
+        return;
+      }
+
+      submitReplyBtn.disabled = true;
+      submitReplyBtn.textContent = "등록 중...";
+
+      try {
+        await addDoc(collection(db, "comments"), {
+          tool: TOOL_ID,
+          parentId,
+          isAdmin: true,
+          adminUid: auth.currentUser?.uid || "",
+          author,
+          password: "",
+          content,
+          createdAt: serverTimestamp()
+        });
+        activeReplyParentId = null;
+        showNotice("운영자 답글이 등록되었습니다.", "info");
+      } catch (err) {
+        noticeEl.textContent = `답글 등록 실패: ${err.message}`;
+        noticeEl.className = "comment-notice is-error";
+        submitReplyBtn.disabled = false;
+        submitReplyBtn.textContent = "답글 등록";
+      }
+    });
+
+    // 폼 렌더링 직후 입력 포커스
+    requestAnimationFrame(() => textarea.focus());
+    return form;
+  }
+
+  function renderComments() {
+    commentsList.innerHTML = "";
+    commentCount.textContent = `댓글 ${latestDocs.length}개`;
+
+    if (latestDocs.length === 0) {
+      const emptyEl = document.createElement("div");
+      emptyEl.className = "comment-empty";
+      emptyEl.textContent = "첫 번째 댓글을 남겨보세요! ✨";
+      commentsList.appendChild(emptyEl);
+      return;
+    }
+
+    const topLevelDocs = [];
+    const repliesByParent = new Map();
+
+    latestDocs.forEach((docSnap) => {
+      const data = docSnap.data();
+      if (data.parentId) {
+        const list = repliesByParent.get(data.parentId) || [];
+        list.push(docSnap);
+        repliesByParent.set(data.parentId, list);
+      } else {
+        topLevelDocs.push(docSnap);
+      }
+    });
+
+    // 원댓글: 최신순 정렬
+    topLevelDocs.sort((a, b) => {
+      const timeA = a.data().createdAt?.toMillis() || 0;
+      const timeB = b.data().createdAt?.toMillis() || 0;
+      return timeB - timeA;
+    });
+
+    const renderedParentIds = new Set();
+
+    const appendThread = (parentId, parentData) => {
+      renderedParentIds.add(parentId);
+      const item = createCommentNode({ docId: parentData ? parentId : null, data: parentData || { author: "알림", content: "삭제된 댓글입니다." } });
+
+      const replies = (repliesByParent.get(parentId) || []).sort((a, b) => {
+        const timeA = a.data().createdAt?.toMillis() || 0;
+        const timeB = b.data().createdAt?.toMillis() || 0;
+        return timeA - timeB; // 답글은 작성순
+      });
+
+      if (replies.length > 0) {
+        const repliesWrap = document.createElement("div");
+        repliesWrap.className = "comment-replies";
+        replies.forEach((replySnap) => {
+          repliesWrap.appendChild(
+            createCommentNode({
+              docId: replySnap.id,
+              data: replySnap.data(),
+              isReply: true,
+              rootParentId: parentId
+            })
+          );
+        });
+        item.appendChild(repliesWrap);
+      }
+
+      if (isAdmin && activeReplyParentId === parentId) {
+        item.appendChild(createInlineReplyForm(parentId));
+      }
+
+      commentsList.appendChild(item);
+    };
+
+    topLevelDocs.forEach((docSnap) => {
+      appendThread(docSnap.id, docSnap.data());
+    });
+
+    // 원댓글이 삭제되었지만 답글이 남아있는 경우 유실 방지
+    repliesByParent.forEach((_, parentId) => {
+      if (!renderedParentIds.has(parentId)) {
+        appendThread(parentId, null);
+      }
+    });
+  }
+
+  async function handleDeleteComment(docId, data) {
+    if (isAdmin) {
+      if (!confirm("운영자 권한으로 이 댓글을 삭제하시겠습니까?")) return;
+      try {
+        await deleteDoc(doc(db, "comments", docId));
+        showNotice("댓글이 삭제되었습니다.", "info");
+      } catch (err) {
+        alert("삭제 실패: " + err.message);
+      }
+      return;
+    }
+
+    if (data.isAdmin) {
+      alert("운영자 댓글은 삭제할 수 없습니다.");
+      return;
+    }
+
     const inputPw = prompt("댓글 작성 시 설정한 비밀번호를 입력하세요:");
     if (!inputPw) return;
 
-    const matched = await verifyPassword(inputPw.trim(), storedPassword);
+    const matched = await verifyPassword(inputPw.trim(), data.password);
     if (!matched) {
       alert("비밀번호가 일치하지 않습니다.");
       return;
@@ -261,7 +540,7 @@ function initGuestComments() {
     }
   }
 
-  // 댓글 등록 처리
+  // 일반 댓글 등록 처리
   commentForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     showNotice("");
@@ -277,12 +556,12 @@ function initGuestComments() {
       content,
       honeypot,
       formInitAt,
-      recentDocs: latestDocs
+      recentDocs: latestDocs,
+      bypassRateLimit: isAdmin
     });
 
     if (!check.ok) {
       if (check.silent) {
-        // 봇(허니팟) 차단 시 성공한 것처럼 폼만 초기화
         contentInput.value = "";
         updateCharCount();
         return;
@@ -301,6 +580,8 @@ function initGuestComments() {
       const hashedPassword = await hashPassword(password);
       await addDoc(collection(db, "comments"), {
         tool: TOOL_ID,
+        parentId: null,
+        isAdmin: false,
         author,
         password: hashedPassword,
         content,
@@ -308,16 +589,24 @@ function initGuestComments() {
       });
 
       const now = Date.now();
-      const guard = loadGuardState();
-      guard.timestamps.push(now);
-      guard.lastNormalizedContent = normalizeForDuplicate(content);
-      saveGuardState(guard);
+      if (!isAdmin) {
+        const guard = loadGuardState();
+        guard.timestamps.push(now);
+        guard.lastNormalizedContent = normalizeForDuplicate(content);
+        saveGuardState(guard);
+      }
 
       contentInput.value = "";
       pwInput.value = "";
       updateCharCount();
       showNotice("댓글이 등록되었습니다.", "info");
-      startCooldown(now + GUARD_CONFIG.cooldownMs);
+
+      if (!isAdmin) {
+        startCooldown(now + GUARD_CONFIG.cooldownMs);
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "댓글 등록";
+      }
     } catch (err) {
       showNotice("댓글 등록에 실패했습니다: " + err.message, "error");
       submitBtn.disabled = false;
@@ -329,14 +618,14 @@ function initGuestComments() {
 /**
  * 스팸, 봇, 연속·폭탄 댓글 종합 검증
  */
-function validateCommentSubmission({ author, password, content, honeypot, formInitAt, recentDocs }) {
+function validateCommentSubmission({ author, password, content, honeypot, formInitAt, recentDocs, bypassRateLimit = false }) {
   // 1. 허니팟(숨겨진 필드)에 값이 채워져 있으면 자동화 봇으로 판단
   if (honeypot.length > 0) {
     return { ok: false, silent: true };
   }
 
   // 2. 페이지 로드 후 너무 빠른 제출 차단 (봇 방어)
-  if (Date.now() - formInitAt < GUARD_CONFIG.minFillTimeMs) {
+  if (!bypassRateLimit && Date.now() - formInitAt < GUARD_CONFIG.minFillTimeMs) {
     return { ok: false, reason: "너무 빠르게 제출되었습니다. 잠시 후 다시 시도해주세요." };
   }
 
@@ -349,6 +638,10 @@ function validateCommentSubmission({ author, password, content, honeypot, formIn
   }
   if (content.length < GUARD_CONFIG.minContentLen || content.length > GUARD_CONFIG.maxContentLen) {
     return { ok: false, reason: `댓글 내용은 ${GUARD_CONFIG.minContentLen}~${GUARD_CONFIG.maxContentLen}자로 입력해주세요.` };
+  }
+
+  if (bypassRateLimit) {
+    return { ok: true };
   }
 
   // 4. 도배성 패턴(동일 문자 10회 이상 연속 반복) 차단
