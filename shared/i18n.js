@@ -294,7 +294,7 @@
   }
 
   function init() {
-    ensureHeaderCoffeeLink();
+    // ensureHeaderCoffeeLink(); // TODO: 후원 링크 연동 후 활성화
     ensureLangSwitcher();
     applyTranslations();
   }
