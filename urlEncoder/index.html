@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>URL Encoder / Decoder — Mini Toolkit</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="Percent-encode or decode URLs and query parameters cleanly. URL과 쿼리 파라미터를 안전하게 퍼센트 인코딩/디코딩합니다." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mini-toolkit.github.io/urlEncoder/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Toolkit" />
+  <meta property="og:title" content="URL Encoder / Decoder (URL 인코더 / 디코더) — Mini Toolkit" />
+  <meta property="og:description" content="Percent-encode or decode URLs and query parameters cleanly. URL과 쿼리 파라미터를 안전하게 퍼센트 인코딩/디코딩합니다." />
+  <meta property="og:url" content="https://mini-toolkit.github.io/urlEncoder/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="URL Encoder / Decoder (URL 인코더 / 디코더) — Mini Toolkit" />
+  <meta name="twitter:description" content="Percent-encode or decode URLs and query parameters cleanly. URL과 쿼리 파라미터를 안전하게 퍼센트 인코딩/디코딩합니다." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "URL Encoder / Decoder", "alternateName": "URL 인코더 / 디코더", "url": "https://mini-toolkit.github.io/urlEncoder/", "description": "Percent-encode or decode URLs and query parameters cleanly.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <!-- /SEO Meta -->
+  <link rel="stylesheet" href="../shared/tool-common.css" />
+</head>
+<body data-tool-id="url-encoder">
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-badge">MT</span>
+        <span>Mini Toolkit</span>
+      </a>
+      <nav class="nav-tabs" aria-label="Main Menu">
+        <a class="nav-tab active" href="../" data-i18n="nav.tools">Tools</a>
+        <a class="nav-tab" href="../index.html#blog" data-i18n="nav.blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-btn" href="../" data-i18n="back.tools">← Back to All Tools</a>
+    <div class="page-header">
+      <h1 class="page-title">URL Encoder / Decoder</h1>
+      <p class="page-desc">Percent-encode or decode URLs and query parameters cleanly.</p>
+    </div>
+
+    <div class="panel">
+      <div class="toolbar">
+        <button class="btn btn-primary" id="ue-encode" type="button" data-i18n="ue.enc">Encode</button>
+        <button class="btn" id="ue-decode" type="button" data-i18n="ue.dec">Decode</button>
+        <button class="btn" id="ue-copy" type="button" data-i18n="common.copy">Copy</button>
+        <button class="btn" id="ue-clear" type="button" data-i18n="common.clear">Clear</button>
+      </div>
+      <div class="editor-grid">
+        <div>
+          <label class="field-label" for="ue-input" data-i18n="common.input">Input</label>
+          <textarea id="ue-input" class="code-area" placeholder="https://example.com/?q=hello world&lang=en"></textarea>
+        </div>
+        <div>
+          <label class="field-label" for="ue-output" data-i18n="common.output">Output</label>
+          <textarea id="ue-output" class="code-area" readonly></textarea>
+        </div>
+      </div>
+      <div id="ue-status" class="status-bar" role="status"></div>
+    </div>
+
+    <section class="panel comments-card" aria-labelledby="comments-title">
+      <div class="comments-header">
+        <h2 id="comments-title" data-i18n="comments.title">Comments</h2>
+        <p data-i18n="comments.desc">Share feedback, bug reports, or feature requests.</p>
+      </div>
+      <div id="comments" data-tool-id="url-encoder"></div>
+      <div id="comments-setup" class="comments-setup" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer.copy">© 2026 Mini Toolkit</span>
+      <a class="coffee-link" href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" data-i18n="footer.coffee">
+        ☕ Buy Me a Coffee
+      </a>
+    </div>
+  </footer>
+
+  <script src="../shared/tools-registry.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="./app.js"></script>
+  <script type="module" src="../barcodeGen/comments.js"></script>
+</body>
+</html>

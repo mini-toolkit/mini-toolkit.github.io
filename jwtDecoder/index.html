@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JWT Token Decoder — Mini Toolkit</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="Inspect JWT header, payload claims, and expiration time locally. JWT 토큰의 Header, Payload, 만료 시간을 브라우저에서 확인합니다." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mini-toolkit.github.io/jwtDecoder/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Toolkit" />
+  <meta property="og:title" content="JWT Token Decoder (JWT 토큰 디코더) — Mini Toolkit" />
+  <meta property="og:description" content="Inspect JWT header, payload claims, and expiration time locally. JWT 토큰의 Header, Payload, 만료 시간을 브라우저에서 확인합니다." />
+  <meta property="og:url" content="https://mini-toolkit.github.io/jwtDecoder/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="JWT Token Decoder (JWT 토큰 디코더) — Mini Toolkit" />
+  <meta name="twitter:description" content="Inspect JWT header, payload claims, and expiration time locally. JWT 토큰의 Header, Payload, 만료 시간을 브라우저에서 확인합니다." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "JWT Token Decoder", "alternateName": "JWT 토큰 디코더", "url": "https://mini-toolkit.github.io/jwtDecoder/", "description": "Inspect JWT header, payload claims, and expiration time locally.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <!-- /SEO Meta -->
+  <link rel="stylesheet" href="../shared/tool-common.css" />
+</head>
+<body data-tool-id="jwt-decoder">
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-badge">MT</span>
+        <span>Mini Toolkit</span>
+      </a>
+      <nav class="nav-tabs" aria-label="Main Menu">
+        <a class="nav-tab active" href="../" data-i18n="nav.tools">Tools</a>
+        <a class="nav-tab" href="../index.html#blog" data-i18n="nav.blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-btn" href="../" data-i18n="back.tools">← Back to All Tools</a>
+    <div class="page-header">
+      <h1 class="page-title">JWT Token Decoder</h1>
+      <p class="page-desc">Inspect JWT header, payload claims, and expiration time locally.</p>
+    </div>
+
+    <div class="panel">
+      <label class="field-label" for="jwt-in" data-i18n="jwt.tok">JWT Token</label>
+      <textarea id="jwt-in" class="code-area" style="min-height:110px;" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."></textarea>
+      <div id="jwt-status" class="status-bar" role="status"></div>
+      <div class="editor-grid" style="margin-top:14px;">
+        <div><label class="field-label" data-i18n="jwt.hdr">Header</label><pre id="jwt-header" class="mono-output"></pre></div>
+        <div><label class="field-label" data-i18n="jwt.pay">Payload</label><pre id="jwt-payload" class="mono-output"></pre></div>
+      </div>
+    </div>
+
+    <section class="panel comments-card" aria-labelledby="comments-title">
+      <div class="comments-header">
+        <h2 id="comments-title" data-i18n="comments.title">Comments</h2>
+        <p data-i18n="comments.desc">Share feedback, bug reports, or feature requests.</p>
+      </div>
+      <div id="comments" data-tool-id="jwt-decoder"></div>
+      <div id="comments-setup" class="comments-setup" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer.copy">© 2026 Mini Toolkit</span>
+      <a class="coffee-link" href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" data-i18n="footer.coffee">
+        ☕ Buy Me a Coffee
+      </a>
+    </div>
+  </footer>
+
+  <script src="../shared/tools-registry.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="./app.js"></script>
+  <script type="module" src="../barcodeGen/comments.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSV ↔ JSON Converter — Mini Toolkit</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="Convert CSV spreadsheets to JSON arrays and vice versa cleanly. CSV 데이터와 JSON 배열을 양방향으로 간편하게 변환합니다." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mini-toolkit.github.io/csvJsonConverter/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Toolkit" />
+  <meta property="og:title" content="CSV ↔ JSON Converter (CSV ↔ JSON 변환기) — Mini Toolkit" />
+  <meta property="og:description" content="Convert CSV spreadsheets to JSON arrays and vice versa cleanly. CSV 데이터와 JSON 배열을 양방향으로 간편하게 변환합니다." />
+  <meta property="og:url" content="https://mini-toolkit.github.io/csvJsonConverter/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="CSV ↔ JSON Converter (CSV ↔ JSON 변환기) — Mini Toolkit" />
+  <meta name="twitter:description" content="Convert CSV spreadsheets to JSON arrays and vice versa cleanly. CSV 데이터와 JSON 배열을 양방향으로 간편하게 변환합니다." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "CSV ↔ JSON Converter", "alternateName": "CSV ↔ JSON 변환기", "url": "https://mini-toolkit.github.io/csvJsonConverter/", "description": "Convert CSV spreadsheets to JSON arrays and vice versa cleanly.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <!-- /SEO Meta -->
+  <link rel="stylesheet" href="../shared/tool-common.css" />
+</head>
+<body data-tool-id="csv-json-converter">
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-badge">MT</span>
+        <span>Mini Toolkit</span>
+      </a>
+      <nav class="nav-tabs" aria-label="Main Menu">
+        <a class="nav-tab active" href="../" data-i18n="nav.tools">Tools</a>
+        <a class="nav-tab" href="../index.html#blog" data-i18n="nav.blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-btn" href="../" data-i18n="back.tools">← Back to All Tools</a>
+    <div class="page-header">
+      <h1 class="page-title">CSV ↔ JSON Converter</h1>
+      <p class="page-desc">Convert CSV spreadsheets to JSON arrays and vice versa cleanly.</p>
+    </div>
+
+    <div class="panel">
+      <div class="toolbar">
+        <button class="btn btn-primary" id="cj-to-json" type="button">CSV → JSON</button>
+        <button class="btn" id="cj-to-csv" type="button">JSON → CSV</button>
+        <button class="btn" id="cj-copy" type="button" data-i18n="common.copy">Copy</button>
+      </div>
+      <div class="editor-grid">
+        <div><label class="field-label" for="cj-in" data-i18n="common.input">Input</label><textarea id="cj-in" class="code-area">name,role,lang
+Alice,Developer,en
+Bob,Designer,es</textarea></div>
+        <div><label class="field-label" for="cj-out" data-i18n="common.output">Output</label><textarea id="cj-out" class="code-area" readonly></textarea></div>
+      </div>
+      <div id="cj-status" class="status-bar" role="status"></div>
+    </div>
+
+    <section class="panel comments-card" aria-labelledby="comments-title">
+      <div class="comments-header">
+        <h2 id="comments-title" data-i18n="comments.title">Comments</h2>
+        <p data-i18n="comments.desc">Share feedback, bug reports, or feature requests.</p>
+      </div>
+      <div id="comments" data-tool-id="csv-json-converter"></div>
+      <div id="comments-setup" class="comments-setup" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer.copy">© 2026 Mini Toolkit</span>
+      <a class="coffee-link" href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" data-i18n="footer.coffee">
+        ☕ Buy Me a Coffee
+      </a>
+    </div>
+  </footer>
+
+  <script src="../shared/tools-registry.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="./app.js"></script>
+  <script type="module" src="../barcodeGen/comments.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Resizer & Compressor — Mini Toolkit</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="Resize dimensions and compress PNG/JPG/WebP images in your browser. 이미지 크기를 조절하고 JPG/PNG/WebP 품질을 압축해 저장합니다." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mini-toolkit.github.io/imageResizer/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Toolkit" />
+  <meta property="og:title" content="Image Resizer &amp; Compressor (이미지 리사이저 &amp; 압축기) — Mini Toolkit" />
+  <meta property="og:description" content="Resize dimensions and compress PNG/JPG/WebP images in your browser. 이미지 크기를 조절하고 JPG/PNG/WebP 품질을 압축해 저장합니다." />
+  <meta property="og:url" content="https://mini-toolkit.github.io/imageResizer/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Image Resizer &amp; Compressor (이미지 리사이저 &amp; 압축기) — Mini Toolkit" />
+  <meta name="twitter:description" content="Resize dimensions and compress PNG/JPG/WebP images in your browser. 이미지 크기를 조절하고 JPG/PNG/WebP 품질을 압축해 저장합니다." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Image Resizer & Compressor", "alternateName": "이미지 리사이저 & 압축기", "url": "https://mini-toolkit.github.io/imageResizer/", "description": "Resize dimensions and compress PNG/JPG/WebP images in your browser.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <!-- /SEO Meta -->
+  <link rel="stylesheet" href="../shared/tool-common.css" />
+</head>
+<body data-tool-id="image-resizer">
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-badge">MT</span>
+        <span>Mini Toolkit</span>
+      </a>
+      <nav class="nav-tabs" aria-label="Main Menu">
+        <a class="nav-tab active" href="../" data-i18n="nav.tools">Tools</a>
+        <a class="nav-tab" href="../index.html#blog" data-i18n="nav.blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-btn" href="../" data-i18n="back.tools">← Back to All Tools</a>
+    <div class="page-header">
+      <h1 class="page-title">Image Resizer & Compressor</h1>
+      <p class="page-desc">Resize dimensions and compress PNG/JPG/WebP images in your browser.</p>
+    </div>
+
+    <div class="panel">
+      <div class="toolbar">
+        <input id="ir-file" type="file" accept="image/*" />
+      </div>
+      <div class="grid-3" style="margin-bottom:14px;">
+        <div><label class="field-label" for="ir-w" data-i18n="ir.w">Width (px)</label><input id="ir-w" type="number" class="text-input-box" min="1" /></div>
+        <div><label class="field-label" for="ir-h" data-i18n="ir.h">Height (px)</label><input id="ir-h" type="number" class="text-input-box" min="1" /></div>
+        <div><label class="field-label" for="ir-q" data-i18n="ir.q">Quality (0.1 - 1.0)</label><input id="ir-q" type="number" class="text-input-box" min="0.1" max="1" step="0.05" value="0.85" /></div>
+      </div>
+      <div class="toolbar">
+        <select id="ir-fmt" class="select-input">
+          <option value="image/jpeg">JPEG</option>
+          <option value="image/png">PNG</option>
+          <option value="image/webp">WebP</option>
+        </select>
+        <label style="display:inline-flex;align-items:center;gap:4px;font-size:0.86rem;"><input id="ir-lock" type="checkbox" checked /><span data-i18n="ir.lock">Lock Aspect Ratio</span></label>
+        <button class="btn btn-primary" id="ir-dl" type="button" data-i18n="common.download">Download</button>
+      </div>
+      <div id="ir-status" class="status-bar" role="status"></div>
+      <div style="margin-top:14px;text-align:center;"><img id="ir-preview" style="max-width:100%;max-height:360px;border-radius:8px;display:none;border:1px solid var(--border);" alt="Preview" /></div>
+    </div>
+
+    <section class="panel comments-card" aria-labelledby="comments-title">
+      <div class="comments-header">
+        <h2 id="comments-title" data-i18n="comments.title">Comments</h2>
+        <p data-i18n="comments.desc">Share feedback, bug reports, or feature requests.</p>
+      </div>
+      <div id="comments" data-tool-id="image-resizer"></div>
+      <div id="comments-setup" class="comments-setup" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer.copy">© 2026 Mini Toolkit</span>
+      <a class="coffee-link" href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" data-i18n="footer.coffee">
+        ☕ Buy Me a Coffee
+      </a>
+    </div>
+  </footer>
+
+  <script src="../shared/tools-registry.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="./app.js"></script>
+  <script type="module" src="../barcodeGen/comments.js"></script>
+</body>
+</html>

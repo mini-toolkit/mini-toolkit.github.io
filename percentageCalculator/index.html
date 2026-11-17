@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Percentage Calculator — Mini Toolkit</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="Solve percentage of a number, ratio percentage, and percentage change. 비율 값, 전체 대비 백분율, 증감률을 간편하게 계산합니다." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mini-toolkit.github.io/percentageCalculator/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Toolkit" />
+  <meta property="og:title" content="Percentage Calculator (퍼센트(%) 계산기) — Mini Toolkit" />
+  <meta property="og:description" content="Solve percentage of a number, ratio percentage, and percentage change. 비율 값, 전체 대비 백분율, 증감률을 간편하게 계산합니다." />
+  <meta property="og:url" content="https://mini-toolkit.github.io/percentageCalculator/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Percentage Calculator (퍼센트(%) 계산기) — Mini Toolkit" />
+  <meta name="twitter:description" content="Solve percentage of a number, ratio percentage, and percentage change. 비율 값, 전체 대비 백분율, 증감률을 간편하게 계산합니다." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Percentage Calculator", "alternateName": "퍼센트(%) 계산기", "url": "https://mini-toolkit.github.io/percentageCalculator/", "description": "Solve percentage of a number, ratio percentage, and percentage change.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <!-- /SEO Meta -->
+  <link rel="stylesheet" href="../shared/tool-common.css" />
+</head>
+<body data-tool-id="percentage-calculator">
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-badge">MT</span>
+        <span>Mini Toolkit</span>
+      </a>
+      <nav class="nav-tabs" aria-label="Main Menu">
+        <a class="nav-tab active" href="../" data-i18n="nav.tools">Tools</a>
+        <a class="nav-tab" href="../index.html#blog" data-i18n="nav.blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-btn" href="../" data-i18n="back.tools">← Back to All Tools</a>
+    <div class="page-header">
+      <h1 class="page-title">Percentage Calculator</h1>
+      <p class="page-desc">Solve percentage of a number, ratio percentage, and percentage change.</p>
+    </div>
+
+    <div class="panel">
+      <div class="grid-3">
+        <div class="stat-box">
+          <div class="field-label" data-i18n="pct.q1">What is X% of Y?</div>
+          <div style="display:flex;gap:6px;margin-bottom:8px;">
+            <input id="p1-x" type="number" class="text-input-box" value="20" placeholder="X%" />
+            <input id="p1-y" type="number" class="text-input-box" value="150" placeholder="Y" />
+          </div>
+          <div class="stat-value" id="p1-res">30</div>
+        </div>
+        <div class="stat-box">
+          <div class="field-label" data-i18n="pct.q2">X is what % of Y?</div>
+          <div style="display:flex;gap:6px;margin-bottom:8px;">
+            <input id="p2-x" type="number" class="text-input-box" value="45" placeholder="X" />
+            <input id="p2-y" type="number" class="text-input-box" value="200" placeholder="Y" />
+          </div>
+          <div class="stat-value" id="p2-res">22.5%</div>
+        </div>
+        <div class="stat-box">
+          <div class="field-label" data-i18n="pct.q3">% Change (X → Y)</div>
+          <div style="display:flex;gap:6px;margin-bottom:8px;">
+            <input id="p3-x" type="number" class="text-input-box" value="100" placeholder="From" />
+            <input id="p3-y" type="number" class="text-input-box" value="125" placeholder="To" />
+          </div>
+          <div class="stat-value" id="p3-res">+25%</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="panel comments-card" aria-labelledby="comments-title">
+      <div class="comments-header">
+        <h2 id="comments-title" data-i18n="comments.title">Comments</h2>
+        <p data-i18n="comments.desc">Share feedback, bug reports, or feature requests.</p>
+      </div>
+      <div id="comments" data-tool-id="percentage-calculator"></div>
+      <div id="comments-setup" class="comments-setup" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer.copy">© 2026 Mini Toolkit</span>
+      <a class="coffee-link" href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" data-i18n="footer.coffee">
+        ☕ Buy Me a Coffee
+      </a>
+    </div>
+  </footer>
+
+  <script src="../shared/tools-registry.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="./app.js"></script>
+  <script type="module" src="../barcodeGen/comments.js"></script>
+</body>
+</html>

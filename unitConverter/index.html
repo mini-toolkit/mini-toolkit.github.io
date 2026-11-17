@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Universal Unit Converter — Mini Toolkit</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="Convert length, weight, temperature, and digital storage units. 길이, 무게, 온도, 데이터 용량 단위를 즉시 변환합니다." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mini-toolkit.github.io/unitConverter/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Toolkit" />
+  <meta property="og:title" content="Universal Unit Converter (만능 단위 변환기) — Mini Toolkit" />
+  <meta property="og:description" content="Convert length, weight, temperature, and digital storage units. 길이, 무게, 온도, 데이터 용량 단위를 즉시 변환합니다." />
+  <meta property="og:url" content="https://mini-toolkit.github.io/unitConverter/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Universal Unit Converter (만능 단위 변환기) — Mini Toolkit" />
+  <meta name="twitter:description" content="Convert length, weight, temperature, and digital storage units. 길이, 무게, 온도, 데이터 용량 단위를 즉시 변환합니다." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Universal Unit Converter", "alternateName": "만능 단위 변환기", "url": "https://mini-toolkit.github.io/unitConverter/", "description": "Convert length, weight, temperature, and digital storage units.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <!-- /SEO Meta -->
+  <link rel="stylesheet" href="../shared/tool-common.css" />
+</head>
+<body data-tool-id="unit-converter">
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-badge">MT</span>
+        <span>Mini Toolkit</span>
+      </a>
+      <nav class="nav-tabs" aria-label="Main Menu">
+        <a class="nav-tab active" href="../" data-i18n="nav.tools">Tools</a>
+        <a class="nav-tab" href="../index.html#blog" data-i18n="nav.blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-btn" href="../" data-i18n="back.tools">← Back to All Tools</a>
+    <div class="page-header">
+      <h1 class="page-title">Universal Unit Converter</h1>
+      <p class="page-desc">Convert length, weight, temperature, and digital storage units.</p>
+    </div>
+
+    <div class="panel">
+      <div class="grid-3">
+        <div>
+          <label class="field-label" for="uc-cat" data-i18n="uc.cat">Category</label>
+          <select id="uc-cat" class="select-input" style="width:100%;height:38px;">
+            <option value="length" data-i18n="uc.len">Length</option>
+            <option value="weight" data-i18n="uc.wt">Weight</option>
+            <option value="temp" data-i18n="uc.tmp">Temperature</option>
+            <option value="data" data-i18n="uc.dat">Data Storage</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label" for="uc-from" data-i18n="uc.from">From</label>
+          <select id="uc-from" class="select-input" style="width:100%;height:38px;"></select>
+        </div>
+        <div>
+          <label class="field-label" for="uc-to" data-i18n="uc.to">To</label>
+          <select id="uc-to" class="select-input" style="width:100%;height:38px;"></select>
+        </div>
+      </div>
+      <div class="grid-2" style="margin-top:14px;">
+        <div><label class="field-label" for="uc-val" data-i18n="uc.val">Value</label><input id="uc-val" type="number" class="text-input-box" value="1" /></div>
+        <div><label class="field-label" data-i18n="uc.res">Result</label><div id="uc-res" class="mono-output" style="height:38px;display:flex;align-items:center;"></div></div>
+      </div>
+    </div>
+
+    <section class="panel comments-card" aria-labelledby="comments-title">
+      <div class="comments-header">
+        <h2 id="comments-title" data-i18n="comments.title">Comments</h2>
+        <p data-i18n="comments.desc">Share feedback, bug reports, or feature requests.</p>
+      </div>
+      <div id="comments" data-tool-id="unit-converter"></div>
+      <div id="comments-setup" class="comments-setup" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer.copy">© 2026 Mini Toolkit</span>
+      <a class="coffee-link" href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" data-i18n="footer.coffee">
+        ☕ Buy Me a Coffee
+      </a>
+    </div>
+  </footer>
+
+  <script src="../shared/tools-registry.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="./app.js"></script>
+  <script type="module" src="../barcodeGen/comments.js"></script>
+</body>
+</html>

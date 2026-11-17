@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON 포맷터 — Mini Toolkit</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="Pretty-print, minify, and validate JSON syntax instantly in your browser. JSON 문자열을 보기 좋게 정렬하거나 압축하고 문법 오류를 검사합니다." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mini-toolkit.github.io/jsonFormatter/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Toolkit" />
+  <meta property="og:title" content="JSON Formatter &amp; Validator (JSON 포맷터) — Mini Toolkit" />
+  <meta property="og:description" content="Pretty-print, minify, and validate JSON syntax instantly in your browser. JSON 문자열을 보기 좋게 정렬하거나 압축하고 문법 오류를 검사합니다." />
+  <meta property="og:url" content="https://mini-toolkit.github.io/jsonFormatter/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="JSON Formatter &amp; Validator (JSON 포맷터) — Mini Toolkit" />
+  <meta name="twitter:description" content="Pretty-print, minify, and validate JSON syntax instantly in your browser. JSON 문자열을 보기 좋게 정렬하거나 압축하고 문법 오류를 검사합니다." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "JSON Formatter & Validator", "alternateName": "JSON 포맷터", "url": "https://mini-toolkit.github.io/jsonFormatter/", "description": "Pretty-print, minify, and validate JSON syntax instantly in your browser.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <!-- /SEO Meta -->
+  <link rel="stylesheet" href="../shared/tool-common.css" />
+</head>
+<body data-tool-id="json-formatter">
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-badge">MT</span>
+        <span>Mini Toolkit</span>
+      </a>
+      <nav class="nav-tabs" aria-label="주 메뉴">
+        <a class="nav-tab active" href="../" data-i18n="nav.tools">Tools</a>
+        <a class="nav-tab" href="../index.html#blog" data-i18n="nav.blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-btn" href="../"><span data-i18n="back.tools">← 모든 툴 보기</span></a>
+    <div class="page-header">
+      <h1 class="page-title">JSON 포맷터</h1>
+      <p class="page-desc">JSON 문자열을 보기 좋게 정렬(Pretty Print)하거나 한 줄로 압축하고 문법 오류를 검사합니다.</p>
+    </div>
+
+    <div class="panel">
+      <div class="toolbar">
+        <button class="btn btn-primary" id="jf-format" type="button" data-i18n="jf.fmt">정렬 (Format)</button>
+        <button class="btn" id="jf-minify" type="button" data-i18n="jf.min">압축 (Minify)</button>
+        <select class="select-input" id="jf-indent" aria-label="들여쓰기 간격">
+          <option value="2" data-i18n="jf.i2">들여쓰기: 2칸</option>
+          <option value="4" data-i18n="jf.i4">들여쓰기: 4칸</option>
+        </select>
+        <button class="btn" id="jf-sample" type="button" data-i18n="common.sample">샘플 넣기</button>
+        <button class="btn" id="jf-copy" type="button" data-i18n="common.copy">결과 복사</button>
+        <button class="btn" id="jf-clear" type="button" data-i18n="common.clear">지우기</button>
+      </div>
+      <div class="editor-grid">
+        <div>
+          <label class="field-label" for="jf-input" data-i18n="jf.in">입력 JSON</label>
+          <textarea id="jf-input" class="code-area" placeholder='{"name":"mini-toolkit","spa":true}'></textarea>
+        </div>
+        <div>
+          <label class="field-label" for="jf-output" data-i18n="jf.out">변환 결과</label>
+          <textarea id="jf-output" class="code-area" readonly placeholder="여기에 정렬된 결과가 표시됩니다." data-i18n-placeholder="jf.ph.out"></textarea>
+        </div>
+      </div>
+      <div id="jf-status" class="status-bar" role="status"></div>
+    </div>
+
+    <section class="panel comments-card" aria-labelledby="comments-title">
+      <div class="comments-header">
+        <h2 id="comments-title" data-i18n="comments.title">댓글</h2>
+        <p data-i18n="comments.desc">사용 후기, 버그 제보, 기능 요청을 자유롭게 남겨주세요.</p>
+      </div>
+      <div id="comments" data-tool-id="json-formatter"></div>
+      <div id="comments-setup" class="comments-setup" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer.copy">© 2026 Mini Toolkit</span>
+      <a class="coffee-link" href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer">
+        <span data-i18n="footer.coffee">☕ 커피 한 잔 후원하기</span>
+      </a>
+    </div>
+  </footer>
+
+  <script src="../shared/tools-registry.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="./app.js"></script>
+  <script type="module" src="../barcodeGen/comments.js"></script>
+</body>
+</html>

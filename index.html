@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Toolkit — Tools &amp; Blog</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="30 free online web utilities including Barcode &amp; QR Generator, Image to PDF, JSON Formatter, Base64, Unit &amp; Finance Calculators — fast and 100% browser-based." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mini-toolkit.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Toolkit" />
+  <meta property="og:title" content="Mini Toolkit — 30 Free Online Web Utilities &amp; Blog" />
+  <meta property="og:description" content="30 free online web utilities including Barcode &amp; QR Generator, Image to PDF, JSON Formatter, Base64, Unit &amp; Finance Calculators — fast and 100% browser-based." />
+  <meta property="og:url" content="https://mini-toolkit.github.io/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Mini Toolkit — 30 Free Online Web Utilities &amp; Blog" />
+  <meta name="twitter:description" content="30 free online web utilities including Barcode &amp; QR Generator, Image to PDF, JSON Formatter, Base64, Unit &amp; Finance Calculators — fast and 100% browser-based." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Mini Toolkit", "url": "https://mini-toolkit.github.io/", "description": "30 free online web utilities including Barcode & QR Generator, Image to PDF, JSON Formatter, Base64, Unit & Finance Calculators — fast and 100% browser-based."}</script>
+  <!-- /SEO Meta -->
+  <link rel="stylesheet" href="./shared/tool-common.css" />
+  <style>
+    .dash-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .dash-search {
+      flex: 1;
+      min-width: 220px;
+      height: 38px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+
+    .dash-search:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .cat-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .cat-pill {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 5px 11px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .cat-pill:hover {
+      border-color: #a1a1aa;
+      color: var(--text);
+    }
+
+    .cat-pill.active {
+      background: var(--text);
+      border-color: var(--text);
+      color: #fff;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .tool-card {
+      text-decoration: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-2px);
+      border-color: #a1a1aa;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .tool-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tool-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: var(--surface-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .tool-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: var(--surface-subtle);
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+
+    .tool-card h3 {
+      font-size: 1.03rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .tool-card p {
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .blog-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .blog-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      box-shadow: var(--shadow);
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .blog-item:hover {
+      border-color: #a1a1aa;
+      transform: translateY(-1px);
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .blog-item h3 {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .blog-item p {
+      font-size: 0.89rem;
+      color: var(--text-muted);
+    }
+
+    .markdown-body {
+      font-size: 0.97rem;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .markdown-body h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 14px;
+    }
+
+    .markdown-body h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 22px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .markdown-body p {
+      margin: 0 0 12px;
+    }
+
+    .markdown-body ol,
+    .markdown-body ul {
+      margin: 0 0 14px 22px;
+    }
+
+    .markdown-body li {
+      margin-bottom: 5px;
+    }
+
+    .markdown-body a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .markdown-body a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" id="brand-link" href="./">
+        <span class="brand-badge">MT</span>
+        <span>Mini Toolkit</span>
+      </a>
+      <nav class="nav-tabs" aria-label="Main Menu">
+        <button class="nav-tab active" data-tab="tools" type="button" data-i18n="nav.tools">Tools</button>
+        <button class="nav-tab" data-tab="blog" type="button" data-i18n="nav.blog">Blog</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="app" aria-live="polite"></main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer.copy">© 2026 Mini Toolkit</span>
+      <a class="coffee-link" href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" data-i18n="footer.coffee">
+        ☕ Buy Me a Coffee
+      </a>
+    </div>
+  </footer>
+
+  <script src="./shared/tools-registry.js"></script>
+  <script src="./shared/i18n.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      const TOOLS = window.MINI_TOOLKIT_TOOLS || [];
+      const i18n = window.MiniToolkitI18n;
+      const appEl = document.getElementById("app");
+      const navTabs = document.querySelectorAll(".nav-tab");
+
+      let activeCategory = "ALL";
+      let searchQuery = "";
+      let blogPostsCache = null;
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function sanitizeUrl(url) {
+        const trimmed = url.trim();
+        if (/^(https?:\/\/|\.\/|\/|#)/i.test(trimmed)) return trimmed;
+        return "#";
+      }
+
+      function formatInlineMarkdown(text) {
+        let out = escapeHtml(text);
+        out = out.replace(/`([^`]+)`/g, "<code>$1</code>");
+        out = out.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+        out = out.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+        out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function (_, label, href) {
+          return '<a href="' + sanitizeUrl(href) + '">' + label + "</a>";
+        });
+        return out;
+      }
+
+      function renderMarkdown(md) {
+        const lines = String(md || "").replace(/\r\n/g, "\n").split("\n");
+        const html = [];
+        let listType = null;
+
+        function closeList() {
+          if (listType) {
+            html.push("</" + listType + ">");
+            listType = null;
+          }
+        }
+
+        for (let i = 0; i < lines.length; i++) {
+          const line = lines[i];
+          const trimmed = line.trim();
+          if (!trimmed) { closeList(); continue; }
+
+          const h = trimmed.match(/^(#{1,3})\s+(.+)$/);
+          if (h) {
+            closeList();
+            html.push("<h" + h[1].length + ">" + formatInlineMarkdown(h[2]) + "</h" + h[1].length + ">");
+            continue;
+          }
+
+          const ol = trimmed.match(/^\d+\.\s+(.+)$/);
+          if (ol) {
+            if (listType !== "ol") { closeList(); listType = "ol"; html.push("<ol>"); }
+            html.push("<li>" + formatInlineMarkdown(ol[1]) + "</li>");
+            continue;
+          }
+
+          const ul = trimmed.match(/^[-*]\s+(.+)$/);
+          if (ul) {
+            if (listType !== "ul") { closeList(); listType = "ul"; html.push("<ul>"); }
+            html.push("<li>" + formatInlineMarkdown(ul[1]) + "</li>");
+            continue;
+          }
+
+          closeList();
+          html.push("<p>" + formatInlineMarkdown(trimmed) + "</p>");
+        }
+        closeList();
+        return html.join("\n");
+      }
+
+      function getToolHref(tool) {
+        return window.location.protocol === "file:"
+          ? "./" + tool.folder + "/index.html"
+          : "./" + tool.folder + "/";
+      }
+
+      function updateActiveTab(tabName) {
+        navTabs.forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.tab === tabName);
+        });
+      }
+
+      function navigate(hash) {
+        if (hash === "#tools") {
+          if (window.location.pathname + window.location.search + window.location.hash !== window.location.pathname) {
+            window.history.pushState(null, "", window.location.pathname);
+          }
+          renderRoute();
+          return;
+        }
+        if (window.location.search) {
+          window.history.pushState(null, "", window.location.pathname + hash);
+          renderRoute();
+          return;
+        }
+        if (window.location.hash !== hash) {
+          window.location.hash = hash;
+        } else {
+          renderRoute();
+        }
+      }
+
+      function renderToolsDashboard() {
+        const lang = i18n.getLang();
+        document.title = "Mini Toolkit — Tools & Blog";
+        updateActiveTab("tools");
+
+        const categories = ["ALL", ...Array.from(new Set(TOOLS.map((t) => t.tag)))];
+
+        appEl.innerHTML = `
+          <section class="view">
+            <div class="page-header">
+              <h1 class="page-title">${escapeHtml(i18n.t("dash.title"))}</h1>
+            </div>
+            <div class="dash-controls">
+              <input id="dash-search" class="dash-search" type="search" value="${escapeHtml(searchQuery)}" placeholder="${escapeHtml(i18n.t("dash.search"))}" />
+              <div class="cat-pills" id="cat-pills"></div>
+            </div>
+            <div class="tools-grid" id="tools-grid"></div>
+          </section>
+        `;
+
+        const pillsEl = document.getElementById("cat-pills");
+        categories.forEach((cat) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "cat-pill" + (activeCategory === cat ? " active" : "");
+          btn.textContent = cat === "ALL" ? i18n.t("dash.all") : cat;
+          btn.addEventListener("click", () => {
+            activeCategory = cat;
+            renderToolsDashboard();
+          });
+          pillsEl.appendChild(btn);
+        });
+
+        const searchEl = document.getElementById("dash-search");
+        searchEl.addEventListener("input", () => {
+          searchQuery = searchEl.value;
+          renderToolCards(lang);
+        });
+
+        renderToolCards(lang);
+      }
+
+      function renderToolCards(lang) {
+        const grid = document.getElementById("tools-grid");
+        if (!grid) return;
+        grid.innerHTML = "";
+        const q = searchQuery.trim().toLowerCase();
+
+        const filtered = TOOLS.filter((tool) => {
+          if (activeCategory !== "ALL" && tool.tag !== activeCategory) return false;
+          if (!q) return true;
+          const loc = tool.i18n[lang] || tool.i18n.en;
+          return (
+            loc.name.toLowerCase().includes(q) ||
+            loc.desc.toLowerCase().includes(q) ||
+            tool.tag.toLowerCase().includes(q) ||
+            tool.folder.toLowerCase().includes(q)
+          );
+        });
+
+        if (filtered.length === 0) {
+          grid.innerHTML = `<p class="page-desc">${escapeHtml(i18n.t("dash.empty"))}</p>`;
+          return;
+        }
+
+        filtered.forEach((tool) => {
+          const loc = tool.i18n[lang] || tool.i18n.en;
+          const card = document.createElement("a");
+          card.href = getToolHref(tool);
+          card.className = "tool-card";
+          card.innerHTML = `
+            <div class="tool-card-top">
+              <span class="tool-icon">${escapeHtml(tool.icon)}</span>
+              <span class="tool-tag">${escapeHtml(tool.tag)}</span>
+            </div>
+            <h3>${escapeHtml(loc.name)}</h3>
+            <p>${escapeHtml(loc.desc)}</p>
+          `;
+          grid.appendChild(card);
+        });
+      }
+
+      async function loadPosts() {
+        if (blogPostsCache) return blogPostsCache;
+        try {
+          const res = await fetch("./posts.json", { cache: "no-store" });
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          const data = await res.json();
+          if (Array.isArray(data)) {
+            blogPostsCache = data;
+            return blogPostsCache;
+          }
+        } catch {}
+        return [];
+      }
+
+      function getPostLocale(post, lang) {
+        if (post.i18n) {
+          return post.i18n[lang] || post.i18n.en || Object.values(post.i18n)[0];
+        }
+        return { title: post.title || "", summary: post.summary || "", content: post.content || "" };
+      }
+
+      async function renderBlogList() {
+        const lang = i18n.getLang();
+        document.title = i18n.t("blog.title") + " — Mini Toolkit";
+        updateActiveTab("blog");
+        appEl.innerHTML = `<section class="view"><p class="page-desc">${escapeHtml(i18n.t("blog.loading"))}</p></section>`;
+        const posts = await loadPosts();
+
+        appEl.innerHTML = `
+          <section class="view">
+            <div class="page-header">
+              <h1 class="page-title">${escapeHtml(i18n.t("blog.title"))}</h1>
+              <p class="page-desc">${escapeHtml(i18n.t("blog.desc"))}</p>
+            </div>
+            <div class="blog-list" id="blog-list"></div>
+          </section>
+        `;
+
+        const listEl = document.getElementById("blog-list");
+        posts.forEach((post) => {
+          const loc = getPostLocale(post, lang);
+          const item = document.createElement("button");
+          item.type = "button";
+          item.className = "blog-item";
+          item.innerHTML = `
+            <div class="blog-meta">
+              <span>${escapeHtml(post.date)}</span>
+              <span>·</span>
+              <span>${escapeHtml(post.tag || "Guide")}</span>
+            </div>
+            <h3>${escapeHtml(loc.title)}</h3>
+            <p>${escapeHtml(loc.summary)}</p>
+          `;
+          item.addEventListener("click", () => navigate("#blog/" + post.id));
+          listEl.appendChild(item);
+        });
+      }
+
+      async function renderBlogDetail(postId) {
+        const lang = i18n.getLang();
+        updateActiveTab("blog");
+        const posts = await loadPosts();
+        const post = posts.find((p) => p.id === postId);
+        if (!post) {
+          renderBlogList();
+          return;
+        }
+        const loc = getPostLocale(post, lang);
+        document.title = loc.title + " — Mini Toolkit";
+
+        appEl.innerHTML = `
+          <section class="view">
+            <button class="back-btn" id="back-to-blog" type="button">${escapeHtml(i18n.t("blog.back"))}</button>
+            <article class="panel">
+              <div class="blog-meta">
+                <span>${escapeHtml(post.date)}</span>
+                <span>·</span>
+                <span>${escapeHtml(post.tag || "Guide")}</span>
+              </div>
+              <div class="markdown-body">${renderMarkdown(loc.content)}</div>
+            </article>
+          </section>
+        `;
+
+        document.getElementById("back-to-blog").addEventListener("click", () => navigate("#blog"));
+      }
+
+      function redirectToTool(toolId) {
+        const tool = TOOLS.find((t) => t.id === toolId || t.folder === toolId);
+        if (tool) {
+          window.location.replace(getToolHref(tool));
+          return;
+        }
+        renderToolsDashboard();
+      }
+
+      function renderRoute() {
+        const params = new URLSearchParams(window.location.search);
+        const queryTool = params.get("tool");
+        const queryPost = params.get("post");
+        const queryTab = params.get("tab");
+
+        if (queryTool) { redirectToTool(queryTool); return; }
+        if (queryPost) { renderBlogDetail(queryPost); return; }
+        if (queryTab === "blog") { renderBlogList(); return; }
+
+        const hash = window.location.hash || "#tools";
+        if (hash === "#blog") {
+          renderBlogList();
+        } else if (hash.startsWith("#blog/")) {
+          renderBlogDetail(hash.slice(6));
+        } else if (hash.startsWith("#tool/")) {
+          redirectToTool(hash.slice(6));
+        } else {
+          renderToolsDashboard();
+        }
+      }
+
+      navTabs.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          navigate(btn.dataset.tab === "blog" ? "#blog" : "#tools");
+        });
+      });
+
+      document.getElementById("brand-link").addEventListener("click", (e) => {
+        e.preventDefault();
+        navigate("#tools");
+      });
+
+      window.addEventListener("hashchange", renderRoute);
+      window.addEventListener("popstate", renderRoute);
+      window.addEventListener("mini-toolkit-lang-change", renderRoute);
+      renderRoute();
+    })();
+  </script>
+</body>
+</html>

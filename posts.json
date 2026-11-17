@@ -1,0 +1,1592 @@
+[
+  {
+    "id": "guide-barcode-generator",
+    "date": "2026-11-18",
+    "tag": "Generator",
+    "folder": "barcodeGen",
+    "i18n": {
+      "en": {
+        "title": "Barcode & QR Code Generator",
+        "summary": "Generate CODE128, EAN, UPC, and QR codes locally and save as PNG or SVG.",
+        "content": "# Barcode & QR Code Generator\n\n## Overview\n\nGenerate CODE128, EAN, UPC, and QR codes locally and save as PNG or SVG.\n\n## How to Use\n\n1. Open **[Barcode & QR Code Generator](./barcodeGen/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "条形码与二维码生成器",
+        "summary": "本地生成 CODE128、EAN、UPC 和二维码，支持导出 PNG 或 SVG。",
+        "content": "# 条形码与二维码生成器\n\n## 工具简介\n\n本地生成 CODE128、EAN、UPC 和二维码，支持导出 PNG 或 SVG。\n\n## 使用方法\n\n1. 在工具导航中打开 **[条形码与二维码生成器](./barcodeGen/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "बारकोड और QR कोड जनरेटर",
+        "summary": "CODE128, EAN, UPC और QR कोड बनाएं तथा PNG या SVG में सेव करें।",
+        "content": "# बारकोड और QR कोड जनरेटर\n\n## परिचय\n\nCODE128, EAN, UPC और QR कोड बनाएं तथा PNG या SVG में सेव करें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[बारकोड और QR कोड जनरेटर](./barcodeGen/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Generador de Códigos de Barras y QR",
+        "summary": "Genera códigos CODE128, EAN, UPC y QR localmente en PNG o SVG.",
+        "content": "# Generador de Códigos de Barras y QR\n\n## Descripción\n\nGenera códigos CODE128, EAN, UPC y QR localmente en PNG o SVG.\n\n## Cómo usar\n\n1. Abre **[Generador de Códigos de Barras y QR](./barcodeGen/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Générateur de Code-barres & QR",
+        "summary": "Générez des codes CODE128, EAN, UPC et QR en PNG ou SVG.",
+        "content": "# Générateur de Code-barres & QR\n\n## Présentation\n\nGénérez des codes CODE128, EAN, UPC et QR en PNG ou SVG.\n\n## Mode d'emploi\n\n1. Ouvrez **[Générateur de Code-barres & QR](./barcodeGen/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "바코드 / QR코드 생성기",
+        "summary": "CODE128, EAN, UPC, QR코드를 브라우저에서 바로 생성하고 PNG · SVG로 저장합니다.",
+        "content": "# 바코드 / QR코드 생성기\n\n## 툴 소개\n\nCODE128, EAN, UPC, QR코드를 브라우저에서 바로 생성하고 PNG · SVG로 저장합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[바코드 / QR코드 생성기](./barcodeGen/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "バーコード / QRコード生成器",
+        "summary": "CODE128、EAN、UPC、QRコードをブラウザで生成し、PNG・SVGで保存します。",
+        "content": "# バーコード / QRコード生成器\n\n## 概要\n\nCODE128、EAN、UPC、QRコードをブラウザで生成し、PNG・SVGで保存します。\n\n## 使い方\n\n1. ツール一覧から **[バーコード / QRコード生成器](./barcodeGen/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Gerador de Código de Barras e QR",
+        "summary": "Gere códigos CODE128, EAN, UPC e QR localmente e salve em PNG ou SVG.",
+        "content": "# Gerador de Código de Barras e QR\n\n## Visão Geral\n\nGere códigos CODE128, EAN, UPC e QR localmente e salve em PNG ou SVG.\n\n## Como Usar\n\n1. Abra **[Gerador de Código de Barras e QR](./barcodeGen/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Barcode- & QR-Code-Generator",
+        "summary": "Erstellen Sie CODE128-, EAN-, UPC- und QR-Codes lokal als PNG oder SVG.",
+        "content": "# Barcode- & QR-Code-Generator\n\n## Überblick\n\nErstellen Sie CODE128-, EAN-, UPC- und QR-Codes lokal als PNG oder SVG.\n\n## Anleitung\n\n1. Öffnen Sie **[Barcode- & QR-Code-Generator](./barcodeGen/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-image-to-pdf",
+    "date": "2026-11-18",
+    "tag": "Converter",
+    "folder": "imageToPdf",
+    "i18n": {
+      "en": {
+        "title": "Image to PDF Converter",
+        "summary": "Combine PNG, JPG, and WebP images into a single downloadable PDF locally.",
+        "content": "# Image to PDF Converter\n\n## Overview\n\nCombine PNG, JPG, and WebP images into a single downloadable PDF locally.\n\n## How to Use\n\n1. Open **[Image to PDF Converter](./imageToPdf/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "图片转 PDF 工具",
+        "summary": "将多张 PNG、JPG、WebP 图片在本地合并为一个 PDF 文件下载。",
+        "content": "# 图片转 PDF 工具\n\n## 工具简介\n\n将多张 PNG、JPG、WebP 图片在本地合并为一个 PDF 文件下载。\n\n## 使用方法\n\n1. 在工具导航中打开 **[图片转 PDF 工具](./imageToPdf/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "इमेज से PDF कन्वर्टर",
+        "summary": "PNG, JPG और WebP इमेज को सीधे ब्राउज़र में एक PDF में बदलें।",
+        "content": "# इमेज से PDF कन्वर्टर\n\n## परिचय\n\nPNG, JPG और WebP इमेज को सीधे ब्राउज़र में एक PDF में बदलें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[इमेज से PDF कन्वर्टर](./imageToPdf/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Conversor de Imagen a PDF",
+        "summary": "Combina imágenes PNG, JPG y WebP en un solo PDF sin subirlas.",
+        "content": "# Conversor de Imagen a PDF\n\n## Descripción\n\nCombina imágenes PNG, JPG y WebP en un solo PDF sin subirlas.\n\n## Cómo usar\n\n1. Abre **[Conversor de Imagen a PDF](./imageToPdf/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Convertisseur Image vers PDF",
+        "summary": "Fusionnez des images PNG, JPG et WebP en un seul PDF localement.",
+        "content": "# Convertisseur Image vers PDF\n\n## Présentation\n\nFusionnez des images PNG, JPG et WebP en un seul PDF localement.\n\n## Mode d'emploi\n\n1. Ouvrez **[Convertisseur Image vers PDF](./imageToPdf/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "이미지 → PDF 변환기",
+        "summary": "PNG, JPG, WebP 등 여러 이미지를 서버 전송 없이 하나의 PDF로 변환합니다.",
+        "content": "# 이미지 → PDF 변환기\n\n## 툴 소개\n\nPNG, JPG, WebP 등 여러 이미지를 서버 전송 없이 하나의 PDF로 변환합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[이미지 → PDF 변환기](./imageToPdf/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "画像 → PDF 変換ツール",
+        "summary": "複数のPNG、JPG、WebP画像をサーバー送信なしで1つのPDFに変換します。",
+        "content": "# 画像 → PDF 変換ツール\n\n## 概要\n\n複数のPNG、JPG、WebP画像をサーバー送信なしで1つのPDFに変換します。\n\n## 使い方\n\n1. ツール一覧から **[画像 → PDF 変換ツール](./imageToPdf/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Conversor de Imagem para PDF",
+        "summary": "Combine imagens PNG, JPG e WebP em um único PDF localmente.",
+        "content": "# Conversor de Imagem para PDF\n\n## Visão Geral\n\nCombine imagens PNG, JPG e WebP em um único PDF localmente.\n\n## Como Usar\n\n1. Abra **[Conversor de Imagem para PDF](./imageToPdf/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Bild-zu-PDF-Konverter",
+        "summary": "Kombinieren Sie PNG-, JPG- und WebP-Bilder lokal zu einer PDF-Datei.",
+        "content": "# Bild-zu-PDF-Konverter\n\n## Überblick\n\nKombinieren Sie PNG-, JPG- und WebP-Bilder lokal zu einer PDF-Datei.\n\n## Anleitung\n\n1. Öffnen Sie **[Bild-zu-PDF-Konverter](./imageToPdf/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-json-formatter",
+    "date": "2026-11-18",
+    "tag": "Developer",
+    "folder": "jsonFormatter",
+    "i18n": {
+      "en": {
+        "title": "JSON Formatter & Validator",
+        "summary": "Pretty-print, minify, and validate JSON syntax instantly in your browser.",
+        "content": "# JSON Formatter & Validator\n\n## Overview\n\nPretty-print, minify, and validate JSON syntax instantly in your browser.\n\n## How to Use\n\n1. Open **[JSON Formatter & Validator](./jsonFormatter/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "JSON 格式化与校验器",
+        "summary": "在浏览器中即时美化、压缩并校验 JSON 语法错误。",
+        "content": "# JSON 格式化与校验器\n\n## 工具简介\n\n在浏览器中即时美化、压缩并校验 JSON 语法错误。\n\n## 使用方法\n\n1. 在工具导航中打开 **[JSON 格式化与校验器](./jsonFormatter/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "JSON फॉर्मेटर और वैलिडेटर",
+        "summary": "JSON को सुंदर फॉर्मेट करें, मिनीफाई करें और सिंटैक्स जांचें।",
+        "content": "# JSON फॉर्मेटर और वैलिडेटर\n\n## परिचय\n\nJSON को सुंदर फॉर्मेट करें, मिनीफाई करें और सिंटैक्स जांचें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[JSON फॉर्मेटर और वैलिडेटर](./jsonFormatter/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Formateador y Validador JSON",
+        "summary": "Formatea, minifica y valida la sintaxis JSON al instante.",
+        "content": "# Formateador y Validador JSON\n\n## Descripción\n\nFormatea, minifica y valida la sintaxis JSON al instante.\n\n## Cómo usar\n\n1. Abre **[Formateador y Validador JSON](./jsonFormatter/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Formateur & Validateur JSON",
+        "summary": "Formatez, minifiez et validez votre syntaxe JSON instantanément.",
+        "content": "# Formateur & Validateur JSON\n\n## Présentation\n\nFormatez, minifiez et validez votre syntaxe JSON instantanément.\n\n## Mode d'emploi\n\n1. Ouvrez **[Formateur & Validateur JSON](./jsonFormatter/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "JSON 포맷터",
+        "summary": "JSON 문자열을 보기 좋게 정렬하거나 압축하고 문법 오류를 검사합니다.",
+        "content": "# JSON 포맷터\n\n## 툴 소개\n\nJSON 문자열을 보기 좋게 정렬하거나 압축하고 문법 오류를 검사합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[JSON 포맷터](./jsonFormatter/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "JSON 整形・検証ツール",
+        "summary": "JSON文字列を整形・圧縮し、構文エラーを即座にチェックします。",
+        "content": "# JSON 整形・検証ツール\n\n## 概要\n\nJSON文字列を整形・圧縮し、構文エラーを即座にチェックします。\n\n## 使い方\n\n1. ツール一覧から **[JSON 整形・検証ツール](./jsonFormatter/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Formatador e Validador JSON",
+        "summary": "Formate, minifique e valide a sintaxe JSON instantaneamente.",
+        "content": "# Formatador e Validador JSON\n\n## Visão Geral\n\nFormate, minifique e valide a sintaxe JSON instantaneamente.\n\n## Como Usar\n\n1. Abra **[Formatador e Validador JSON](./jsonFormatter/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "JSON-Formatierer & Validator",
+        "summary": "Formatieren, minifizieren und validieren Sie JSON-Syntax sofort.",
+        "content": "# JSON-Formatierer & Validator\n\n## Überblick\n\nFormatieren, minifizieren und validieren Sie JSON-Syntax sofort.\n\n## Anleitung\n\n1. Öffnen Sie **[JSON-Formatierer & Validator](./jsonFormatter/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-base64-converter",
+    "date": "2026-11-18",
+    "tag": "Encoding",
+    "folder": "base64Converter",
+    "i18n": {
+      "en": {
+        "title": "Base64 Encoder / Decoder",
+        "summary": "Encode and decode UTF-8 text to and from Base64 strings safely.",
+        "content": "# Base64 Encoder / Decoder\n\n## Overview\n\nEncode and decode UTF-8 text to and from Base64 strings safely.\n\n## How to Use\n\n1. Open **[Base64 Encoder / Decoder](./base64Converter/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "Base64 编码 / 解码器",
+        "summary": "支持 UTF-8 多语言文本与 Base64 字符串的双向安全转换。",
+        "content": "# Base64 编码 / 解码器\n\n## 工具简介\n\n支持 UTF-8 多语言文本与 Base64 字符串的双向安全转换。\n\n## 使用方法\n\n1. 在工具导航中打开 **[Base64 编码 / 解码器](./base64Converter/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "Base64 एनकोडर / डिकोडर",
+        "summary": "UTF-8 टेक्स्ट को Base64 में सुरक्षित रूप से एनकोड और डिकोड करें।",
+        "content": "# Base64 एनकोडर / डिकोडर\n\n## परिचय\n\nUTF-8 टेक्स्ट को Base64 में सुरक्षित रूप से एनकोड और डिकोड करें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[Base64 एनकोडर / डिकोडर](./base64Converter/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Codificador / Decodificador Base64",
+        "summary": "Codifica y decodifica texto UTF-8 a Base64 de forma segura.",
+        "content": "# Codificador / Decodificador Base64\n\n## Descripción\n\nCodifica y decodifica texto UTF-8 a Base64 de forma segura.\n\n## Cómo usar\n\n1. Abre **[Codificador / Decodificador Base64](./base64Converter/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Encodeur / Décodeur Base64",
+        "summary": "Encodez et décodez du texte UTF-8 vers Base64 en toute sécurité.",
+        "content": "# Encodeur / Décodeur Base64\n\n## Présentation\n\nEncodez et décodez du texte UTF-8 vers Base64 en toute sécurité.\n\n## Mode d'emploi\n\n1. Ouvrez **[Encodeur / Décodeur Base64](./base64Converter/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "Base64 인코더 / 디코더",
+        "summary": "한글(UTF-8)을 포함한 텍스트를 Base64로 안전하게 변환합니다.",
+        "content": "# Base64 인코더 / 디코더\n\n## 툴 소개\n\n한글(UTF-8)을 포함한 텍스트를 Base64로 안전하게 변환합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[Base64 인코더 / 디코더](./base64Converter/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "Base64 エンコーダー / デコーダー",
+        "summary": "UTF-8テキストとBase64文字列を安全に相互変換します。",
+        "content": "# Base64 エンコーダー / デコーダー\n\n## 概要\n\nUTF-8テキストとBase64文字列を安全に相互変換します。\n\n## 使い方\n\n1. ツール一覧から **[Base64 エンコーダー / デコーダー](./base64Converter/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Codificador / Decodificador Base64",
+        "summary": "Codifique e decodifique texto UTF-8 para Base64 com segurança.",
+        "content": "# Codificador / Decodificador Base64\n\n## Visão Geral\n\nCodifique e decodifique texto UTF-8 para Base64 com segurança.\n\n## Como Usar\n\n1. Abra **[Codificador / Decodificador Base64](./base64Converter/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Base64-Encoder / -Decoder",
+        "summary": "Kodieren und dekodieren Sie UTF-8-Text sicher in Base64.",
+        "content": "# Base64-Encoder / -Decoder\n\n## Überblick\n\nKodieren und dekodieren Sie UTF-8-Text sicher in Base64.\n\n## Anleitung\n\n1. Öffnen Sie **[Base64-Encoder / -Decoder](./base64Converter/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-text-counter",
+    "date": "2026-11-18",
+    "tag": "Text",
+    "folder": "textCounter",
+    "i18n": {
+      "en": {
+        "title": "Word, Character & Byte Counter",
+        "summary": "Count characters with/without spaces, words, and UTF-8 bytes in real time.",
+        "content": "# Word, Character & Byte Counter\n\n## Overview\n\nCount characters with/without spaces, words, and UTF-8 bytes in real time.\n\n## How to Use\n\n1. Open **[Word, Character & Byte Counter](./textCounter/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "字数与字节统计器",
+        "summary": "实时统计含/不含空格字符数、单词数及 UTF-8 字节大小。",
+        "content": "# 字数与字节统计器\n\n## 工具简介\n\n实时统计含/不含空格字符数、单词数及 UTF-8 字节大小。\n\n## 使用方法\n\n1. 在工具导航中打开 **[字数与字节统计器](./textCounter/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "शब्द, अक्षर और बाइट काउंटर",
+        "summary": "स्पेस सहित/रहित अक्षर, शब्द और UTF-8 बाइट्स रीयल-टाइम गिनें।",
+        "content": "# शब्द, अक्षर और बाइट काउंटर\n\n## परिचय\n\nस्पेस सहित/रहित अक्षर, शब्द और UTF-8 बाइट्स रीयल-टाइम गिनें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[शब्द, अक्षर और बाइट काउंटर](./textCounter/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Contador de Palabras y Caracteres",
+        "summary": "Cuenta caracteres, palabras y bytes UTF-8 en tiempo real.",
+        "content": "# Contador de Palabras y Caracteres\n\n## Descripción\n\nCuenta caracteres, palabras y bytes UTF-8 en tiempo real.\n\n## Cómo usar\n\n1. Abre **[Contador de Palabras y Caracteres](./textCounter/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Compteur de Mots & Caractères",
+        "summary": "Comptez caractères, mots et octets UTF-8 en temps réel.",
+        "content": "# Compteur de Mots & Caractères\n\n## Présentation\n\nComptez caractères, mots et octets UTF-8 en temps réel.\n\n## Mode d'emploi\n\n1. Ouvrez **[Compteur de Mots & Caractères](./textCounter/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "글자수 & 바이트 계산기",
+        "summary": "공백 포함/제외 글자수, 단어 수, UTF-8 바이트를 실시간으로 확인합니다.",
+        "content": "# 글자수 & 바이트 계산기\n\n## 툴 소개\n\n공백 포함/제외 글자수, 단어 수, UTF-8 바이트를 실시간으로 확인합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[글자수 & 바이트 계산기](./textCounter/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "文字数・バイト数カウンター",
+        "summary": "空白あり/なしの文字数、単語数、UTF-8バイト数をリアルタイム計算します。",
+        "content": "# 文字数・バイト数カウンター\n\n## 概要\n\n空白あり/なしの文字数、単語数、UTF-8バイト数をリアルタイム計算します。\n\n## 使い方\n\n1. ツール一覧から **[文字数・バイト数カウンター](./textCounter/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Contador de Palavras e Caracteres",
+        "summary": "Conte caracteres, palavras e bytes UTF-8 em tempo real.",
+        "content": "# Contador de Palavras e Caracteres\n\n## Visão Geral\n\nConte caracteres, palavras e bytes UTF-8 em tempo real.\n\n## Como Usar\n\n1. Abra **[Contador de Palavras e Caracteres](./textCounter/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Wort-, Zeichen- & Byte-Zähler",
+        "summary": "Zählen Sie Zeichen, Wörter und UTF-8-Bytes in Echtzeit.",
+        "content": "# Wort-, Zeichen- & Byte-Zähler\n\n## Überblick\n\nZählen Sie Zeichen, Wörter und UTF-8-Bytes in Echtzeit.\n\n## Anleitung\n\n1. Öffnen Sie **[Wort-, Zeichen- & Byte-Zähler](./textCounter/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-url-encoder",
+    "date": "2026-11-18",
+    "tag": "Encoding",
+    "folder": "urlEncoder",
+    "i18n": {
+      "en": {
+        "title": "URL Encoder / Decoder",
+        "summary": "Percent-encode or decode URLs and query parameters cleanly.",
+        "content": "# URL Encoder / Decoder\n\n## Overview\n\nPercent-encode or decode URLs and query parameters cleanly.\n\n## How to Use\n\n1. Open **[URL Encoder / Decoder](./urlEncoder/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "URL 编码 / 解码器",
+        "summary": "对网址和查询参数进行标准的百分号编码与解码。",
+        "content": "# URL 编码 / 解码器\n\n## 工具简介\n\n对网址和查询参数进行标准的百分号编码与解码。\n\n## 使用方法\n\n1. 在工具导航中打开 **[URL 编码 / 解码器](./urlEncoder/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "URL एनकोडर / डिकोडर",
+        "summary": "URL और क्वेरी पैरामीटर को आसानी से एनकोड और डिकोड करें।",
+        "content": "# URL एनकोडर / डिकोडर\n\n## परिचय\n\nURL और क्वेरी पैरामीटर को आसानी से एनकोड और डिकोड करें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[URL एनकोडर / डिकोडर](./urlEncoder/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Codificador / Decodificador URL",
+        "summary": "Codifica y decodifica URLs y parámetros de consulta fácilmente.",
+        "content": "# Codificador / Decodificador URL\n\n## Descripción\n\nCodifica y decodifica URLs y parámetros de consulta fácilmente.\n\n## Cómo usar\n\n1. Abre **[Codificador / Decodificador URL](./urlEncoder/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Encodeur / Décodeur URL",
+        "summary": "Encodez et décodez proprement vos URLs et paramètres.",
+        "content": "# Encodeur / Décodeur URL\n\n## Présentation\n\nEncodez et décodez proprement vos URLs et paramètres.\n\n## Mode d'emploi\n\n1. Ouvrez **[Encodeur / Décodeur URL](./urlEncoder/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "URL 인코더 / 디코더",
+        "summary": "URL과 쿼리 파라미터를 안전하게 퍼센트 인코딩/디코딩합니다.",
+        "content": "# URL 인코더 / 디코더\n\n## 툴 소개\n\nURL과 쿼리 파라미터를 안전하게 퍼센트 인코딩/디코딩합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[URL 인코더 / 디코더](./urlEncoder/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "URL エンコーダー / デコーダー",
+        "summary": "URLやクエリパラメータを安全にパーセントエンコード・デコードします。",
+        "content": "# URL エンコーダー / デコーダー\n\n## 概要\n\nURLやクエリパラメータを安全にパーセントエンコード・デコードします。\n\n## 使い方\n\n1. ツール一覧から **[URL エンコーダー / デコーダー](./urlEncoder/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Codificador / Decodificador URL",
+        "summary": "Codifique e decodifique URLs e parâmetros de consulta facilmente.",
+        "content": "# Codificador / Decodificador URL\n\n## Visão Geral\n\nCodifique e decodifique URLs e parâmetros de consulta facilmente.\n\n## Como Usar\n\n1. Abra **[Codificador / Decodificador URL](./urlEncoder/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "URL-Encoder / -Decoder",
+        "summary": "Kodieren und dekodieren Sie URLs und Abfrageparameter sauber.",
+        "content": "# URL-Encoder / -Decoder\n\n## Überblick\n\nKodieren und dekodieren Sie URLs und Abfrageparameter sauber.\n\n## Anleitung\n\n1. Öffnen Sie **[URL-Encoder / -Decoder](./urlEncoder/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-uuid-generator",
+    "date": "2026-11-18",
+    "tag": "Generator",
+    "folder": "uuidGenerator",
+    "i18n": {
+      "en": {
+        "title": "UUID v4 Generator",
+        "summary": "Generate cryptographically random UUID v4 identifiers in bulk.",
+        "content": "# UUID v4 Generator\n\n## Overview\n\nGenerate cryptographically random UUID v4 identifiers in bulk.\n\n## How to Use\n\n1. Open **[UUID v4 Generator](./uuidGenerator/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "UUID v4 生成器",
+        "summary": "批量生成基于加密随机数的标准 UUID v4 唯一标识符。",
+        "content": "# UUID v4 生成器\n\n## 工具简介\n\n批量生成基于加密随机数的标准 UUID v4 唯一标识符。\n\n## 使用方法\n\n1. 在工具导航中打开 **[UUID v4 生成器](./uuidGenerator/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "UUID v4 जनरेटर",
+        "summary": "एक साथ कई क्रिप्टोग्राफ़िक रूप से रैंडम UUID v4 जनरेट करें।",
+        "content": "# UUID v4 जनरेटर\n\n## परिचय\n\nएक साथ कई क्रिप्टोग्राफ़िक रूप से रैंडम UUID v4 जनरेट करें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[UUID v4 जनरेटर](./uuidGenerator/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Generador de UUID v4",
+        "summary": "Genera identificadores UUID v4 aleatorios de forma masiva.",
+        "content": "# Generador de UUID v4\n\n## Descripción\n\nGenera identificadores UUID v4 aleatorios de forma masiva.\n\n## Cómo usar\n\n1. Abre **[Generador de UUID v4](./uuidGenerator/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Générateur d'UUID v4",
+        "summary": "Générez en masse des identifiants UUID v4 aléatoires.",
+        "content": "# Générateur d'UUID v4\n\n## Présentation\n\nGénérez en masse des identifiants UUID v4 aléatoires.\n\n## Mode d'emploi\n\n1. Ouvrez **[Générateur d'UUID v4](./uuidGenerator/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "UUID v4 생성기",
+        "summary": "암호학적으로 안전한 랜덤 UUID v4 식별자를 대량 생성합니다.",
+        "content": "# UUID v4 생성기\n\n## 툴 소개\n\n암호학적으로 안전한 랜덤 UUID v4 식별자를 대량 생성합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[UUID v4 생성기](./uuidGenerator/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "UUID v4 生成ツール",
+        "summary": "暗号論的に安全なランダムUUID v4を一括生成します。",
+        "content": "# UUID v4 生成ツール\n\n## 概要\n\n暗号論的に安全なランダムUUID v4を一括生成します。\n\n## 使い方\n\n1. ツール一覧から **[UUID v4 生成ツール](./uuidGenerator/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Gerador de UUID v4",
+        "summary": "Gere identificadores UUID v4 aleatórios em lote.",
+        "content": "# Gerador de UUID v4\n\n## Visão Geral\n\nGere identificadores UUID v4 aleatórios em lote.\n\n## Como Usar\n\n1. Abra **[Gerador de UUID v4](./uuidGenerator/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "UUID-v4-Generator",
+        "summary": "Generieren Sie kryptografisch zufällige UUID-v4-IDs in großen Mengen.",
+        "content": "# UUID-v4-Generator\n\n## Überblick\n\nGenerieren Sie kryptografisch zufällige UUID-v4-IDs in großen Mengen.\n\n## Anleitung\n\n1. Öffnen Sie **[UUID-v4-Generator](./uuidGenerator/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-password-generator",
+    "date": "2026-11-18",
+    "tag": "Security",
+    "folder": "passwordGenerator",
+    "i18n": {
+      "en": {
+        "title": "Strong Password Generator",
+        "summary": "Create secure random passwords with custom length and character sets.",
+        "content": "# Strong Password Generator\n\n## Overview\n\nCreate secure random passwords with custom length and character sets.\n\n## How to Use\n\n1. Open **[Strong Password Generator](./passwordGenerator/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "强密码生成器",
+        "summary": "自定义长度与字符集，快速生成高强度随机密码。",
+        "content": "# 强密码生成器\n\n## 工具简介\n\n自定义长度与字符集，快速生成高强度随机密码。\n\n## 使用方法\n\n1. 在工具导航中打开 **[强密码生成器](./passwordGenerator/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "मजबूत पासवर्ड जनरेटर",
+        "summary": "कस्टम लंबाई और अक्षरों के साथ सुरक्षित रैंडम पासवर्ड बनाएं।",
+        "content": "# मजबूत पासवर्ड जनरेटर\n\n## परिचय\n\nकस्टम लंबाई और अक्षरों के साथ सुरक्षित रैंडम पासवर्ड बनाएं।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[मजबूत पासवर्ड जनरेटर](./passwordGenerator/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Generador de Contraseñas",
+        "summary": "Crea contraseñas seguras con longitud y símbolos personalizados.",
+        "content": "# Generador de Contraseñas\n\n## Descripción\n\nCrea contraseñas seguras con longitud y símbolos personalizados.\n\n## Cómo usar\n\n1. Abre **[Generador de Contraseñas](./passwordGenerator/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Générateur de Mots de Passe",
+        "summary": "Créez des mots de passe robustes avec options personnalisées.",
+        "content": "# Générateur de Mots de Passe\n\n## Présentation\n\nCréez des mots de passe robustes avec options personnalisées.\n\n## Mode d'emploi\n\n1. Ouvrez **[Générateur de Mots de Passe](./passwordGenerator/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "강력한 비밀번호 생성기",
+        "summary": "길이와 문자 조합을 지정해 안전한 랜덤 비밀번호를 생성합니다.",
+        "content": "# 강력한 비밀번호 생성기\n\n## 툴 소개\n\n길이와 문자 조합을 지정해 안전한 랜덤 비밀번호를 생성합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[강력한 비밀번호 생성기](./passwordGenerator/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "強力パスワード生成ツール",
+        "summary": "文字数や文字種を指定して安全なランダムパスワードを生成します。",
+        "content": "# 強力パスワード生成ツール\n\n## 概要\n\n文字数や文字種を指定して安全なランダムパスワードを生成します。\n\n## 使い方\n\n1. ツール一覧から **[強力パスワード生成ツール](./passwordGenerator/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Gerador de Senhas Fortes",
+        "summary": "Crie senhas aleatórias seguras com tamanho e símbolos personalizados.",
+        "content": "# Gerador de Senhas Fortes\n\n## Visão Geral\n\nCrie senhas aleatórias seguras com tamanho e símbolos personalizados.\n\n## Como Usar\n\n1. Abra **[Gerador de Senhas Fortes](./passwordGenerator/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Passwort-Generator",
+        "summary": "Erstellen Sie sichere Zufallspasswörter mit individueller Länge.",
+        "content": "# Passwort-Generator\n\n## Überblick\n\nErstellen Sie sichere Zufallspasswörter mit individueller Länge.\n\n## Anleitung\n\n1. Öffnen Sie **[Passwort-Generator](./passwordGenerator/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-hash-generator",
+    "date": "2026-11-18",
+    "tag": "Security",
+    "folder": "hashGenerator",
+    "i18n": {
+      "en": {
+        "title": "SHA Hash Generator",
+        "summary": "Compute SHA-1, SHA-256, SHA-384, and SHA-512 hashes locally.",
+        "content": "# SHA Hash Generator\n\n## Overview\n\nCompute SHA-1, SHA-256, SHA-384, and SHA-512 hashes locally.\n\n## How to Use\n\n1. Open **[SHA Hash Generator](./hashGenerator/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "SHA 哈希生成器",
+        "summary": "使用浏览器 Web Crypto API 本地计算 SHA-1/256/384/512 摘要。",
+        "content": "# SHA 哈希生成器\n\n## 工具简介\n\n使用浏览器 Web Crypto API 本地计算 SHA-1/256/384/512 摘要。\n\n## 使用方法\n\n1. 在工具导航中打开 **[SHA 哈希生成器](./hashGenerator/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "SHA हैश जनरेटर",
+        "summary": "ब्राउज़र में SHA-1, SHA-256, SHA-384 और SHA-512 हैश निकालें।",
+        "content": "# SHA हैश जनरेटर\n\n## परिचय\n\nब्राउज़र में SHA-1, SHA-256, SHA-384 और SHA-512 हैश निकालें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[SHA हैश जनरेटर](./hashGenerator/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Generador de Hash SHA",
+        "summary": "Calcula hashes SHA-1, SHA-256, SHA-384 y SHA-512 localmente.",
+        "content": "# Generador de Hash SHA\n\n## Descripción\n\nCalcula hashes SHA-1, SHA-256, SHA-384 y SHA-512 localmente.\n\n## Cómo usar\n\n1. Abre **[Generador de Hash SHA](./hashGenerator/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Générateur de Hash SHA",
+        "summary": "Calculez des empreintes SHA-1, SHA-256, SHA-384 et SHA-512.",
+        "content": "# Générateur de Hash SHA\n\n## Présentation\n\nCalculez des empreintes SHA-1, SHA-256, SHA-384 et SHA-512.\n\n## Mode d'emploi\n\n1. Ouvrez **[Générateur de Hash SHA](./hashGenerator/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "SHA 해시 생성기",
+        "summary": "Web Crypto API로 SHA-1, SHA-256, SHA-384, SHA-512 해시를 계산합니다.",
+        "content": "# SHA 해시 생성기\n\n## 툴 소개\n\nWeb Crypto API로 SHA-1, SHA-256, SHA-384, SHA-512 해시를 계산합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[SHA 해시 생성기](./hashGenerator/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "SHA ハッシュ生成ツール",
+        "summary": "ブラウザ上でSHA-1、SHA-256、SHA-384、SHA-512ハッシュを計算します。",
+        "content": "# SHA ハッシュ生成ツール\n\n## 概要\n\nブラウザ上でSHA-1、SHA-256、SHA-384、SHA-512ハッシュを計算します。\n\n## 使い方\n\n1. ツール一覧から **[SHA ハッシュ生成ツール](./hashGenerator/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Gerador de Hash SHA",
+        "summary": "Calcule hashes SHA-1, SHA-256, SHA-384 e SHA-512 localmente.",
+        "content": "# Gerador de Hash SHA\n\n## Visão Geral\n\nCalcule hashes SHA-1, SHA-256, SHA-384 e SHA-512 localmente.\n\n## Como Usar\n\n1. Abra **[Gerador de Hash SHA](./hashGenerator/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "SHA-Hash-Generator",
+        "summary": "Berechnen Sie SHA-1-, SHA-256-, SHA-384- und SHA-512-Hashes lokal.",
+        "content": "# SHA-Hash-Generator\n\n## Überblick\n\nBerechnen Sie SHA-1-, SHA-256-, SHA-384- und SHA-512-Hashes lokal.\n\n## Anleitung\n\n1. Öffnen Sie **[SHA-Hash-Generator](./hashGenerator/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-timestamp-converter",
+    "date": "2026-11-18",
+    "tag": "Developer",
+    "folder": "timestampConverter",
+    "i18n": {
+      "en": {
+        "title": "Unix Timestamp Converter",
+        "summary": "Convert Unix timestamps (seconds/ms) to readable UTC and local dates.",
+        "content": "# Unix Timestamp Converter\n\n## Overview\n\nConvert Unix timestamps (seconds/ms) to readable UTC and local dates.\n\n## How to Use\n\n1. Open **[Unix Timestamp Converter](./timestampConverter/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "Unix 时间戳转换器",
+        "summary": "在 Unix 时间戳（秒/毫秒）与 UTC/本地日期时间之间互相转换。",
+        "content": "# Unix 时间戳转换器\n\n## 工具简介\n\n在 Unix 时间戳（秒/毫秒）与 UTC/本地日期时间之间互相转换。\n\n## 使用方法\n\n1. 在工具导航中打开 **[Unix 时间戳转换器](./timestampConverter/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "Unix टाइमस्टैम्प कन्वर्टर",
+        "summary": "Unix टाइमस्टैम्प (सेकंड/मि.से.) को UTC और स्थानीय समय में बदलें।",
+        "content": "# Unix टाइमस्टैम्प कन्वर्टर\n\n## परिचय\n\nUnix टाइमस्टैम्प (सेकंड/मि.से.) को UTC और स्थानीय समय में बदलें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[Unix टाइमस्टैम्प कन्वर्टर](./timestampConverter/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Conversor de Timestamp Unix",
+        "summary": "Convierte marcas de tiempo Unix a fechas UTC y locales.",
+        "content": "# Conversor de Timestamp Unix\n\n## Descripción\n\nConvierte marcas de tiempo Unix a fechas UTC y locales.\n\n## Cómo usar\n\n1. Abre **[Conversor de Timestamp Unix](./timestampConverter/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Convertisseur Timestamp Unix",
+        "summary": "Convertissez les timestamps Unix en dates UTC et locales.",
+        "content": "# Convertisseur Timestamp Unix\n\n## Présentation\n\nConvertissez les timestamps Unix en dates UTC et locales.\n\n## Mode d'emploi\n\n1. Ouvrez **[Convertisseur Timestamp Unix](./timestampConverter/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "Unix 타임스탬프 변환기",
+        "summary": "Unix 타임스탬프(초/밀리초)와 날짜/시간을 상호 변환합니다.",
+        "content": "# Unix 타임스탬프 변환기\n\n## 툴 소개\n\nUnix 타임스탬프(초/밀리초)와 날짜/시간을 상호 변환합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[Unix 타임스탬프 변환기](./timestampConverter/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "Unix タイムスタンプ変換",
+        "summary": "Unixタイムスタンプ（秒/ミリ秒）とUTC・ローカル日時を相互変換します。",
+        "content": "# Unix タイムスタンプ変換\n\n## 概要\n\nUnixタイムスタンプ（秒/ミリ秒）とUTC・ローカル日時を相互変換します。\n\n## 使い方\n\n1. ツール一覧から **[Unix タイムスタンプ変換](./timestampConverter/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Conversor de Timestamp Unix",
+        "summary": "Converta timestamps Unix para datas UTC e locais legíveis.",
+        "content": "# Conversor de Timestamp Unix\n\n## Visão Geral\n\nConverta timestamps Unix para datas UTC e locais legíveis.\n\n## Como Usar\n\n1. Abra **[Conversor de Timestamp Unix](./timestampConverter/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Unix-Zeitstempel-Konverter",
+        "summary": "Wandeln Sie Unix-Zeitstempel in UTC- und Lokalzeiten um.",
+        "content": "# Unix-Zeitstempel-Konverter\n\n## Überblick\n\nWandeln Sie Unix-Zeitstempel in UTC- und Lokalzeiten um.\n\n## Anleitung\n\n1. Öffnen Sie **[Unix-Zeitstempel-Konverter](./timestampConverter/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-color-converter",
+    "date": "2026-11-18",
+    "tag": "Design",
+    "folder": "colorConverter",
+    "i18n": {
+      "en": {
+        "title": "Color Converter & Picker",
+        "summary": "Pick colors and convert between HEX, RGB, and HSL with live preview.",
+        "content": "# Color Converter & Picker\n\n## Overview\n\nPick colors and convert between HEX, RGB, and HSL with live preview.\n\n## How to Use\n\n1. Open **[Color Converter & Picker](./colorConverter/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "颜色代码转换器",
+        "summary": "支持取色器及 HEX、RGB、HSL 颜色格式实时互转与预览。",
+        "content": "# 颜色代码转换器\n\n## 工具简介\n\n支持取色器及 HEX、RGB、HSL 颜色格式实时互转与预览。\n\n## 使用方法\n\n1. 在工具导航中打开 **[颜色代码转换器](./colorConverter/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "कलर कन्वर्टर और पिकर",
+        "summary": "रंग चुनें और HEX, RGB व HSL के बीच तुरंत कन्वर्ट करें।",
+        "content": "# कलर कन्वर्टर और पिकर\n\n## परिचय\n\nरंग चुनें और HEX, RGB व HSL के बीच तुरंत कन्वर्ट करें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[कलर कन्वर्टर और पिकर](./colorConverter/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Conversor y Selector de Color",
+        "summary": "Convierte entre HEX, RGB y HSL con vista previa en vivo.",
+        "content": "# Conversor y Selector de Color\n\n## Descripción\n\nConvierte entre HEX, RGB y HSL con vista previa en vivo.\n\n## Cómo usar\n\n1. Abre **[Conversor y Selector de Color](./colorConverter/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Convertisseur de Couleurs",
+        "summary": "Convertissez entre HEX, RGB et HSL avec aperçu en direct.",
+        "content": "# Convertisseur de Couleurs\n\n## Présentation\n\nConvertissez entre HEX, RGB et HSL avec aperçu en direct.\n\n## Mode d'emploi\n\n1. Ouvrez **[Convertisseur de Couleurs](./colorConverter/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "색상 코드 변환기",
+        "summary": "HEX, RGB, HSL 색상 코드를 실시간으로 변환하고 미리봅니다.",
+        "content": "# 색상 코드 변환기\n\n## 툴 소개\n\nHEX, RGB, HSL 색상 코드를 실시간으로 변환하고 미리봅니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[색상 코드 변환기](./colorConverter/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "カラーコード変換 & ピッカー",
+        "summary": "HEX、RGB、HSLカラーコードをリアルタイムに変換・プレビューします。",
+        "content": "# カラーコード変換 & ピッカー\n\n## 概要\n\nHEX、RGB、HSLカラーコードをリアルタイムに変換・プレビューします。\n\n## 使い方\n\n1. ツール一覧から **[カラーコード変換 & ピッカー](./colorConverter/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Conversor e Seletor de Cores",
+        "summary": "Converta entre HEX, RGB e HSL com pré-visualização ao vivo.",
+        "content": "# Conversor e Seletor de Cores\n\n## Visão Geral\n\nConverta entre HEX, RGB e HSL com pré-visualização ao vivo.\n\n## Como Usar\n\n1. Abra **[Conversor e Seletor de Cores](./colorConverter/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Farbkonverter & -Wähler",
+        "summary": "Konvertieren Sie HEX, RGB und HSL mit Live-Vorschau.",
+        "content": "# Farbkonverter & -Wähler\n\n## Überblick\n\nKonvertieren Sie HEX, RGB und HSL mit Live-Vorschau.\n\n## Anleitung\n\n1. Öffnen Sie **[Farbkonverter & -Wähler](./colorConverter/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-image-resizer",
+    "date": "2026-11-18",
+    "tag": "Converter",
+    "folder": "imageResizer",
+    "i18n": {
+      "en": {
+        "title": "Image Resizer & Compressor",
+        "summary": "Resize dimensions and compress PNG/JPG/WebP images in your browser.",
+        "content": "# Image Resizer & Compressor\n\n## Overview\n\nResize dimensions and compress PNG/JPG/WebP images in your browser.\n\n## How to Use\n\n1. Open **[Image Resizer & Compressor](./imageResizer/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "图片调整大小与压缩",
+        "summary": "在浏览器中调整图片尺寸并压缩导出 PNG/JPG/WebP。",
+        "content": "# 图片调整大小与压缩\n\n## 工具简介\n\n在浏览器中调整图片尺寸并压缩导出 PNG/JPG/WebP。\n\n## 使用方法\n\n1. 在工具导航中打开 **[图片调整大小与压缩](./imageResizer/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "इमेज रीसाइज़र और कंप्रेसर",
+        "summary": "ब्राउज़र में इमेज का आकार बदलें और PNG/JPG/WebP में कंप्रेस करें।",
+        "content": "# इमेज रीसाइज़र और कंप्रेसर\n\n## परिचय\n\nब्राउज़र में इमेज का आकार बदलें और PNG/JPG/WebP में कंप्रेस करें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[इमेज रीसाइज़र और कंप्रेसर](./imageResizer/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Redimensionador de Imágenes",
+        "summary": "Cambia el tamaño y comprime imágenes PNG, JPG o WebP localmente.",
+        "content": "# Redimensionador de Imágenes\n\n## Descripción\n\nCambia el tamaño y comprime imágenes PNG, JPG o WebP localmente.\n\n## Cómo usar\n\n1. Abre **[Redimensionador de Imágenes](./imageResizer/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Redimensionneur d'Images",
+        "summary": "Redimensionnez et compressez vos images PNG, JPG ou WebP.",
+        "content": "# Redimensionneur d'Images\n\n## Présentation\n\nRedimensionnez et compressez vos images PNG, JPG ou WebP.\n\n## Mode d'emploi\n\n1. Ouvrez **[Redimensionneur d'Images](./imageResizer/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "이미지 리사이저 & 압축기",
+        "summary": "이미지 크기를 조절하고 JPG/PNG/WebP 품질을 압축해 저장합니다.",
+        "content": "# 이미지 리사이저 & 압축기\n\n## 툴 소개\n\n이미지 크기를 조절하고 JPG/PNG/WebP 품질을 압축해 저장합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[이미지 리사이저 & 압축기](./imageResizer/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "画像リサイズ & 圧縮ツール",
+        "summary": "画像のサイズ変更やPNG/JPG/WebP圧縮をブラウザ内で実行します。",
+        "content": "# 画像リサイズ & 圧縮ツール\n\n## 概要\n\n画像のサイズ変更やPNG/JPG/WebP圧縮をブラウザ内で実行します。\n\n## 使い方\n\n1. ツール一覧から **[画像リサイズ & 圧縮ツール](./imageResizer/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Redimensionador e Compressor de Imagem",
+        "summary": "Redimensione e comprima imagens PNG, JPG ou WebP no navegador.",
+        "content": "# Redimensionador e Compressor de Imagem\n\n## Visão Geral\n\nRedimensione e comprima imagens PNG, JPG ou WebP no navegador.\n\n## Como Usar\n\n1. Abra **[Redimensionador e Compressor de Imagem](./imageResizer/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Bildgrößen- & Komprimierungstool",
+        "summary": "Ändern Sie Bildgrößen und komprimieren Sie PNG/JPG/WebP lokal.",
+        "content": "# Bildgrößen- & Komprimierungstool\n\n## Überblick\n\nÄndern Sie Bildgrößen und komprimieren Sie PNG/JPG/WebP lokal.\n\n## Anleitung\n\n1. Öffnen Sie **[Bildgrößen- & Komprimierungstool](./imageResizer/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-case-converter",
+    "date": "2026-11-18",
+    "tag": "Text",
+    "folder": "caseConverter",
+    "i18n": {
+      "en": {
+        "title": "Text Case Converter",
+        "summary": "Convert text to UPPERCASE, lowercase, Title Case, camelCase, and snake_case.",
+        "content": "# Text Case Converter\n\n## Overview\n\nConvert text to UPPERCASE, lowercase, Title Case, camelCase, and snake_case.\n\n## How to Use\n\n1. Open **[Text Case Converter](./caseConverter/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "英文字母大小写转换",
+        "summary": "一键转换为全大写、全小写、标题格式、驼峰及下划线命名。",
+        "content": "# 英文字母大小写转换\n\n## 工具简介\n\n一键转换为全大写、全小写、标题格式、驼峰及下划线命名。\n\n## 使用方法\n\n1. 在工具导航中打开 **[英文字母大小写转换](./caseConverter/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "टेक्स्ट केस कन्वर्टर",
+        "summary": "टेक्स्ट को UPPER, lower, Title, camelCase और snake_case में बदलें।",
+        "content": "# टेक्स्ट केस कन्वर्टर\n\n## परिचय\n\nटेक्स्ट को UPPER, lower, Title, camelCase और snake_case में बदलें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[टेक्स्ट केस कन्वर्टर](./caseConverter/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Conversor de Mayúsculas/Minúsculas",
+        "summary": "Convierte texto a MAYÚSCULAS, minúsculas, camelCase y snake_case.",
+        "content": "# Conversor de Mayúsculas/Minúsculas\n\n## Descripción\n\nConvierte texto a MAYÚSCULAS, minúsculas, camelCase y snake_case.\n\n## Cómo usar\n\n1. Abre **[Conversor de Mayúsculas/Minúsculas](./caseConverter/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Convertisseur de Casse",
+        "summary": "Convertissez en MAJUSCULES, minuscules, camelCase et snake_case.",
+        "content": "# Convertisseur de Casse\n\n## Présentation\n\nConvertissez en MAJUSCULES, minuscules, camelCase et snake_case.\n\n## Mode d'emploi\n\n1. Ouvrez **[Convertisseur de Casse](./caseConverter/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "영문 대소문자 & 케이스 변환기",
+        "summary": "UPPER, lower, Title, camelCase, snake_case, kebab-case로 변환합니다.",
+        "content": "# 영문 대소문자 & 케이스 변환기\n\n## 툴 소개\n\nUPPER, lower, Title, camelCase, snake_case, kebab-case로 변환합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[영문 대소문자 & 케이스 변환기](./caseConverter/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "英語大文字・小文字 / ケース変換",
+        "summary": "UPPER、lower、Title、camelCase、snake_caseに変換します。",
+        "content": "# 英語大文字・小文字 / ケース変換\n\n## 概要\n\nUPPER、lower、Title、camelCase、snake_caseに変換します。\n\n## 使い方\n\n1. ツール一覧から **[英語大文字・小文字 / ケース変換](./caseConverter/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Conversor de Maiúsculas/Minúsculas",
+        "summary": "Converta texto para MAIÚSCULAS, minúsculas, camelCase e snake_case.",
+        "content": "# Conversor de Maiúsculas/Minúsculas\n\n## Visão Geral\n\nConverta texto para MAIÚSCULAS, minúsculas, camelCase e snake_case.\n\n## Como Usar\n\n1. Abra **[Conversor de Maiúsculas/Minúsculas](./caseConverter/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Groß-/Kleinschreibung-Konverter",
+        "summary": "Wandeln Sie Text in UPPER, lower, camelCase und snake_case um.",
+        "content": "# Groß-/Kleinschreibung-Konverter\n\n## Überblick\n\nWandeln Sie Text in UPPER, lower, camelCase und snake_case um.\n\n## Anleitung\n\n1. Öffnen Sie **[Groß-/Kleinschreibung-Konverter](./caseConverter/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-diff-checker",
+    "date": "2026-11-18",
+    "tag": "Developer",
+    "folder": "diffChecker",
+    "i18n": {
+      "en": {
+        "title": "Text Diff Checker",
+        "summary": "Compare two blocks of text line-by-line to highlight additions and removals.",
+        "content": "# Text Diff Checker\n\n## Overview\n\nCompare two blocks of text line-by-line to highlight additions and removals.\n\n## How to Use\n\n1. Open **[Text Diff Checker](./diffChecker/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "文本差异对比工具",
+        "summary": "逐行对比两段文本，清晰高亮显示新增与删除的内容。",
+        "content": "# 文本差异对比工具\n\n## 工具简介\n\n逐行对比两段文本，清晰高亮显示新增与删除的内容。\n\n## 使用方法\n\n1. 在工具导航中打开 **[文本差异对比工具](./diffChecker/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "टेक्स्ट डिफ चेकर",
+        "summary": "दो टेक्स्ट की पंक्ति-दर-पंक्ति तुलना करें और अंतर देखें।",
+        "content": "# टेक्स्ट डिफ चेकर\n\n## परिचय\n\nदो टेक्स्ट की पंक्ति-दर-पंक्ति तुलना करें और अंतर देखें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[टेक्स्ट डिफ चेकर](./diffChecker/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Comparador de Textos (Diff)",
+        "summary": "Compara dos textos línea por línea y resalta los cambios.",
+        "content": "# Comparador de Textos (Diff)\n\n## Descripción\n\nCompara dos textos línea por línea y resalta los cambios.\n\n## Cómo usar\n\n1. Abre **[Comparador de Textos (Diff)](./diffChecker/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Comparateur de Texte (Diff)",
+        "summary": "Comparez deux textes ligne par ligne pour voir les différences.",
+        "content": "# Comparateur de Texte (Diff)\n\n## Présentation\n\nComparez deux textes ligne par ligne pour voir les différences.\n\n## Mode d'emploi\n\n1. Ouvrez **[Comparateur de Texte (Diff)](./diffChecker/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "텍스트 비교기 (Diff)",
+        "summary": "두 텍스트를 줄 단위로 비교해 추가/삭제된 부분을 표시합니다.",
+        "content": "# 텍스트 비교기 (Diff)\n\n## 툴 소개\n\n두 텍스트를 줄 단위로 비교해 추가/삭제된 부분을 표시합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[텍스트 비교기 (Diff)](./diffChecker/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "テキスト差分比較 (Diff)",
+        "summary": "2つのテキストを行単位で比較し、追加・削除箇所をハイライトします。",
+        "content": "# テキスト差分比較 (Diff)\n\n## 概要\n\n2つのテキストを行単位で比較し、追加・削除箇所をハイライトします。\n\n## 使い方\n\n1. ツール一覧から **[テキスト差分比較 (Diff)](./diffChecker/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Comparador de Texto (Diff)",
+        "summary": "Compare dois textos linha por linha e destaque as diferenças.",
+        "content": "# Comparador de Texto (Diff)\n\n## Visão Geral\n\nCompare dois textos linha por linha e destaque as diferenças.\n\n## Como Usar\n\n1. Abra **[Comparador de Texto (Diff)](./diffChecker/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Text-Diff-Vergleicher",
+        "summary": "Vergleichen Sie zwei Texte zeilenweise auf Änderungen.",
+        "content": "# Text-Diff-Vergleicher\n\n## Überblick\n\nVergleichen Sie zwei Texte zeilenweise auf Änderungen.\n\n## Anleitung\n\n1. Öffnen Sie **[Text-Diff-Vergleicher](./diffChecker/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-regex-tester",
+    "date": "2026-11-18",
+    "tag": "Developer",
+    "folder": "regexTester",
+    "i18n": {
+      "en": {
+        "title": "Regex Tester",
+        "summary": "Test regular expressions with flags and inspect live matches and groups.",
+        "content": "# Regex Tester\n\n## Overview\n\nTest regular expressions with flags and inspect live matches and groups.\n\n## How to Use\n\n1. Open **[Regex Tester](./regexTester/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "正则表达式测试器",
+        "summary": "实时测试正则表达式及修饰符，查看匹配结果与捕获组。",
+        "content": "# 正则表达式测试器\n\n## 工具简介\n\n实时测试正则表达式及修饰符，查看匹配结果与捕获组。\n\n## 使用方法\n\n1. 在工具导航中打开 **[正则表达式测试器](./regexTester/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "Regex टेस्टर",
+        "summary": "फ्लैग्स के साथ रेगुलर एक्सप्रेशन और मैच किए गए ग्रुप्स जांचें।",
+        "content": "# Regex टेस्टर\n\n## परिचय\n\nफ्लैग्स के साथ रेगुलर एक्सप्रेशन और मैच किए गए ग्रुप्स जांचें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[Regex टेस्टर](./regexTester/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Probador de Expresiones Regulares",
+        "summary": "Prueba expresiones regulares con banderas y grupos en vivo.",
+        "content": "# Probador de Expresiones Regulares\n\n## Descripción\n\nPrueba expresiones regulares con banderas y grupos en vivo.\n\n## Cómo usar\n\n1. Abre **[Probador de Expresiones Regulares](./regexTester/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Testeur d'Expressions Régulières",
+        "summary": "Testez vos regex avec drapeaux et groupes de capture.",
+        "content": "# Testeur d'Expressions Régulières\n\n## Présentation\n\nTestez vos regex avec drapeaux et groupes de capture.\n\n## Mode d'emploi\n\n1. Ouvrez **[Testeur d'Expressions Régulières](./regexTester/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "정규식 테스터 (Regex)",
+        "summary": "정규표현식 패턴과 플래그에 따른 매칭 결과를 실시간으로 확인합니다.",
+        "content": "# 정규식 테스터 (Regex)\n\n## 툴 소개\n\n정규표현식 패턴과 플래그에 따른 매칭 결과를 실시간으로 확인합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[정규식 테스터 (Regex)](./regexTester/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "正規表現テスター (Regex)",
+        "summary": "正規表現パターンとフラグの一致結果をリアルタイムで確認します。",
+        "content": "# 正規表現テスター (Regex)\n\n## 概要\n\n正規表現パターンとフラグの一致結果をリアルタイムで確認します。\n\n## 使い方\n\n1. ツール一覧から **[正規表現テスター (Regex)](./regexTester/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Testador de Expressões Regulares",
+        "summary": "Teste regex com flags e veja correspondências em tempo real.",
+        "content": "# Testador de Expressões Regulares\n\n## Visão Geral\n\nTeste regex com flags e veja correspondências em tempo real.\n\n## Como Usar\n\n1. Abra **[Testador de Expressões Regulares](./regexTester/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Regex-Tester",
+        "summary": "Testen Sie reguläre Ausdrücke mit Flags in Echtzeit.",
+        "content": "# Regex-Tester\n\n## Überblick\n\nTesten Sie reguläre Ausdrücke mit Flags in Echtzeit.\n\n## Anleitung\n\n1. Öffnen Sie **[Regex-Tester](./regexTester/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-markdown-preview",
+    "date": "2026-11-18",
+    "tag": "Text",
+    "folder": "markdownPreview",
+    "i18n": {
+      "en": {
+        "title": "Markdown Live Previewer",
+        "summary": "Write Markdown on the left and preview or copy clean HTML on the right.",
+        "content": "# Markdown Live Previewer\n\n## Overview\n\nWrite Markdown on the left and preview or copy clean HTML on the right.\n\n## How to Use\n\n1. Open **[Markdown Live Previewer](./markdownPreview/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "Markdown 实时预览器",
+        "summary": "左侧编写 Markdown，右侧实时预览渲染效果并导出 HTML。",
+        "content": "# Markdown 实时预览器\n\n## 工具简介\n\n左侧编写 Markdown，右侧实时预览渲染效果并导出 HTML。\n\n## 使用方法\n\n1. 在工具导航中打开 **[Markdown 实时预览器](./markdownPreview/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "Markdown लाइव प्रीव्यूअर",
+        "summary": "Markdown लिखें और तुरंत HTML प्रीव्यू देखें या कॉपी करें।",
+        "content": "# Markdown लाइव प्रीव्यूअर\n\n## परिचय\n\nMarkdown लिखें और तुरंत HTML प्रीव्यू देखें या कॉपी करें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[Markdown लाइव प्रीव्यूअर](./markdownPreview/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Previsualizador Markdown",
+        "summary": "Escribe Markdown y previsualiza o copia el HTML generado.",
+        "content": "# Previsualizador Markdown\n\n## Descripción\n\nEscribe Markdown y previsualiza o copia el HTML generado.\n\n## Cómo usar\n\n1. Abre **[Previsualizador Markdown](./markdownPreview/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Prévisualiseur Markdown",
+        "summary": "Rédigez en Markdown et prévisualisez le HTML en direct.",
+        "content": "# Prévisualiseur Markdown\n\n## Présentation\n\nRédigez en Markdown et prévisualisez le HTML en direct.\n\n## Mode d'emploi\n\n1. Ouvrez **[Prévisualiseur Markdown](./markdownPreview/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "마크다운 미리보기 & HTML 변환",
+        "summary": "마크다운을 실시간으로 렌더링하고 HTML 코드로 복사합니다.",
+        "content": "# 마크다운 미리보기 & HTML 변환\n\n## 툴 소개\n\n마크다운을 실시간으로 렌더링하고 HTML 코드로 복사합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[마크다운 미리보기 & HTML 변환](./markdownPreview/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "Markdown ライブプレビュー",
+        "summary": "Markdownをリアルタイムでプレビューし、HTMLコードをコピーします。",
+        "content": "# Markdown ライブプレビュー\n\n## 概要\n\nMarkdownをリアルタイムでプレビューし、HTMLコードをコピーします。\n\n## 使い方\n\n1. ツール一覧から **[Markdown ライブプレビュー](./markdownPreview/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Visualizador Markdown",
+        "summary": "Escreva Markdown e visualize ou copie o HTML gerado.",
+        "content": "# Visualizador Markdown\n\n## Visão Geral\n\nEscreva Markdown e visualize ou copie o HTML gerado.\n\n## Como Usar\n\n1. Abra **[Visualizador Markdown](./markdownPreview/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Markdown-Live-Vorschau",
+        "summary": "Schreiben Sie Markdown und kopieren Sie sauberes HTML.",
+        "content": "# Markdown-Live-Vorschau\n\n## Überblick\n\nSchreiben Sie Markdown und kopieren Sie sauberes HTML.\n\n## Anleitung\n\n1. Öffnen Sie **[Markdown-Live-Vorschau](./markdownPreview/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-csv-json-converter",
+    "date": "2026-11-18",
+    "tag": "Converter",
+    "folder": "csvJsonConverter",
+    "i18n": {
+      "en": {
+        "title": "CSV ↔ JSON Converter",
+        "summary": "Convert CSV spreadsheets to JSON arrays and vice versa cleanly.",
+        "content": "# CSV ↔ JSON Converter\n\n## Overview\n\nConvert CSV spreadsheets to JSON arrays and vice versa cleanly.\n\n## How to Use\n\n1. Open **[CSV ↔ JSON Converter](./csvJsonConverter/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "CSV ↔ JSON 转换器",
+        "summary": "支持 CSV 表格数据与 JSON 数组之间的双向格式转换。",
+        "content": "# CSV ↔ JSON 转换器\n\n## 工具简介\n\n支持 CSV 表格数据与 JSON 数组之间的双向格式转换。\n\n## 使用方法\n\n1. 在工具导航中打开 **[CSV ↔ JSON 转换器](./csvJsonConverter/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "CSV ↔ JSON कन्वर्टर",
+        "summary": "CSV डेटा को JSON में और JSON को CSV में आसानी से बदलें।",
+        "content": "# CSV ↔ JSON कन्वर्टर\n\n## परिचय\n\nCSV डेटा को JSON में और JSON को CSV में आसानी से बदलें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[CSV ↔ JSON कन्वर्टर](./csvJsonConverter/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Conversor CSV ↔ JSON",
+        "summary": "Convierte datos CSV a arreglos JSON y viceversa fácilmente.",
+        "content": "# Conversor CSV ↔ JSON\n\n## Descripción\n\nConvierte datos CSV a arreglos JSON y viceversa fácilmente.\n\n## Cómo usar\n\n1. Abre **[Conversor CSV ↔ JSON](./csvJsonConverter/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Convertisseur CSV ↔ JSON",
+        "summary": "Convertissez vos fichiers CSV en JSON et inversement.",
+        "content": "# Convertisseur CSV ↔ JSON\n\n## Présentation\n\nConvertissez vos fichiers CSV en JSON et inversement.\n\n## Mode d'emploi\n\n1. Ouvrez **[Convertisseur CSV ↔ JSON](./csvJsonConverter/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "CSV ↔ JSON 변환기",
+        "summary": "CSV 데이터와 JSON 배열을 양방향으로 간편하게 변환합니다.",
+        "content": "# CSV ↔ JSON 변환기\n\n## 툴 소개\n\nCSV 데이터와 JSON 배열을 양방향으로 간편하게 변환합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[CSV ↔ JSON 변환기](./csvJsonConverter/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "CSV ↔ JSON 変換ツール",
+        "summary": "CSVデータとJSON配列を双方向にすばやく変換します。",
+        "content": "# CSV ↔ JSON 変換ツール\n\n## 概要\n\nCSVデータとJSON配列を双方向にすばやく変換します。\n\n## 使い方\n\n1. ツール一覧から **[CSV ↔ JSON 変換ツール](./csvJsonConverter/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Conversor CSV ↔ JSON",
+        "summary": "Converta planilhas CSV em JSON e vice-versa facilmente.",
+        "content": "# Conversor CSV ↔ JSON\n\n## Visão Geral\n\nConverta planilhas CSV em JSON e vice-versa facilmente.\n\n## Como Usar\n\n1. Abra **[Conversor CSV ↔ JSON](./csvJsonConverter/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "CSV ↔ JSON-Konverter",
+        "summary": "Konvertieren Sie CSV-Tabellen in JSON-Arrays und umgekehrt.",
+        "content": "# CSV ↔ JSON-Konverter\n\n## Überblick\n\nKonvertieren Sie CSV-Tabellen in JSON-Arrays und umgekehrt.\n\n## Anleitung\n\n1. Öffnen Sie **[CSV ↔ JSON-Konverter](./csvJsonConverter/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-jwt-decoder",
+    "date": "2026-11-18",
+    "tag": "Security",
+    "folder": "jwtDecoder",
+    "i18n": {
+      "en": {
+        "title": "JWT Token Decoder",
+        "summary": "Inspect JWT header, payload claims, and expiration time locally.",
+        "content": "# JWT Token Decoder\n\n## Overview\n\nInspect JWT header, payload claims, and expiration time locally.\n\n## How to Use\n\n1. Open **[JWT Token Decoder](./jwtDecoder/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "JWT 令牌解码器",
+        "summary": "在本地解析 JWT 的 Header、Payload 载荷及过期时间。",
+        "content": "# JWT 令牌解码器\n\n## 工具简介\n\n在本地解析 JWT 的 Header、Payload 载荷及过期时间。\n\n## 使用方法\n\n1. 在工具导航中打开 **[JWT 令牌解码器](./jwtDecoder/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "JWT टोकन डिकोडर",
+        "summary": "JWT हेडर, पेलोड और एक्सपायरी समय को लोकल रूप से देखें।",
+        "content": "# JWT टोकन डिकोडर\n\n## परिचय\n\nJWT हेडर, पेलोड और एक्सपायरी समय को लोकल रूप से देखें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[JWT टोकन डिकोडर](./jwtDecoder/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Decodificador de Tokens JWT",
+        "summary": "Inspecciona el encabezado, payload y expiración de un JWT.",
+        "content": "# Decodificador de Tokens JWT\n\n## Descripción\n\nInspecciona el encabezado, payload y expiración de un JWT.\n\n## Cómo usar\n\n1. Abre **[Decodificador de Tokens JWT](./jwtDecoder/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Décodeur de Jeton JWT",
+        "summary": "Inspectez l'en-tête, le payload et l'expiration d'un JWT.",
+        "content": "# Décodeur de Jeton JWT\n\n## Présentation\n\nInspectez l'en-tête, le payload et l'expiration d'un JWT.\n\n## Mode d'emploi\n\n1. Ouvrez **[Décodeur de Jeton JWT](./jwtDecoder/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "JWT 토큰 디코더",
+        "summary": "JWT 토큰의 Header, Payload, 만료 시간을 브라우저에서 확인합니다.",
+        "content": "# JWT 토큰 디코더\n\n## 툴 소개\n\nJWT 토큰의 Header, Payload, 만료 시간을 브라우저에서 확인합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[JWT 토큰 디코더](./jwtDecoder/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "JWT トークンデコーダー",
+        "summary": "JWTのHeader、Payload、有効期限をブラウザ上で確認します。",
+        "content": "# JWT トークンデコーダー\n\n## 概要\n\nJWTのHeader、Payload、有効期限をブラウザ上で確認します。\n\n## 使い方\n\n1. ツール一覧から **[JWT トークンデコーダー](./jwtDecoder/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Decodificador de Token JWT",
+        "summary": "Inspecione cabeçalho, payload e expiração de um JWT localmente.",
+        "content": "# Decodificador de Token JWT\n\n## Visão Geral\n\nInspecione cabeçalho, payload e expiração de um JWT localmente.\n\n## Como Usar\n\n1. Abra **[Decodificador de Token JWT](./jwtDecoder/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "JWT-Token-Decoder",
+        "summary": "Prüfen Sie JWT-Header, Payload und Ablaufzeit lokal.",
+        "content": "# JWT-Token-Decoder\n\n## Überblick\n\nPrüfen Sie JWT-Header, Payload und Ablaufzeit lokal.\n\n## Anleitung\n\n1. Öffnen Sie **[JWT-Token-Decoder](./jwtDecoder/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-lorem-generator",
+    "date": "2026-11-18",
+    "tag": "Generator",
+    "folder": "loremGenerator",
+    "i18n": {
+      "en": {
+        "title": "Lorem Ipsum Generator",
+        "summary": "Generate placeholder paragraphs, sentences, or words for mockups.",
+        "content": "# Lorem Ipsum Generator\n\n## Overview\n\nGenerate placeholder paragraphs, sentences, or words for mockups.\n\n## How to Use\n\n1. Open **[Lorem Ipsum Generator](./loremGenerator/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "Lorem Ipsum 占位文本生成器",
+        "summary": "为排版和原型设计快速生成指定数量的占位段落或句子。",
+        "content": "# Lorem Ipsum 占位文本生成器\n\n## 工具简介\n\n为排版和原型设计快速生成指定数量的占位段落或句子。\n\n## 使用方法\n\n1. 在工具导航中打开 **[Lorem Ipsum 占位文本生成器](./loremGenerator/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "Lorem Ipsum जनरेटर",
+        "summary": "डिज़ाइन और मॉकअप के लिए प्लेसहोल्डर टेक्स्ट जनरेट करें।",
+        "content": "# Lorem Ipsum जनरेटर\n\n## परिचय\n\nडिज़ाइन और मॉकअप के लिए प्लेसहोल्डर टेक्स्ट जनरेट करें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[Lorem Ipsum जनरेटर](./loremGenerator/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Generador Lorem Ipsum",
+        "summary": "Genera párrafos, frases o palabras de relleno para diseños.",
+        "content": "# Generador Lorem Ipsum\n\n## Descripción\n\nGenera párrafos, frases o palabras de relleno para diseños.\n\n## Cómo usar\n\n1. Abre **[Generador Lorem Ipsum](./loremGenerator/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Générateur Lorem Ipsum",
+        "summary": "Générez des paragraphes ou phrases de texte factice.",
+        "content": "# Générateur Lorem Ipsum\n\n## Présentation\n\nGénérez des paragraphes ou phrases de texte factice.\n\n## Mode d'emploi\n\n1. Ouvrez **[Générateur Lorem Ipsum](./loremGenerator/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "Lorem Ipsum 더미 텍스트 생성기",
+        "summary": "디자인 시안용 더미 문단, 문장, 단어를 원하는 개수만큼 생성합니다.",
+        "content": "# Lorem Ipsum 더미 텍스트 생성기\n\n## 툴 소개\n\n디자인 시안용 더미 문단, 문장, 단어를 원하는 개수만큼 생성합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[Lorem Ipsum 더미 텍스트 생성기](./loremGenerator/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "Lorem Ipsum ダミーテキスト生成",
+        "summary": "デザイン確認用のダミー段落・文を指定数だけ生成します。",
+        "content": "# Lorem Ipsum ダミーテキスト生成\n\n## 概要\n\nデザイン確認用のダミー段落・文を指定数だけ生成します。\n\n## 使い方\n\n1. ツール一覧から **[Lorem Ipsum ダミーテキスト生成](./loremGenerator/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Gerador Lorem Ipsum",
+        "summary": "Gere parágrafos ou frases de texto de preenchimento.",
+        "content": "# Gerador Lorem Ipsum\n\n## Visão Geral\n\nGere parágrafos ou frases de texto de preenchimento.\n\n## Como Usar\n\n1. Abra **[Gerador Lorem Ipsum](./loremGenerator/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Lorem-Ipsum-Generator",
+        "summary": "Erstellen Sie Platzhaltertexte für Designs und Mockups.",
+        "content": "# Lorem-Ipsum-Generator\n\n## Überblick\n\nErstellen Sie Platzhaltertexte für Designs und Mockups.\n\n## Anleitung\n\n1. Öffnen Sie **[Lorem-Ipsum-Generator](./loremGenerator/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-unit-converter",
+    "date": "2026-11-18",
+    "tag": "Calculator",
+    "folder": "unitConverter",
+    "i18n": {
+      "en": {
+        "title": "Universal Unit Converter",
+        "summary": "Convert length, weight, temperature, and digital storage units.",
+        "content": "# Universal Unit Converter\n\n## Overview\n\nConvert length, weight, temperature, and digital storage units.\n\n## How to Use\n\n1. Open **[Universal Unit Converter](./unitConverter/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "万能单位换算器",
+        "summary": "支持长度、重量、温度及数据存储单位的精确换算。",
+        "content": "# 万能单位换算器\n\n## 工具简介\n\n支持长度、重量、温度及数据存储单位的精确换算。\n\n## 使用方法\n\n1. 在工具导航中打开 **[万能单位换算器](./unitConverter/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "यूनिट कन्वर्टर",
+        "summary": "लंबाई, वजन, तापमान और डेटा स्टोरेज इकाइयों को बदलें।",
+        "content": "# यूनिट कन्वर्टर\n\n## परिचय\n\nलंबाई, वजन, तापमान और डेटा स्टोरेज इकाइयों को बदलें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[यूनिट कन्वर्टर](./unitConverter/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Conversor de Unidades",
+        "summary": "Convierte longitud, peso, temperatura y almacenamiento digital.",
+        "content": "# Conversor de Unidades\n\n## Descripción\n\nConvierte longitud, peso, temperatura y almacenamiento digital.\n\n## Cómo usar\n\n1. Abre **[Conversor de Unidades](./unitConverter/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Convertisseur d'Unités",
+        "summary": "Convertissez longueurs, poids, températures et stockage.",
+        "content": "# Convertisseur d'Unités\n\n## Présentation\n\nConvertissez longueurs, poids, températures et stockage.\n\n## Mode d'emploi\n\n1. Ouvrez **[Convertisseur d'Unités](./unitConverter/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "만능 단위 변환기",
+        "summary": "길이, 무게, 온도, 데이터 용량 단위를 즉시 변환합니다.",
+        "content": "# 만능 단위 변환기\n\n## 툴 소개\n\n길이, 무게, 온도, 데이터 용량 단위를 즉시 변환합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[만능 단위 변환기](./unitConverter/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "万能単位変換ツール",
+        "summary": "長さ、重さ、温度、データ容量の単位を即座に変換します。",
+        "content": "# 万能単位変換ツール\n\n## 概要\n\n長さ、重さ、温度、データ容量の単位を即座に変換します。\n\n## 使い方\n\n1. ツール一覧から **[万能単位変換ツール](./unitConverter/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Conversor de Unidades",
+        "summary": "Converta comprimento, peso, temperatura e armazenamento digital.",
+        "content": "# Conversor de Unidades\n\n## Visão Geral\n\nConverta comprimento, peso, temperatura e armazenamento digital.\n\n## Como Usar\n\n1. Abra **[Conversor de Unidades](./unitConverter/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Universal-Einheitenrechner",
+        "summary": "Rechnen Sie Länge, Gewicht, Temperatur und Speichergrößen um.",
+        "content": "# Universal-Einheitenrechner\n\n## Überblick\n\nRechnen Sie Länge, Gewicht, Temperatur und Speichergrößen um.\n\n## Anleitung\n\n1. Öffnen Sie **[Universal-Einheitenrechner](./unitConverter/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-bmi-calculator",
+    "date": "2026-11-18",
+    "tag": "Calculator",
+    "folder": "bmiCalculator",
+    "i18n": {
+      "en": {
+        "title": "BMI & Calorie Calculator",
+        "summary": "Calculate Body Mass Index (BMI) and daily calorie needs (BMR/TDEE).",
+        "content": "# BMI & Calorie Calculator\n\n## Overview\n\nCalculate Body Mass Index (BMI) and daily calorie needs (BMR/TDEE).\n\n## How to Use\n\n1. Open **[BMI & Calorie Calculator](./bmiCalculator/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "BMI 与每日热量计算器",
+        "summary": "计算身体质量指数 (BMI) 及基础代谢与每日所需热量。",
+        "content": "# BMI 与每日热量计算器\n\n## 工具简介\n\n计算身体质量指数 (BMI) 及基础代谢与每日所需热量。\n\n## 使用方法\n\n1. 在工具导航中打开 **[BMI 与每日热量计算器](./bmiCalculator/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "BMI और कैलोरी कैलकुलेटर",
+        "summary": "अपना BMI और दैनिक कैलोरी आवश्यकता (BMR/TDEE) जानें।",
+        "content": "# BMI और कैलोरी कैलकुलेटर\n\n## परिचय\n\nअपना BMI और दैनिक कैलोरी आवश्यकता (BMR/TDEE) जानें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[BMI और कैलोरी कैलकुलेटर](./bmiCalculator/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Calculadora de BMI y Calorías",
+        "summary": "Calcula tu Índice de Masa Corporal y calorías diarias.",
+        "content": "# Calculadora de BMI y Calorías\n\n## Descripción\n\nCalcula tu Índice de Masa Corporal y calorías diarias.\n\n## Cómo usar\n\n1. Abre **[Calculadora de BMI y Calorías](./bmiCalculator/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Calculateur IMC & Calories",
+        "summary": "Calculez votre IMC et vos besoins caloriques quotidiens.",
+        "content": "# Calculateur IMC & Calories\n\n## Présentation\n\nCalculez votre IMC et vos besoins caloriques quotidiens.\n\n## Mode d'emploi\n\n1. Ouvrez **[Calculateur IMC & Calories](./bmiCalculator/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "BMI & 일일 칼로리 계산기",
+        "summary": "키와 체중으로 BMI 지수와 기초대사량/권장 칼로리를 계산합니다.",
+        "content": "# BMI & 일일 칼로리 계산기\n\n## 툴 소개\n\n키와 체중으로 BMI 지수와 기초대사량/권장 칼로리를 계산합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[BMI & 일일 칼로리 계산기](./bmiCalculator/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "BMI & カロリー計算機",
+        "summary": "身長と体重からBMI指数と基礎代謝・消費カロリーを計算します。",
+        "content": "# BMI & カロリー計算機\n\n## 概要\n\n身長と体重からBMI指数と基礎代謝・消費カロリーを計算します。\n\n## 使い方\n\n1. ツール一覧から **[BMI & カロリー計算機](./bmiCalculator/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Calculadora de IMC e Calorias",
+        "summary": "Calcule seu IMC e necessidade calórica diária (TMB).",
+        "content": "# Calculadora de IMC e Calorias\n\n## Visão Geral\n\nCalcule seu IMC e necessidade calórica diária (TMB).\n\n## Como Usar\n\n1. Abra **[Calculadora de IMC e Calorias](./bmiCalculator/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "BMI- & Kalorienrechner",
+        "summary": "Berechnen Sie Ihren BMI und täglichen Kalorienbedarf.",
+        "content": "# BMI- & Kalorienrechner\n\n## Überblick\n\nBerechnen Sie Ihren BMI und täglichen Kalorienbedarf.\n\n## Anleitung\n\n1. Öffnen Sie **[BMI- & Kalorienrechner](./bmiCalculator/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-percentage-calculator",
+    "date": "2026-11-18",
+    "tag": "Calculator",
+    "folder": "percentageCalculator",
+    "i18n": {
+      "en": {
+        "title": "Percentage Calculator",
+        "summary": "Solve percentage of a number, ratio percentage, and percentage change.",
+        "content": "# Percentage Calculator\n\n## Overview\n\nSolve percentage of a number, ratio percentage, and percentage change.\n\n## How to Use\n\n1. Open **[Percentage Calculator](./percentageCalculator/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "百分比计算器",
+        "summary": "快速计算百分比数值、占比比例及增减变化率。",
+        "content": "# 百分比计算器\n\n## 工具简介\n\n快速计算百分比数值、占比比例及增减变化率。\n\n## 使用方法\n\n1. 在工具导航中打开 **[百分比计算器](./percentageCalculator/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "प्रतिशत (Percentage) कैलकुलेटर",
+        "summary": "संख्या का प्रतिशत, अनुपात और प्रतिशत बदलाव तुरंत निकालें।",
+        "content": "# प्रतिशत (Percentage) कैलकुलेटर\n\n## परिचय\n\nसंख्या का प्रतिशत, अनुपात और प्रतिशत बदलाव तुरंत निकालें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[प्रतिशत (Percentage) कैलकुलेटर](./percentageCalculator/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Calculadora de Porcentajes",
+        "summary": "Calcula porcentajes, proporciones y variaciones porcentuales.",
+        "content": "# Calculadora de Porcentajes\n\n## Descripción\n\nCalcula porcentajes, proporciones y variaciones porcentuales.\n\n## Cómo usar\n\n1. Abre **[Calculadora de Porcentajes](./percentageCalculator/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Calculateur de Pourcentage",
+        "summary": "Calculez pourcentages, ratios et variations en un clic.",
+        "content": "# Calculateur de Pourcentage\n\n## Présentation\n\nCalculez pourcentages, ratios et variations en un clic.\n\n## Mode d'emploi\n\n1. Ouvrez **[Calculateur de Pourcentage](./percentageCalculator/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "퍼센트(%) 계산기",
+        "summary": "비율 값, 전체 대비 백분율, 증감률을 간편하게 계산합니다.",
+        "content": "# 퍼센트(%) 계산기\n\n## 툴 소개\n\n비율 값, 전체 대비 백분율, 증감률을 간편하게 계산합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[퍼센트(%) 계산기](./percentageCalculator/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "パーセント(%) 計算機",
+        "summary": "割合の値、全体に対する比率、増減率を簡単に計算します。",
+        "content": "# パーセント(%) 計算機\n\n## 概要\n\n割合の値、全体に対する比率、増減率を簡単に計算します。\n\n## 使い方\n\n1. ツール一覧から **[パーセント(%) 計算機](./percentageCalculator/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Calculadora de Porcentagem",
+        "summary": "Calcule porcentagens, proporções e variações percentuais.",
+        "content": "# Calculadora de Porcentagem\n\n## Visão Geral\n\nCalcule porcentagens, proporções e variações percentuais.\n\n## Como Usar\n\n1. Abra **[Calculadora de Porcentagem](./percentageCalculator/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Prozentrechner",
+        "summary": "Berechnen Sie Prozentwerte, Anteile und prozentuale Änderungen.",
+        "content": "# Prozentrechner\n\n## Überblick\n\nBerechnen Sie Prozentwerte, Anteile und prozentuale Änderungen.\n\n## Anleitung\n\n1. Öffnen Sie **[Prozentrechner](./percentageCalculator/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-loan-calculator",
+    "date": "2026-11-18",
+    "tag": "Calculator",
+    "folder": "loanCalculator",
+    "i18n": {
+      "en": {
+        "title": "Loan & EMI Calculator",
+        "summary": "Calculate monthly loan payments, total interest, and total repayment.",
+        "content": "# Loan & EMI Calculator\n\n## Overview\n\nCalculate monthly loan payments, total interest, and total repayment.\n\n## How to Use\n\n1. Open **[Loan & EMI Calculator](./loanCalculator/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "贷款与月供计算器",
+        "summary": "计算等额本息每月还款额、总利息及还款总额。",
+        "content": "# 贷款与月供计算器\n\n## 工具简介\n\n计算等额本息每月还款额、总利息及还款总额。\n\n## 使用方法\n\n1. 在工具导航中打开 **[贷款与月供计算器](./loanCalculator/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "लोन और EMI कैलकुलेटर",
+        "summary": "मासिक EMI, कुल ब्याज और कुल भुगतान राशि की गणना करें।",
+        "content": "# लोन और EMI कैलकुलेटर\n\n## परिचय\n\nमासिक EMI, कुल ब्याज और कुल भुगतान राशि की गणना करें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[लोन और EMI कैलकुलेटर](./loanCalculator/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Calculadora de Préstamos",
+        "summary": "Calcula cuotas mensuales, intereses totales y pago final.",
+        "content": "# Calculadora de Préstamos\n\n## Descripción\n\nCalcula cuotas mensuales, intereses totales y pago final.\n\n## Cómo usar\n\n1. Abre **[Calculadora de Préstamos](./loanCalculator/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Calculateur de Prêt",
+        "summary": "Calculez vos mensualités, intérêts totaux et coût du crédit.",
+        "content": "# Calculateur de Prêt\n\n## Présentation\n\nCalculez vos mensualités, intérêts totaux et coût du crédit.\n\n## Mode d'emploi\n\n1. Ouvrez **[Calculateur de Prêt](./loanCalculator/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "대출 이자 & 월 상환금 계산기",
+        "summary": "원리금 균등 기준 월 상환액과 총 이자 비용을 계산합니다.",
+        "content": "# 대출 이자 & 월 상환금 계산기\n\n## 툴 소개\n\n원리금 균등 기준 월 상환액과 총 이자 비용을 계산합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[대출 이자 & 월 상환금 계산기](./loanCalculator/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "ローン返済 & 利息計算機",
+        "summary": "元利均等返済の月々の支払額と総利息を計算します。",
+        "content": "# ローン返済 & 利息計算機\n\n## 概要\n\n元利均等返済の月々の支払額と総利息を計算します。\n\n## 使い方\n\n1. ツール一覧から **[ローン返済 & 利息計算機](./loanCalculator/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Calculadora de Empréstimo",
+        "summary": "Calcule parcelas mensais, juros totais e valor final.",
+        "content": "# Calculadora de Empréstimo\n\n## Visão Geral\n\nCalcule parcelas mensais, juros totais e valor final.\n\n## Como Usar\n\n1. Abra **[Calculadora de Empréstimo](./loanCalculator/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Kredit- & Ratenrechner",
+        "summary": "Berechnen Sie monatliche Raten, Gesamtzinsen und Rückzahlung.",
+        "content": "# Kredit- & Ratenrechner\n\n## Überblick\n\nBerechnen Sie monatliche Raten, Gesamtzinsen und Rückzahlung.\n\n## Anleitung\n\n1. Öffnen Sie **[Kredit- & Ratenrechner](./loanCalculator/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-age-calculator",
+    "date": "2026-11-18",
+    "tag": "Calculator",
+    "folder": "ageCalculator",
+    "i18n": {
+      "en": {
+        "title": "Age & Date Difference Calculator",
+        "summary": "Find exact age in years/months/days or days between two dates.",
+        "content": "# Age & Date Difference Calculator\n\n## Overview\n\nFind exact age in years/months/days or days between two dates.\n\n## How to Use\n\n1. Open **[Age & Date Difference Calculator](./ageCalculator/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "年龄与日期间隔计算器",
+        "summary": "精确计算周岁年龄（年月日）及两个日期之间的天数差。",
+        "content": "# 年龄与日期间隔计算器\n\n## 工具简介\n\n精确计算周岁年龄（年月日）及两个日期之间的天数差。\n\n## 使用方法\n\n1. 在工具导航中打开 **[年龄与日期间隔计算器](./ageCalculator/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "आयु और तिथि अंतर कैलकुलेटर",
+        "summary": "सटीक आयु (साल/महीने/दिन) और दो तारीखों के बीच के दिन गिनें।",
+        "content": "# आयु और तिथि अंतर कैलकुलेटर\n\n## परिचय\n\nसटीक आयु (साल/महीने/दिन) और दो तारीखों के बीच के दिन गिनें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[आयु और तिथि अंतर कैलकुलेटर](./ageCalculator/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Calculadora de Edad y Fechas",
+        "summary": "Calcula la edad exacta o los días entre dos fechas.",
+        "content": "# Calculadora de Edad y Fechas\n\n## Descripción\n\nCalcula la edad exacta o los días entre dos fechas.\n\n## Cómo usar\n\n1. Abre **[Calculadora de Edad y Fechas](./ageCalculator/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Calculateur d'Âge & Dates",
+        "summary": "Calculez l'âge exact ou le nombre de jours entre deux dates.",
+        "content": "# Calculateur d'Âge & Dates\n\n## Présentation\n\nCalculez l'âge exact ou le nombre de jours entre deux dates.\n\n## Mode d'emploi\n\n1. Ouvrez **[Calculateur d'Âge & Dates](./ageCalculator/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "만 나이 & 날짜 차이 계산기",
+        "summary": "생년월일 기준 만 나이와 두 날짜 사이의 일수를 계산합니다.",
+        "content": "# 만 나이 & 날짜 차이 계산기\n\n## 툴 소개\n\n생년월일 기준 만 나이와 두 날짜 사이의 일수를 계산합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[만 나이 & 날짜 차이 계산기](./ageCalculator/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "満年齢 & 日数差計算機",
+        "summary": "生年月日から満年齢（年月日）と2つの日付の日数差を計算します。",
+        "content": "# 満年齢 & 日数差計算機\n\n## 概要\n\n生年月日から満年齢（年月日）と2つの日付の日数差を計算します。\n\n## 使い方\n\n1. ツール一覧から **[満年齢 & 日数差計算機](./ageCalculator/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Calculadora de Idade e Datas",
+        "summary": "Calcule a idade exata ou os dias entre duas datas.",
+        "content": "# Calculadora de Idade e Datas\n\n## Visão Geral\n\nCalcule a idade exata ou os dias entre duas datas.\n\n## Como Usar\n\n1. Abra **[Calculadora de Idade e Datas](./ageCalculator/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Alters- & Datumsrechner",
+        "summary": "Berechnen Sie das genaue Alter oder Tage zwischen zwei Daten.",
+        "content": "# Alters- & Datumsrechner\n\n## Überblick\n\nBerechnen Sie das genaue Alter oder Tage zwischen zwei Daten.\n\n## Anleitung\n\n1. Öffnen Sie **[Alters- & Datumsrechner](./ageCalculator/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-pomodoro-timer",
+    "date": "2026-11-18",
+    "tag": "Productivity",
+    "folder": "pomodoroTimer",
+    "i18n": {
+      "en": {
+        "title": "Pomodoro Focus Timer",
+        "summary": "Stay focused with 25/5/15 minute work-break cycles and sound alerts.",
+        "content": "# Pomodoro Focus Timer\n\n## Overview\n\nStay focused with 25/5/15 minute work-break cycles and sound alerts.\n\n## How to Use\n\n1. Open **[Pomodoro Focus Timer](./pomodoroTimer/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "番茄钟专注计时器",
+        "summary": "使用 25/5/15 分钟专注与休息循环，附带提示音。",
+        "content": "# 番茄钟专注计时器\n\n## 工具简介\n\n使用 25/5/15 分钟专注与休息循环，附带提示音。\n\n## 使用方法\n\n1. 在工具导航中打开 **[番茄钟专注计时器](./pomodoroTimer/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "पोमोडोरो फोकस टाइमर",
+        "summary": "25/5/15 मिनट के फोकस-ब्रेक चक्र और अलर्ट के साथ काम करें।",
+        "content": "# पोमोडोरो फोकस टाइमर\n\n## परिचय\n\n25/5/15 मिनट के फोकस-ब्रेक चक्र और अलर्ट के साथ काम करें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[पोमोडोरो फोकस टाइमर](./pomodoroTimer/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Temporizador Pomodoro",
+        "summary": "Mantén el enfoque con ciclos de 25/5/15 minutos y alertas.",
+        "content": "# Temporizador Pomodoro\n\n## Descripción\n\nMantén el enfoque con ciclos de 25/5/15 minutos y alertas.\n\n## Cómo usar\n\n1. Abre **[Temporizador Pomodoro](./pomodoroTimer/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Minuteur Pomodoro",
+        "summary": "Restez concentré avec des cycles de 25/5/15 minutes.",
+        "content": "# Minuteur Pomodoro\n\n## Présentation\n\nRestez concentré avec des cycles de 25/5/15 minutes.\n\n## Mode d'emploi\n\n1. Ouvrez **[Minuteur Pomodoro](./pomodoroTimer/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "뽀모도로 집중 타이머",
+        "summary": "25분 집중 · 5분 휴식 사이클과 알림음으로 집중력을 높입니다.",
+        "content": "# 뽀모도로 집중 타이머\n\n## 툴 소개\n\n25분 집중 · 5분 휴식 사이클과 알림음으로 집중력을 높입니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[뽀모도로 집중 타이머](./pomodoroTimer/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "ポモドーロ集中タイマー",
+        "summary": "25分集中・5分休憩のサイクルと通知音で作業効率を高めます。",
+        "content": "# ポモドーロ集中タイマー\n\n## 概要\n\n25分集中・5分休憩のサイクルと通知音で作業効率を高めます。\n\n## 使い方\n\n1. ツール一覧から **[ポモドーロ集中タイマー](./pomodoroTimer/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Temporizador Pomodoro",
+        "summary": "Mantenha o foco com ciclos de 25/5/15 minutos e alertas.",
+        "content": "# Temporizador Pomodoro\n\n## Visão Geral\n\nMantenha o foco com ciclos de 25/5/15 minutos e alertas.\n\n## Como Usar\n\n1. Abra **[Temporizador Pomodoro](./pomodoroTimer/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Pomodoro-Fokus-Timer",
+        "summary": "Bleiben Sie produktiv mit 25/5/15-Minuten-Zyklen und Signalton.",
+        "content": "# Pomodoro-Fokus-Timer\n\n## Überblick\n\nBleiben Sie produktiv mit 25/5/15-Minuten-Zyklen und Signalton.\n\n## Anleitung\n\n1. Öffnen Sie **[Pomodoro-Fokus-Timer](./pomodoroTimer/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-stopwatch-timer",
+    "date": "2026-11-18",
+    "tag": "Productivity",
+    "folder": "stopwatchTimer",
+    "i18n": {
+      "en": {
+        "title": "Stopwatch & Countdown Timer",
+        "summary": "Measure lap times with millisecond precision or run a countdown.",
+        "content": "# Stopwatch & Countdown Timer\n\n## Overview\n\nMeasure lap times with millisecond precision or run a countdown.\n\n## How to Use\n\n1. Open **[Stopwatch & Countdown Timer](./stopwatchTimer/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "秒表与倒计时器",
+        "summary": "支持毫秒级计次秒表与自定义倒计时提醒。",
+        "content": "# 秒表与倒计时器\n\n## 工具简介\n\n支持毫秒级计次秒表与自定义倒计时提醒。\n\n## 使用方法\n\n1. 在工具导航中打开 **[秒表与倒计时器](./stopwatchTimer/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "स्टॉपवॉच और काउंटडाउन टाइमर",
+        "summary": "लैप टाइम रिकॉर्ड करें या कस्टम काउंटडाउन टाइमर चलाएं।",
+        "content": "# स्टॉपवॉच और काउंटडाउन टाइमर\n\n## परिचय\n\nलैप टाइम रिकॉर्ड करें या कस्टम काउंटडाउन टाइमर चलाएं।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[स्टॉपवॉच और काउंटडाउन टाइमर](./stopwatchTimer/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Cronómetro y Temporizador",
+        "summary": "Mide vueltas con precisión de milisegundos o cuenta atrás.",
+        "content": "# Cronómetro y Temporizador\n\n## Descripción\n\nMide vueltas con precisión de milisegundos o cuenta atrás.\n\n## Cómo usar\n\n1. Abre **[Cronómetro y Temporizador](./stopwatchTimer/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Chronomètre & Compte à rebours",
+        "summary": "Mesurez vos temps au tour ou lancez un compte à rebours.",
+        "content": "# Chronomètre & Compte à rebours\n\n## Présentation\n\nMesurez vos temps au tour ou lancez un compte à rebours.\n\n## Mode d'emploi\n\n1. Ouvrez **[Chronomètre & Compte à rebours](./stopwatchTimer/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "스톱워치 & 카운트다운",
+        "summary": "랩 타임 기록 스톱워치와 알림음 카운트다운 타이머를 제공합니다.",
+        "content": "# 스톱워치 & 카운트다운\n\n## 툴 소개\n\n랩 타임 기록 스톱워치와 알림음 카운트다운 타이머를 제공합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[스톱워치 & 카운트다운](./stopwatchTimer/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "ストップウォッチ & タイマー",
+        "summary": "ラップタイム計測対応の高精度ストップウォッチです。",
+        "content": "# ストップウォッチ & タイマー\n\n## 概要\n\nラップタイム計測対応の高精度ストップウォッチです。\n\n## 使い方\n\n1. ツール一覧から **[ストップウォッチ & タイマー](./stopwatchTimer/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Cronômetro e Temporizador",
+        "summary": "Meça voltas com precisão de milissegundos.",
+        "content": "# Cronômetro e Temporizador\n\n## Visão Geral\n\nMeça voltas com precisão de milissegundos.\n\n## Como Usar\n\n1. Abra **[Cronômetro e Temporizador](./stopwatchTimer/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Stoppuhr & Timer",
+        "summary": "Messen Sie Rundenzeiten präzise auf die Millisekunde.",
+        "content": "# Stoppuhr & Timer\n\n## Überblick\n\nMessen Sie Rundenzeiten präzise auf die Millisekunde.\n\n## Anleitung\n\n1. Öffnen Sie **[Stoppuhr & Timer](./stopwatchTimer/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-timezone-converter",
+    "date": "2026-11-18",
+    "tag": "Productivity",
+    "folder": "timezoneConverter",
+    "i18n": {
+      "en": {
+        "title": "World Timezone Converter",
+        "summary": "Compare current or custom times across major global time zones.",
+        "content": "# World Timezone Converter\n\n## Overview\n\nCompare current or custom times across major global time zones.\n\n## How to Use\n\n1. Open **[World Timezone Converter](./timezoneConverter/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "世界时区转换器",
+        "summary": "对比全球主要城市与时区的当前时间或指定时间。",
+        "content": "# 世界时区转换器\n\n## 工具简介\n\n对比全球主要城市与时区的当前时间或指定时间。\n\n## 使用方法\n\n1. 在工具导航中打开 **[世界时区转换器](./timezoneConverter/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "विश्व टाइमज़ोन कन्वर्टर",
+        "summary": "प्रमुख वैश्विक टाइमज़ोन में वर्तमान या कस्टम समय की तुलना करें।",
+        "content": "# विश्व टाइमज़ोन कन्वर्टर\n\n## परिचय\n\nप्रमुख वैश्विक टाइमज़ोन में वर्तमान या कस्टम समय की तुलना करें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[विश्व टाइमज़ोन कन्वर्टर](./timezoneConverter/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Conversor de Zonas Horarias",
+        "summary": "Compara horarios actuales o personalizados en todo el mundo.",
+        "content": "# Conversor de Zonas Horarias\n\n## Descripción\n\nCompara horarios actuales o personalizados en todo el mundo.\n\n## Cómo usar\n\n1. Abre **[Conversor de Zonas Horarias](./timezoneConverter/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Convertisseur de Fuseaux Horaires",
+        "summary": "Comparez l'heure actuelle ou choisie dans le monde entier.",
+        "content": "# Convertisseur de Fuseaux Horaires\n\n## Présentation\n\nComparez l'heure actuelle ou choisie dans le monde entier.\n\n## Mode d'emploi\n\n1. Ouvrez **[Convertisseur de Fuseaux Horaires](./timezoneConverter/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "세계 시간 & 타임존 변환기",
+        "summary": "서울, 뉴욕, 런던, 도쿄 등 주요 도시 시간을 한눈에 비교합니다.",
+        "content": "# 세계 시간 & 타임존 변환기\n\n## 툴 소개\n\n서울, 뉴욕, 런던, 도쿄 등 주요 도시 시간을 한눈에 비교합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[세계 시간 & 타임존 변환기](./timezoneConverter/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "世界時計 & タイムゾーン変換",
+        "summary": "東京、ソウル、ニューヨーク、ロンドン等の時刻を比較します。",
+        "content": "# 世界時計 & タイムゾーン変換\n\n## 概要\n\n東京、ソウル、ニューヨーク、ロンドン等の時刻を比較します。\n\n## 使い方\n\n1. ツール一覧から **[世界時計 & タイムゾーン変換](./timezoneConverter/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Conversor de Fusos Horários",
+        "summary": "Compare horários em diferentes fusos do mundo.",
+        "content": "# Conversor de Fusos Horários\n\n## Visão Geral\n\nCompare horários em diferentes fusos do mundo.\n\n## Como Usar\n\n1. Abra **[Conversor de Fusos Horários](./timezoneConverter/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Weltzeitzonen-Konverter",
+        "summary": "Vergleichen Sie aktuelle oder gewählte Zeiten weltweit.",
+        "content": "# Weltzeitzonen-Konverter\n\n## Überblick\n\nVergleichen Sie aktuelle oder gewählte Zeiten weltweit.\n\n## Anleitung\n\n1. Öffnen Sie **[Weltzeitzonen-Konverter](./timezoneConverter/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-number-base-converter",
+    "date": "2026-11-18",
+    "tag": "Developer",
+    "folder": "numberBaseConverter",
+    "i18n": {
+      "en": {
+        "title": "Number Base Converter",
+        "summary": "Convert numbers between Binary (2), Octal (8), Decimal (10), and Hex (16).",
+        "content": "# Number Base Converter\n\n## Overview\n\nConvert numbers between Binary (2), Octal (8), Decimal (10), and Hex (16).\n\n## How to Use\n\n1. Open **[Number Base Converter](./numberBaseConverter/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "进制转换器",
+        "summary": "在二进制、八进制、十进制和十六进制之间实时转换。",
+        "content": "# 进制转换器\n\n## 工具简介\n\n在二进制、八进制、十进制和十六进制之间实时转换。\n\n## 使用方法\n\n1. 在工具导航中打开 **[进制转换器](./numberBaseConverter/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "नंबर बेस कन्वर्टर",
+        "summary": "बाइनरी (2), ऑक्टल (8), डेसिमल (10) और हेक्स (16) में बदलें।",
+        "content": "# नंबर बेस कन्वर्टर\n\n## परिचय\n\nबाइनरी (2), ऑक्टल (8), डेसिमल (10) और हेक्स (16) में बदलें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[नंबर बेस कन्वर्टर](./numberBaseConverter/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Conversor de Bases Numéricas",
+        "summary": "Convierte entre Binario (2), Octal (8), Decimal (10) y Hex (16).",
+        "content": "# Conversor de Bases Numéricas\n\n## Descripción\n\nConvierte entre Binario (2), Octal (8), Decimal (10) y Hex (16).\n\n## Cómo usar\n\n1. Abre **[Conversor de Bases Numéricas](./numberBaseConverter/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Convertisseur de Bases",
+        "summary": "Convertissez entre Binaire (2), Octal (8), Décimal (10) et Hex (16).",
+        "content": "# Convertisseur de Bases\n\n## Présentation\n\nConvertissez entre Binaire (2), Octal (8), Décimal (10) et Hex (16).\n\n## Mode d'emploi\n\n1. Ouvrez **[Convertisseur de Bases](./numberBaseConverter/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "진법 변환기 (2·8·10·16진수)",
+        "summary": "2진수, 8진수, 10진수, 16진수를 실시간으로 상호 변환합니다.",
+        "content": "# 진법 변환기 (2·8·10·16진수)\n\n## 툴 소개\n\n2진수, 8진수, 10진수, 16진수를 실시간으로 상호 변환합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[진법 변환기 (2·8·10·16진수)](./numberBaseConverter/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "進数変換ツール (2・8・10・16進数)",
+        "summary": "2進数、8進数、10進数、16進数をリアルタイムに変換します。",
+        "content": "# 進数変換ツール (2・8・10・16進数)\n\n## 概要\n\n2進数、8進数、10進数、16進数をリアルタイムに変換します。\n\n## 使い方\n\n1. ツール一覧から **[進数変換ツール (2・8・10・16進数)](./numberBaseConverter/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Conversor de Bases Numéricas",
+        "summary": "Converta entre Binário (2), Octal (8), Decimal (10) e Hex (16).",
+        "content": "# Conversor de Bases Numéricas\n\n## Visão Geral\n\nConverta entre Binário (2), Octal (8), Decimal (10) e Hex (16).\n\n## Como Usar\n\n1. Abra **[Conversor de Bases Numéricas](./numberBaseConverter/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Zahlensystem-Konverter",
+        "summary": "Konvertieren Sie zwischen Binär, Oktal, Dezimal und Hexadezimal.",
+        "content": "# Zahlensystem-Konverter\n\n## Überblick\n\nKonvertieren Sie zwischen Binär, Oktal, Dezimal und Hexadezimal.\n\n## Anleitung\n\n1. Öffnen Sie **[Zahlensystem-Konverter](./numberBaseConverter/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-html-entity-converter",
+    "date": "2026-11-18",
+    "tag": "Encoding",
+    "folder": "htmlEntityConverter",
+    "i18n": {
+      "en": {
+        "title": "HTML Entity Encoder / Decoder",
+        "summary": "Escape or unescape HTML special characters like <, >, &, and quotes.",
+        "content": "# HTML Entity Encoder / Decoder\n\n## Overview\n\nEscape or unescape HTML special characters like <, >, &, and quotes.\n\n## How to Use\n\n1. Open **[HTML Entity Encoder / Decoder](./htmlEntityConverter/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "HTML 实体编码 / 解码器",
+        "summary": "对 HTML 特殊字符（<、>、&、引号等）进行安全转义与还原。",
+        "content": "# HTML 实体编码 / 解码器\n\n## 工具简介\n\n对 HTML 特殊字符（<、>、&、引号等）进行安全转义与还原。\n\n## 使用方法\n\n1. 在工具导航中打开 **[HTML 实体编码 / 解码器](./htmlEntityConverter/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "HTML एंटिटी एनकोडर / डिकोडर",
+        "summary": "HTML के विशेष अक्षरों (<, >, &, उद्धरण) को एस्केप या अनएस्केप करें।",
+        "content": "# HTML एंटिटी एनकोडर / डिकोडर\n\n## परिचय\n\nHTML के विशेष अक्षरों (<, >, &, उद्धरण) को एस्केप या अनएस्केप करें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[HTML एंटिटी एनकोडर / डिकोडर](./htmlEntityConverter/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Codificador de Entidades HTML",
+        "summary": "Escapa o decodifica caracteres especiales HTML (<, >, &, comillas).",
+        "content": "# Codificador de Entidades HTML\n\n## Descripción\n\nEscapa o decodifica caracteres especiales HTML (<, >, &, comillas).\n\n## Cómo usar\n\n1. Abre **[Codificador de Entidades HTML](./htmlEntityConverter/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Encodeur d'Entités HTML",
+        "summary": "Échappez ou décodez les caractères spéciaux HTML (<, >, &).",
+        "content": "# Encodeur d'Entités HTML\n\n## Présentation\n\nÉchappez ou décodez les caractères spéciaux HTML (<, >, &).\n\n## Mode d'emploi\n\n1. Ouvrez **[Encodeur d'Entités HTML](./htmlEntityConverter/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "HTML 엔티티 인코더 / 디코더",
+        "summary": "<, >, &, 따옴표 등 HTML 특수문자를 안전하게 이스케이프/복원합니다.",
+        "content": "# HTML 엔티티 인코더 / 디코더\n\n## 툴 소개\n\n<, >, &, 따옴표 등 HTML 특수문자를 안전하게 이스케이프/복원합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[HTML 엔티티 인코더 / 디코더](./htmlEntityConverter/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "HTML エンティティ変換",
+        "summary": "<、>、&、引用符などのHTML特殊文字をエスケープ・復元します。",
+        "content": "# HTML エンティティ変換\n\n## 概要\n\n<、>、&、引用符などのHTML特殊文字をエスケープ・復元します。\n\n## 使い方\n\n1. ツール一覧から **[HTML エンティティ変換](./htmlEntityConverter/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Codificador de Entidades HTML",
+        "summary": "Escape ou decodifique caracteres especiais HTML (<, >, &).",
+        "content": "# Codificador de Entidades HTML\n\n## Visão Geral\n\nEscape ou decodifique caracteres especiais HTML (<, >, &).\n\n## Como Usar\n\n1. Abra **[Codificador de Entidades HTML](./htmlEntityConverter/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "HTML-Entity-Konverter",
+        "summary": "Maskieren oder dekodieren Sie HTML-Sonderzeichen (<, >, &).",
+        "content": "# HTML-Entity-Konverter\n\n## Überblick\n\nMaskieren oder dekodieren Sie HTML-Sonderzeichen (<, >, &).\n\n## Anleitung\n\n1. Öffnen Sie **[HTML-Entity-Konverter](./htmlEntityConverter/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  },
+  {
+    "id": "guide-aspect-ratio-calculator",
+    "date": "2026-11-18",
+    "tag": "Design",
+    "folder": "aspectRatioCalculator",
+    "i18n": {
+      "en": {
+        "title": "Aspect Ratio & Resolution Calculator",
+        "summary": "Calculate proportional width/height and simplify aspect ratios.",
+        "content": "# Aspect Ratio & Resolution Calculator\n\n## Overview\n\nCalculate proportional width/height and simplify aspect ratios.\n\n## How to Use\n\n1. Open **[Aspect Ratio & Resolution Calculator](./aspectRatioCalculator/)** from the Tools dashboard.\n2. Enter or upload your input data directly in your browser (nothing is sent to any server).\n3. Adjust any options if needed and copy or download your result immediately.\n\n## Privacy & Speed\n\nAll processing runs 100% locally in your browser using JavaScript, making it fast and safe for sensitive data."
+      },
+      "zh": {
+        "title": "宽高比与分辨率计算器",
+        "summary": "计算等比例缩放后的宽高尺寸并化简屏幕宽高比。",
+        "content": "# 宽高比与分辨率计算器\n\n## 工具简介\n\n计算等比例缩放后的宽高尺寸并化简屏幕宽高比。\n\n## 使用方法\n\n1. 在工具导航中打开 **[宽高比与分辨率计算器](./aspectRatioCalculator/)**。\n2. 直接在浏览器中输入内容或上传文件（所有数据均不会上传至服务器）。\n3. 根据需要调整选项，即可立即复制或下载处理结果。\n\n## 隐私与速度\n\n所有计算均在您的浏览器本地通过 JavaScript 完成，响应快且安全。"
+      },
+      "hi": {
+        "title": "आस्पेक्ट रेशियो कैलकुलेटर",
+        "summary": "अनुपातिक चौड़ाई/ऊंचाई और स्क्रीन आस्पेक्ट रेशियो की गणना करें।",
+        "content": "# आस्पेक्ट रेशियो कैलकुलेटर\n\n## परिचय\n\nअनुपातिक चौड़ाई/ऊंचाई और स्क्रीन आस्पेक्ट रेशियो की गणना करें।\n\n## उपयोग कैसे करें\n\n1. टूल्स डैशबोर्ड से **[आस्पेक्ट रेशियो कैलकुलेटर](./aspectRatioCalculator/)** खोलें।\n2. अपने ब्राउज़र में सीधे डेटा दर्ज करें या फ़ाइल चुनें (कोई डेटा सर्वर पर नहीं भेजा जाता)।\n3. आवश्यकतानुसार विकल्प चुनें और तुरंत परिणाम कॉपी या डाउनलोड करें।\n\n## गोपनीयता और गति\n\nसभी प्रक्रियाएं 100% आपके ब्राउज़र में लोकल रूप से चलती हैं, इसलिए यह तेज़ और सुरक्षित है।"
+      },
+      "es": {
+        "title": "Calculadora de Relación de Aspecto",
+        "summary": "Calcula dimensiones proporcionales y simplifica relaciones de aspecto.",
+        "content": "# Calculadora de Relación de Aspecto\n\n## Descripción\n\nCalcula dimensiones proporcionales y simplifica relaciones de aspecto.\n\n## Cómo usar\n\n1. Abre **[Calculadora de Relación de Aspecto](./aspectRatioCalculator/)** desde el panel de herramientas.\n2. Introduce tus datos o selecciona un archivo directamente en el navegador.\n3. Ajusta las opciones si es necesario y copia o descarga el resultado al instante.\n\n## Privacidad y Velocidad\n\nTodo el procesamiento se realiza 100% de forma local en tu navegador sin enviar datos a servidores."
+      },
+      "fr": {
+        "title": "Calculateur de Ratio d'Aspect",
+        "summary": "Calculez des dimensions proportionnelles et simplifiez les ratios.",
+        "content": "# Calculateur de Ratio d'Aspect\n\n## Présentation\n\nCalculez des dimensions proportionnelles et simplifiez les ratios.\n\n## Mode d'emploi\n\n1. Ouvrez **[Calculateur de Ratio d'Aspect](./aspectRatioCalculator/)** depuis le tableau des outils.\n2. Saisissez vos données ou sélectionnez un fichier directement dans votre navigateur.\n3. Ajustez les options si besoin puis copiez ou téléchargez le résultat.\n\n## Confidentialité et Rapidité\n\nTout le traitement s'effectue 100% localement dans votre navigateur, sans envoi vers un serveur."
+      },
+      "ko": {
+        "title": "화면 비율 & 해상도 계산기",
+        "summary": "16:9, 4:3 등 비율에 맞는 가로/세로 해상도를 계산합니다.",
+        "content": "# 화면 비율 & 해상도 계산기\n\n## 툴 소개\n\n16:9, 4:3 등 비율에 맞는 가로/세로 해상도를 계산합니다.\n\n## 사용 방법\n\n1. Tools 대시보드에서 **[화면 비율 & 해상도 계산기](./aspectRatioCalculator/)** 툴을 엽니다.\n2. 브라우저 화면에 데이터를 입력하거나 파일을 선택합니다 (서버로 전송되지 않습니다).\n3. 필요한 옵션을 조정한 뒤 결과를 바로 복사하거나 파일로 다운로드합니다.\n\n## 보안 및 특징\n\n모든 연산은 사용자의 브라우저 내에서 JavaScript로 100% 로컬 처리되어 빠르고 안전합니다."
+      },
+      "ja": {
+        "title": "アスペクト比 & 解像度計算機",
+        "summary": "16:9や4:3などの比率を維持した幅・高さを計算します。",
+        "content": "# アスペクト比 & 解像度計算機\n\n## 概要\n\n16:9や4:3などの比率を維持した幅・高さを計算します。\n\n## 使い方\n\n1. ツール一覧から **[アスペクト比 & 解像度計算機](./aspectRatioCalculator/)** を開きます。\n2. ブラウザ上で直接データを入力またはファイルを選択します（サーバー送信なし）。\n3. 必要に応じてオプションを調整し、結果をコピーまたはダウンロードします。\n\n## プライバシーと速度\n\nすべての処理はブラウザ内のJavaScriptで完結するため、高速で安全です。"
+      },
+      "pt": {
+        "title": "Calculadora de Proporção (Aspect Ratio)",
+        "summary": "Calcule dimensões proporcionais e simplifique proporções.",
+        "content": "# Calculadora de Proporção (Aspect Ratio)\n\n## Visão Geral\n\nCalcule dimensões proporcionais e simplifique proporções.\n\n## Como Usar\n\n1. Abra **[Calculadora de Proporção (Aspect Ratio)](./aspectRatioCalculator/)** no painel de ferramentas.\n2. Insira seus dados ou selecione um arquivo diretamente no navegador.\n3. Ajuste as opções se necessário e copie ou baixe o resultado.\n\n## Privacidade e Velocidade\n\nTodo o processamento ocorre 100% localmente no seu navegador via JavaScript."
+      },
+      "de": {
+        "title": "Seitenverhältnis-Rechner",
+        "summary": "Berechnen Sie proportionale Breiten/Höhen und Seitenverhältnisse.",
+        "content": "# Seitenverhältnis-Rechner\n\n## Überblick\n\nBerechnen Sie proportionale Breiten/Höhen und Seitenverhältnisse.\n\n## Anleitung\n\n1. Öffnen Sie **[Seitenverhältnis-Rechner](./aspectRatioCalculator/)** im Tool-Dashboard.\n2. Geben Sie Ihre Daten ein oder wählen Sie eine Datei direkt im Browser.\n3. Passen Sie bei Bedarf Optionen an und kopieren oder laden Sie das Ergebnis herunter.\n\n## Datenschutz & Tempo\n\nDie gesamte Verarbeitung läuft zu 100 % lokal per JavaScript in Ihrem Browser."
+      }
+    }
+  }
+]

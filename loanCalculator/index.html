@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loan & EMI Calculator — Mini Toolkit</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="Calculate monthly loan payments, total interest, and total repayment. 원리금 균등 기준 월 상환액과 총 이자 비용을 계산합니다." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mini-toolkit.github.io/loanCalculator/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Toolkit" />
+  <meta property="og:title" content="Loan &amp; EMI Calculator (대출 이자 &amp; 월 상환금 계산기) — Mini Toolkit" />
+  <meta property="og:description" content="Calculate monthly loan payments, total interest, and total repayment. 원리금 균등 기준 월 상환액과 총 이자 비용을 계산합니다." />
+  <meta property="og:url" content="https://mini-toolkit.github.io/loanCalculator/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Loan &amp; EMI Calculator (대출 이자 &amp; 월 상환금 계산기) — Mini Toolkit" />
+  <meta name="twitter:description" content="Calculate monthly loan payments, total interest, and total repayment. 원리금 균등 기준 월 상환액과 총 이자 비용을 계산합니다." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Loan & EMI Calculator", "alternateName": "대출 이자 & 월 상환금 계산기", "url": "https://mini-toolkit.github.io/loanCalculator/", "description": "Calculate monthly loan payments, total interest, and total repayment.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <!-- /SEO Meta -->
+  <link rel="stylesheet" href="../shared/tool-common.css" />
+</head>
+<body data-tool-id="loan-calculator">
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-badge">MT</span>
+        <span>Mini Toolkit</span>
+      </a>
+      <nav class="nav-tabs" aria-label="Main Menu">
+        <a class="nav-tab active" href="../" data-i18n="nav.tools">Tools</a>
+        <a class="nav-tab" href="../index.html#blog" data-i18n="nav.blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-btn" href="../" data-i18n="back.tools">← Back to All Tools</a>
+    <div class="page-header">
+      <h1 class="page-title">Loan & EMI Calculator</h1>
+      <p class="page-desc">Calculate monthly loan payments, total interest, and total repayment.</p>
+    </div>
+
+    <div class="panel">
+      <div class="grid-3">
+        <div><label class="field-label" for="ln-amt" data-i18n="loan.amt">Principal Amount</label><input id="ln-amt" type="number" class="text-input-box" value="100000" /></div>
+        <div><label class="field-label" for="ln-rate" data-i18n="loan.rate">Annual Interest (%)</label><input id="ln-rate" type="number" class="text-input-box" step="0.1" value="4.5" /></div>
+        <div><label class="field-label" for="ln-months" data-i18n="loan.months">Term (Months)</label><input id="ln-months" type="number" class="text-input-box" value="36" /></div>
+      </div>
+      <div class="stats-row" style="margin-top:16px;">
+        <div class="stat-box"><div class="stat-value" id="ln-emi">-</div><div class="stat-label" data-i18n="loan.emi">Monthly Payment</div></div>
+        <div class="stat-box"><div class="stat-value" id="ln-int">-</div><div class="stat-label" data-i18n="loan.int">Total Interest</div></div>
+        <div class="stat-box"><div class="stat-value" id="ln-tot">-</div><div class="stat-label" data-i18n="loan.tot">Total Repayment</div></div>
+      </div>
+    </div>
+
+    <section class="panel comments-card" aria-labelledby="comments-title">
+      <div class="comments-header">
+        <h2 id="comments-title" data-i18n="comments.title">Comments</h2>
+        <p data-i18n="comments.desc">Share feedback, bug reports, or feature requests.</p>
+      </div>
+      <div id="comments" data-tool-id="loan-calculator"></div>
+      <div id="comments-setup" class="comments-setup" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer.copy">© 2026 Mini Toolkit</span>
+      <a class="coffee-link" href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" data-i18n="footer.coffee">
+        ☕ Buy Me a Coffee
+      </a>
+    </div>
+  </footer>
+
+  <script src="../shared/tools-registry.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="./app.js"></script>
+  <script type="module" src="../barcodeGen/comments.js"></script>
+</body>
+</html>

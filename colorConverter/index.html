@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Converter & Picker — Mini Toolkit</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="Pick colors and convert between HEX, RGB, and HSL with live preview. HEX, RGB, HSL 색상 코드를 실시간으로 변환하고 미리봅니다." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mini-toolkit.github.io/colorConverter/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Toolkit" />
+  <meta property="og:title" content="Color Converter &amp; Picker (색상 코드 변환기) — Mini Toolkit" />
+  <meta property="og:description" content="Pick colors and convert between HEX, RGB, and HSL with live preview. HEX, RGB, HSL 색상 코드를 실시간으로 변환하고 미리봅니다." />
+  <meta property="og:url" content="https://mini-toolkit.github.io/colorConverter/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Color Converter &amp; Picker (색상 코드 변환기) — Mini Toolkit" />
+  <meta name="twitter:description" content="Pick colors and convert between HEX, RGB, and HSL with live preview. HEX, RGB, HSL 색상 코드를 실시간으로 변환하고 미리봅니다." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Color Converter & Picker", "alternateName": "색상 코드 변환기", "url": "https://mini-toolkit.github.io/colorConverter/", "description": "Pick colors and convert between HEX, RGB, and HSL with live preview.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <!-- /SEO Meta -->
+  <link rel="stylesheet" href="../shared/tool-common.css" />
+</head>
+<body data-tool-id="color-converter">
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-badge">MT</span>
+        <span>Mini Toolkit</span>
+      </a>
+      <nav class="nav-tabs" aria-label="Main Menu">
+        <a class="nav-tab active" href="../" data-i18n="nav.tools">Tools</a>
+        <a class="nav-tab" href="../index.html#blog" data-i18n="nav.blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-btn" href="../" data-i18n="back.tools">← Back to All Tools</a>
+    <div class="page-header">
+      <h1 class="page-title">Color Converter & Picker</h1>
+      <p class="page-desc">Pick colors and convert between HEX, RGB, and HSL with live preview.</p>
+    </div>
+
+    <div class="panel">
+      <div class="toolbar">
+        <input id="cc-picker" type="color" value="#2563eb" style="width:48px;height:38px;border:none;background:none;cursor:pointer;" />
+        <input id="cc-hex" type="text" class="text-input-box" value="#2563EB" style="max-width:160px;" />
+        <div id="cc-swatch" style="flex:1;min-width:120px;height:38px;border-radius:8px;border:1px solid var(--border);background:#2563EB;"></div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-box"><div class="stat-label">HEX</div><div class="mono-output" id="cc-out-hex" style="margin-top:6px;"></div></div>
+        <div class="stat-box"><div class="stat-label">RGB</div><div class="mono-output" id="cc-out-rgb" style="margin-top:6px;"></div></div>
+        <div class="stat-box"><div class="stat-label">HSL</div><div class="mono-output" id="cc-out-hsl" style="margin-top:6px;"></div></div>
+      </div>
+    </div>
+
+    <section class="panel comments-card" aria-labelledby="comments-title">
+      <div class="comments-header">
+        <h2 id="comments-title" data-i18n="comments.title">Comments</h2>
+        <p data-i18n="comments.desc">Share feedback, bug reports, or feature requests.</p>
+      </div>
+      <div id="comments" data-tool-id="color-converter"></div>
+      <div id="comments-setup" class="comments-setup" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer.copy">© 2026 Mini Toolkit</span>
+      <a class="coffee-link" href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" data-i18n="footer.coffee">
+        ☕ Buy Me a Coffee
+      </a>
+    </div>
+  </footer>
+
+  <script src="../shared/tools-registry.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="./app.js"></script>
+  <script type="module" src="../barcodeGen/comments.js"></script>
+</body>
+</html>

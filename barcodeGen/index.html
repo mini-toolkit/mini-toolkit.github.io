@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>바코드 / QR코드 생성기</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="Generate CODE128, EAN, UPC, and QR codes locally and save as PNG or SVG. CODE128, EAN, UPC, QR코드를 브라우저에서 바로 생성하고 PNG · SVG로 저장합니다." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mini-toolkit.github.io/barcodeGen/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Toolkit" />
+  <meta property="og:title" content="Barcode &amp; QR Code Generator (바코드 / QR코드 생성기) — Mini Toolkit" />
+  <meta property="og:description" content="Generate CODE128, EAN, UPC, and QR codes locally and save as PNG or SVG. CODE128, EAN, UPC, QR코드를 브라우저에서 바로 생성하고 PNG · SVG로 저장합니다." />
+  <meta property="og:url" content="https://mini-toolkit.github.io/barcodeGen/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Barcode &amp; QR Code Generator (바코드 / QR코드 생성기) — Mini Toolkit" />
+  <meta name="twitter:description" content="Generate CODE128, EAN, UPC, and QR codes locally and save as PNG or SVG. CODE128, EAN, UPC, QR코드를 브라우저에서 바로 생성하고 PNG · SVG로 저장합니다." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Barcode & QR Code Generator", "alternateName": "바코드 / QR코드 생성기", "url": "https://mini-toolkit.github.io/barcodeGen/", "description": "Generate CODE128, EAN, UPC, and QR codes locally and save as PNG or SVG.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <!-- /SEO Meta -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-tool-id="barcode-generator">
+  <header class="site-header">
+    <div class="site-nav-inner">
+      <a class="site-brand" href="../">
+        <span class="site-brand-badge">MT</span>
+        <span>Mini Toolkit</span>
+      </a>
+      <nav class="site-nav-tabs" aria-label="주 메뉴">
+        <a class="site-nav-tab active" href="../" data-i18n="nav.tools">Tools</a>
+        <a class="site-nav-tab" href="../index.html#blog" data-i18n="nav.blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="header-badge">ONLINE GENERATOR</div>
+      <h1 class="page-title">바코드 / QR코드 생성기</h1>
+      <p class="subtitle" data-i18n="bg.sub">별도의 프로그램 설치 없이 브라우저에서 바로 바코드와 QR코드를 생성하고 PNG · SVG로 저장하세요.</p>
+      <p class="support-note">
+        <strong data-i18n="bg.sup">지원 바코드:</strong> CODE128 (auto/A/B/C), EAN, EAN8, UPC, CODE39, ITF14, ITF, MSI, MSI10, MSI11, MSI1010, MSI1110, Pharmacode, QRCode
+      </p>
+      <p class="fnc1-note">
+        <span data-i18n="bg.fnc1">분리 문자인 FNC1을 사용하는 바코드는 \F로 입력 가능합니다. 예)</span> <code>01088012345600161713052510ABC123\F21123456789</code>
+      </p>
+    </header>
+
+    <main class="card">
+      <nav class="tabs" role="tablist" aria-label="생성기 종류">
+        <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="barcodeTab" id="tab-barcode" data-tab="barcodeTab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M3 5v14M7 5v14M10 5v14M14 5v14M17 5v14M21 5v14"/>
+          </svg>
+          <span data-i18n="bg.tab.bc">바코드</span>
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="qrcodeTab" id="tab-qrcode" data-tab="qrcodeTab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM17 17h4v4h-4zM14 20h3"/>
+          </svg>
+          <span data-i18n="bg.tab.qr">QR코드</span>
+        </button>
+      </nav>
+
+      <!-- ================= 바코드 탭 ================= -->
+      <section id="barcodeTab" class="tab-panel active" role="tabpanel" aria-labelledby="tab-barcode">
+        <div class="preview-stage" id="barcodeStage">
+          <div class="preview-inner" id="barcodeBox">
+            <svg id="barcodeSvg" role="img" aria-label="생성된 바코드 미리보기"></svg>
+            <div id="barcodeInvalid" class="invalid-msg" hidden>
+              <span class="invalid-title" data-i18n="bg.invalid.bc">유효하지 않는 데이터입니다.</span>
+              <span id="barcodeHint" class="invalid-hint"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button type="button" class="btn btn-primary" id="saveBarcodePng">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span data-i18n="bg.png">PNG 저장</span>
+          </button>
+          <button type="button" class="btn btn-secondary" id="saveBarcodeSvg" data-i18n="bg.svg">SVG 저장</button>
+          <button type="button" class="btn btn-secondary" id="copyBarcodeImg" data-i18n="bg.copy">이미지 복사</button>
+        </div>
+
+        <div class="input-section">
+          <label class="sr-only" for="userInput">바코드 데이터</label>
+          <div class="barcode-input-group">
+            <input
+              id="userInput"
+              class="text-input"
+              type="text"
+              value="Example 1234"
+              placeholder="바코드 데이터를 입력하세요" data-i18n-placeholder="bg.ph.bc"
+              autocomplete="off"
+              autofocus
+            />
+            <select id="barcodeType" class="select-input" aria-label="바코드 형식">
+              <option value="CODE128">CODE128 auto</option>
+              <option value="CODE128A">CODE128 A</option>
+              <option value="CODE128B">CODE128 B</option>
+              <option value="CODE128C">CODE128 C</option>
+              <option value="EAN13">EAN</option>
+              <option value="EAN8">EAN8</option>
+              <option value="UPC">UPC</option>
+              <option value="CODE39">CODE39</option>
+              <option value="ITF14">ITF14</option>
+              <option value="ITF">ITF</option>
+              <option value="MSI">MSI</option>
+              <option value="MSI10">MSI10</option>
+              <option value="MSI11">MSI11</option>
+              <option value="MSI1010">MSI1010</option>
+              <option value="MSI1110">MSI1110</option>
+              <option value="pharmacode">Pharmacode</option>
+            </select>
+            <button type="button" class="btn btn-ghost" id="insertSampleBtn" data-i18n="bg.sample">예시 입력</button>
+          </div>
+          <p class="format-helper" id="formatHelper"></p>
+        </div>
+
+        <div class="controls-grid">
+          <div class="control-row">
+            <label class="control-label" for="bar-width">Bar Width</label>
+            <div class="control-range">
+              <input id="bar-width" type="range" min="1" max="4" step="1" value="2" />
+              <span class="range-val" id="bar-width-display">2</span>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="bar-height">Height</label>
+            <div class="control-range">
+              <input id="bar-height" type="range" min="10" max="150" step="5" value="100" />
+              <span class="range-val" id="bar-height-display">100</span>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="bar-margin">Margin</label>
+            <div class="control-range">
+              <input id="bar-margin" type="range" min="0" max="25" step="1" value="10" />
+              <span class="range-val" id="bar-margin-display">10</span>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="background-color">Background</label>
+            <div class="color-control">
+              <input id="background-color" type="color" value="#ffffff" />
+              <input id="background-color-hex" class="hex-input" type="text" value="#ffffff" maxlength="7" aria-label="배경색 HEX 코드" />
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="line-color">Line Color</label>
+            <div class="color-control">
+              <input id="line-color" type="color" value="#000000" />
+              <input id="line-color-hex" class="hex-input" type="text" value="#000000" maxlength="7" aria-label="선 색상 HEX 코드" />
+            </div>
+          </div>
+
+          <div class="control-row">
+            <span class="control-label">Show Text</span>
+            <div class="btn-group" role="group" aria-label="텍스트 표시 여부">
+              <button type="button" class="seg-btn active display-text" data-value="true">Show</button>
+              <button type="button" class="seg-btn display-text" data-value="false">Hide</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="fontOptionsGroup" class="controls-grid font-options-panel">
+          <div class="control-row">
+            <span class="control-label">Text Position</span>
+            <div class="btn-group" role="group" aria-label="텍스트 위치">
+              <button type="button" class="seg-btn text-position" data-value="top">Top</button>
+              <button type="button" class="seg-btn active text-position" data-value="bottom">Bottom</button>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <span class="control-label">Text Align</span>
+            <div class="btn-group" role="group" aria-label="텍스트 정렬">
+              <button type="button" class="seg-btn text-align" data-value="left">Left</button>
+              <button type="button" class="seg-btn active text-align" data-value="center">Center</button>
+              <button type="button" class="seg-btn text-align" data-value="right">Right</button>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="font">Font</label>
+            <select id="font" class="select-input">
+              <option value="monospace" selected>Monospace</option>
+              <option value="sans-serif">Sans-serif</option>
+              <option value="serif">Serif</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="cursive">Cursive</option>
+            </select>
+          </div>
+
+          <div class="control-row">
+            <span class="control-label">Font Options</span>
+            <div class="btn-group" role="group" aria-label="폰트 스타일">
+              <button type="button" class="seg-btn font-option" data-value="bold" style="font-weight:700">Bold</button>
+              <button type="button" class="seg-btn font-option" data-value="italic" style="font-style:italic">Italic</button>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="bar-fontSize">Font Size</label>
+            <div class="control-range">
+              <input id="bar-fontSize" type="range" min="8" max="36" step="1" value="20" />
+              <span class="range-val" id="bar-fontSize-display">20</span>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="bar-text-margin">Text Margin</label>
+            <div class="control-range">
+              <input id="bar-text-margin" type="range" min="-15" max="25" step="1" value="0" />
+              <span class="range-val" id="bar-text-margin-display">0</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= QR코드 탭 ================= -->
+      <section id="qrcodeTab" class="tab-panel" role="tabpanel" aria-labelledby="tab-qrcode" hidden>
+        <div class="preview-stage qr-stage">
+          <div class="preview-inner" id="qrcodeBox">
+            <canvas id="qrcodeCanvas" aria-label="생성된 QR코드 미리보기"></canvas>
+            <div id="qrcodeInvalid" class="invalid-msg" hidden>
+              <span class="invalid-title" data-i18n="bg.invalid.qr">QR코드를 생성할 수 없는 데이터입니다.</span>
+              <span id="qrcodeHint" class="invalid-hint"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button type="button" class="btn btn-primary" id="saveQrcodePng">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span data-i18n="bg.png">PNG 저장</span>
+          </button>
+          <button type="button" class="btn btn-secondary" id="saveQrcodeSvg" data-i18n="bg.svg">SVG 저장</button>
+          <button type="button" class="btn btn-secondary" id="copyQrcodeImg" data-i18n="bg.copy">이미지 복사</button>
+        </div>
+
+        <div class="input-section">
+          <label class="sr-only" for="qr-text">QR코드 내용</label>
+          <div class="qr-input-group">
+            <textarea
+              id="qr-text"
+              class="text-input qr-textarea"
+              rows="2"
+              placeholder="URL 또는 텍스트를 입력하세요 (예: https://example.com)" data-i18n-placeholder="bg.ph.qr"
+            >https://example.com</textarea>
+            <button type="button" class="btn btn-primary" id="qr-btn" data-i18n="bg.gen">생성</button>
+          </div>
+        </div>
+
+        <div class="controls-grid">
+          <div class="control-row">
+            <label class="control-label" for="qr-size">Size (px)</label>
+            <div class="control-range">
+              <input id="qr-size" type="range" min="100" max="500" step="10" value="220" />
+              <span class="range-val" id="qr-size-display">220</span>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="qr-margin">Margin</label>
+            <div class="control-range">
+              <input id="qr-margin" type="range" min="0" max="10" step="1" value="2" />
+              <span class="range-val" id="qr-margin-display">2</span>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="qr-ecc">Error Correction</label>
+            <select id="qr-ecc" class="select-input">
+              <option value="L" data-i18n="bg.ec.l">L (7% 복원)</option>
+              <option value="M" selected data-i18n="bg.ec.m">M (15% 복원)</option>
+              <option value="Q" data-i18n="bg.ec.q">Q (25% 복원)</option>
+              <option value="H" data-i18n="bg.ec.h">H (30% 복원)</option>
+            </select>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="qr-background-color">Background</label>
+            <div class="color-control">
+              <input id="qr-background-color" type="color" value="#ffffff" />
+              <input id="qr-background-color-hex" class="hex-input" type="text" value="#ffffff" maxlength="7" aria-label="QR 배경색 HEX 코드" />
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="qr-code-color">Color</label>
+            <div class="color-control">
+              <input id="qr-code-color" type="color" value="#000000" />
+              <input id="qr-code-color-hex" class="hex-input" type="text" value="#000000" maxlength="7" aria-label="QR 코드 색상 HEX 코드" />
+            </div>
+          </div>
+        </div>
+
+        <div id="qrFontOptionsGroup" class="controls-grid font-options-panel">
+          <div class="control-row control-row-full">
+            <label class="control-label" for="qr-label" data-i18n="bg.qr.lbl">표시할 텍스트</label>
+            <input id="qr-label" class="text-input label-input" type="text" placeholder="QR코드에 함께 표시할 글 (비워두면 표시 안 됨)" data-i18n-placeholder="bg.qr.ph" autocomplete="off" />
+          </div>
+
+          <div class="control-row">
+            <span class="control-label">Text Position</span>
+            <div class="btn-group" role="group" aria-label="QR 텍스트 위치">
+              <button type="button" class="seg-btn qr-text-position" data-value="top">Top</button>
+              <button type="button" class="seg-btn active qr-text-position" data-value="bottom">Bottom</button>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <span class="control-label">Text Align</span>
+            <div class="btn-group" role="group" aria-label="QR 텍스트 정렬">
+              <button type="button" class="seg-btn qr-text-align" data-value="left">Left</button>
+              <button type="button" class="seg-btn active qr-text-align" data-value="center">Center</button>
+              <button type="button" class="seg-btn qr-text-align" data-value="right">Right</button>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="qr-font">Font</label>
+            <select id="qr-font" class="select-input">
+              <option value="sans-serif" selected>Sans-serif</option>
+              <option value="monospace">Monospace</option>
+              <option value="serif">Serif</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="cursive">Cursive</option>
+            </select>
+          </div>
+
+          <div class="control-row">
+            <span class="control-label">Font Options</span>
+            <div class="btn-group" role="group" aria-label="QR 폰트 스타일">
+              <button type="button" class="seg-btn qr-font-option" data-value="bold" style="font-weight:700">Bold</button>
+              <button type="button" class="seg-btn qr-font-option" data-value="italic" style="font-style:italic">Italic</button>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="qr-fontSize">Font Size</label>
+            <div class="control-range">
+              <input id="qr-fontSize" type="range" min="8" max="36" step="1" value="16" />
+              <span class="range-val" id="qr-fontSize-display">16</span>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="qr-text-margin">Text Margin</label>
+            <div class="control-range">
+              <input id="qr-text-margin" type="range" min="-10" max="30" step="1" value="4" />
+              <span class="range-val" id="qr-text-margin-display">4</span>
+            </div>
+          </div>
+
+          <div class="control-row">
+            <label class="control-label" for="qr-max-lines">Max Lines</label>
+            <div class="control-range">
+              <input id="qr-max-lines" type="range" min="1" max="10" step="1" value="3" />
+              <span class="range-val" id="qr-max-lines-display">3</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="card comments-card" aria-labelledby="comments-title">
+      <div class="comments-header">
+        <h2 id="comments-title" data-i18n="comments.title">댓글</h2>
+        <p data-i18n="comments.desc">사용 후기, 버그 제보, 기능 요청을 자유롭게 남겨주세요.</p>
+      </div>
+      <div id="comments"></div>
+      <div id="comments-setup" class="comments-setup" hidden>
+        <strong>댓글 기능이 아직 설정되지 않았습니다.</strong>
+        <span><code>comments.js</code> 상단의 <code>COMMENTS_CONFIG</code>에 Giscus 또는 Disqus 정보를 입력하면 댓글 창이 표시됩니다.</span>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <span data-i18n="bg.foot">모든 바코드 및 QR코드 생성은 브라우저 내에서 로컬로 처리되며 서버로 전송되지 않습니다.</span>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="lib/JsBarcode.all.min.js"></script>
+  <script src="lib/qrcode.min.js"></script>
+  <script src="../shared/tools-registry.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="app.js"></script>
+  <script type="module" src="comments.js"></script>
+</body>
+</html>

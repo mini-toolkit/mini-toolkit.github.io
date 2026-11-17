@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이미지 → PDF 변환기 — Mini Toolkit</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="Combine PNG, JPG, and WebP images into a single downloadable PDF locally. PNG, JPG, WebP 등 여러 이미지를 서버 전송 없이 하나의 PDF로 변환합니다." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mini-toolkit.github.io/imageToPdf/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Toolkit" />
+  <meta property="og:title" content="Image to PDF Converter (이미지 → PDF 변환기) — Mini Toolkit" />
+  <meta property="og:description" content="Combine PNG, JPG, and WebP images into a single downloadable PDF locally. PNG, JPG, WebP 등 여러 이미지를 서버 전송 없이 하나의 PDF로 변환합니다." />
+  <meta property="og:url" content="https://mini-toolkit.github.io/imageToPdf/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Image to PDF Converter (이미지 → PDF 변환기) — Mini Toolkit" />
+  <meta name="twitter:description" content="Combine PNG, JPG, and WebP images into a single downloadable PDF locally. PNG, JPG, WebP 등 여러 이미지를 서버 전송 없이 하나의 PDF로 변환합니다." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Image to PDF Converter", "alternateName": "이미지 → PDF 변환기", "url": "https://mini-toolkit.github.io/imageToPdf/", "description": "Combine PNG, JPG, and WebP images into a single downloadable PDF locally.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <!-- /SEO Meta -->
+  <link rel="stylesheet" href="../shared/tool-common.css" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body data-tool-id="image-to-pdf">
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-badge">MT</span>
+        <span>Mini Toolkit</span>
+      </a>
+      <nav class="nav-tabs" aria-label="주 메뉴">
+        <a class="nav-tab active" href="../" data-i18n="nav.tools">Tools</a>
+        <a class="nav-tab" href="../index.html#blog" data-i18n="nav.blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-btn" href="../"><span data-i18n="back.tools">← 모든 툴 보기</span></a>
+    <div class="page-header">
+      <h1 class="page-title">이미지 → PDF 변환기</h1>
+      <p class="page-desc">PNG, JPG, WebP 등 여러 이미지를 서버 전송 없이 브라우저에서 바로 하나의 PDF 파일로 변환합니다.</p>
+    </div>
+
+    <div class="panel">
+      <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="이미지 파일 선택 또는 드래그 앤 드롭">
+        <input id="fileInput" type="file" accept="image/*" multiple hidden />
+        <div class="dropzone-icon">🖼️</div>
+        <p class="dropzone-title" data-i18n="pdf.drop">여기에 이미지를 끌어다 놓거나 클릭하여 선택하세요</p>
+        <p class="dropzone-sub" data-i18n="pdf.sub">PNG, JPG, WebP, GIF 지원 · 여러 장 선택 가능 · 순서를 바꿀 수 있습니다</p>
+      </div>
+
+      <div class="pdf-options">
+        <div class="option-item">
+          <label class="field-label" for="pageSize" data-i18n="pdf.size">용지 크기</label>
+          <select id="pageSize" class="select-input">
+            <option value="a4" selected>A4 (210 × 297mm)</option>
+            <option value="letter">Letter (216 × 279mm)</option>
+            <option value="fit" data-i18n="pdf.fit">이미지 크기에 맞춤</option>
+          </select>
+        </div>
+
+        <div class="option-item">
+          <label class="field-label" for="orientation" data-i18n="pdf.orient">용지 방향</label>
+          <select id="orientation" class="select-input">
+            <option value="auto" selected data-i18n="pdf.auto">자동 (이미지 비율)</option>
+            <option value="portrait" data-i18n="pdf.port">세로 (Portrait)</option>
+            <option value="landscape" data-i18n="pdf.land">가로 (Landscape)</option>
+          </select>
+        </div>
+
+        <div class="option-item">
+          <label class="field-label" for="marginMm" data-i18n="pdf.margin">여백</label>
+          <select id="marginMm" class="select-input">
+            <option value="0" data-i18n="pdf.m0">없음 (0mm)</option>
+            <option value="8" selected data-i18n="pdf.m8">좁게 (8mm)</option>
+            <option value="15" data-i18n="pdf.m15">보통 (15mm)</option>
+          </select>
+        </div>
+
+        <div class="option-item">
+          <label class="field-label" for="fileName" data-i18n="pdf.fname">저장 파일명</label>
+          <input id="fileName" type="text" class="text-field" value="images.pdf" placeholder="images.pdf" />
+        </div>
+      </div>
+
+      <div class="toolbar pdf-actions">
+        <button id="addMoreBtn" class="btn" type="button" data-i18n="pdf.add">+ 이미지 추가</button>
+        <button id="clearAllBtn" class="btn" type="button" disabled data-i18n="pdf.clr">전체 비우기</button>
+        <span id="imageCountLabel" class="count-label">선택된 이미지: 0장</span>
+        <button id="convertBtn" class="btn btn-primary convert-btn" type="button" disabled data-i18n="pdf.dl">PDF 다운로드</button>
+      </div>
+
+      <div id="pdfStatus" class="status-bar" role="status"></div>
+      <ul id="imageList" class="image-list" aria-label="업로드된 이미지 목록"></ul>
+    </div>
+
+    <section class="panel comments-card" aria-labelledby="comments-title">
+      <div class="comments-header">
+        <h2 id="comments-title" data-i18n="comments.title">댓글</h2>
+        <p data-i18n="comments.desc">사용 후기, 버그 제보, 기능 요청을 자유롭게 남겨주세요.</p>
+      </div>
+      <div id="comments" data-tool-id="image-to-pdf"></div>
+      <div id="comments-setup" class="comments-setup" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer.copy">© 2026 Mini Toolkit</span>
+      <a class="coffee-link" href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer">
+        <span data-i18n="footer.coffee">☕ 커피 한 잔 후원하기</span>
+      </a>
+    </div>
+  </footer>
+
+  <script src="./lib/jspdf.umd.min.js"></script>
+  <script src="../shared/tools-registry.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="./app.js"></script>
+  <script type="module" src="../barcodeGen/comments.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Age & Date Difference Calculator — Mini Toolkit</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="Find exact age in years/months/days or days between two dates. 생년월일 기준 만 나이와 두 날짜 사이의 일수를 계산합니다." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mini-toolkit.github.io/ageCalculator/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Toolkit" />
+  <meta property="og:title" content="Age &amp; Date Difference Calculator (만 나이 &amp; 날짜 차이 계산기) — Mini Toolkit" />
+  <meta property="og:description" content="Find exact age in years/months/days or days between two dates. 생년월일 기준 만 나이와 두 날짜 사이의 일수를 계산합니다." />
+  <meta property="og:url" content="https://mini-toolkit.github.io/ageCalculator/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Age &amp; Date Difference Calculator (만 나이 &amp; 날짜 차이 계산기) — Mini Toolkit" />
+  <meta name="twitter:description" content="Find exact age in years/months/days or days between two dates. 생년월일 기준 만 나이와 두 날짜 사이의 일수를 계산합니다." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Age & Date Difference Calculator", "alternateName": "만 나이 & 날짜 차이 계산기", "url": "https://mini-toolkit.github.io/ageCalculator/", "description": "Find exact age in years/months/days or days between two dates.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <!-- /SEO Meta -->
+  <link rel="stylesheet" href="../shared/tool-common.css" />
+</head>
+<body data-tool-id="age-calculator">
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-badge">MT</span>
+        <span>Mini Toolkit</span>
+      </a>
+      <nav class="nav-tabs" aria-label="Main Menu">
+        <a class="nav-tab active" href="../" data-i18n="nav.tools">Tools</a>
+        <a class="nav-tab" href="../index.html#blog" data-i18n="nav.blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-btn" href="../" data-i18n="back.tools">← Back to All Tools</a>
+    <div class="page-header">
+      <h1 class="page-title">Age & Date Difference Calculator</h1>
+      <p class="page-desc">Find exact age in years/months/days or days between two dates.</p>
+    </div>
+
+    <div class="panel">
+      <div class="grid-2">
+        <div><label class="field-label" for="ag-start" data-i18n="age.start">Birth Date / Start Date</label><input id="ag-start" type="date" class="text-input-box" value="1995-05-15" /></div>
+        <div><label class="field-label" for="ag-end" data-i18n="age.end">Target Date</label><input id="ag-end" type="date" class="text-input-box" /></div>
+      </div>
+      <div class="stats-row" style="margin-top:16px;">
+        <div class="stat-box"><div class="stat-value" id="ag-ymd">-</div><div class="stat-label" data-i18n="age.ymd">Years / Months / Days</div></div>
+        <div class="stat-box"><div class="stat-value" id="ag-days">-</div><div class="stat-label" data-i18n="age.days">Total Days</div></div>
+      </div>
+    </div>
+
+    <section class="panel comments-card" aria-labelledby="comments-title">
+      <div class="comments-header">
+        <h2 id="comments-title" data-i18n="comments.title">Comments</h2>
+        <p data-i18n="comments.desc">Share feedback, bug reports, or feature requests.</p>
+      </div>
+      <div id="comments" data-tool-id="age-calculator"></div>
+      <div id="comments-setup" class="comments-setup" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer.copy">© 2026 Mini Toolkit</span>
+      <a class="coffee-link" href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" data-i18n="footer.coffee">
+        ☕ Buy Me a Coffee
+      </a>
+    </div>
+  </footer>
+
+  <script src="../shared/tools-registry.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="./app.js"></script>
+  <script type="module" src="../barcodeGen/comments.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aspect Ratio & Resolution Calculator — Mini Toolkit</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="Calculate proportional width/height and simplify aspect ratios. 16:9, 4:3 등 비율에 맞는 가로/세로 해상도를 계산합니다." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mini-toolkit.github.io/aspectRatioCalculator/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Toolkit" />
+  <meta property="og:title" content="Aspect Ratio &amp; Resolution Calculator (화면 비율 &amp; 해상도 계산기) — Mini Toolkit" />
+  <meta property="og:description" content="Calculate proportional width/height and simplify aspect ratios. 16:9, 4:3 등 비율에 맞는 가로/세로 해상도를 계산합니다." />
+  <meta property="og:url" content="https://mini-toolkit.github.io/aspectRatioCalculator/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Aspect Ratio &amp; Resolution Calculator (화면 비율 &amp; 해상도 계산기) — Mini Toolkit" />
+  <meta name="twitter:description" content="Calculate proportional width/height and simplify aspect ratios. 16:9, 4:3 등 비율에 맞는 가로/세로 해상도를 계산합니다." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Aspect Ratio & Resolution Calculator", "alternateName": "화면 비율 & 해상도 계산기", "url": "https://mini-toolkit.github.io/aspectRatioCalculator/", "description": "Calculate proportional width/height and simplify aspect ratios.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <!-- /SEO Meta -->
+  <link rel="stylesheet" href="../shared/tool-common.css" />
+</head>
+<body data-tool-id="aspect-ratio-calculator">
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-badge">MT</span>
+        <span>Mini Toolkit</span>
+      </a>
+      <nav class="nav-tabs" aria-label="Main Menu">
+        <a class="nav-tab active" href="../" data-i18n="nav.tools">Tools</a>
+        <a class="nav-tab" href="../index.html#blog" data-i18n="nav.blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-btn" href="../" data-i18n="back.tools">← Back to All Tools</a>
+    <div class="page-header">
+      <h1 class="page-title">Aspect Ratio & Resolution Calculator</h1>
+      <p class="page-desc">Calculate proportional width/height and simplify aspect ratios.</p>
+    </div>
+
+    <div class="panel">
+      <div class="grid-2">
+        <div><label class="field-label" for="ar-w1" data-i18n="ar.w1">Original Width</label><input id="ar-w1" type="number" class="text-input-box" value="1920" /></div>
+        <div><label class="field-label" for="ar-h1" data-i18n="ar.h1">Original Height</label><input id="ar-h1" type="number" class="text-input-box" value="1080" /></div>
+        <div><label class="field-label" for="ar-w2" data-i18n="ar.w2">Target Width</label><input id="ar-w2" type="number" class="text-input-box" value="1280" /></div>
+        <div><label class="field-label" for="ar-h2" data-i18n="ar.h2">Target Height</label><input id="ar-h2" type="number" class="text-input-box" value="720" /></div>
+      </div>
+      <div class="stats-row" style="margin-top:16px;">
+        <div class="stat-box"><div class="stat-value" id="ar-ratio">16:9</div><div class="stat-label" data-i18n="ar.ratio">Simplified Ratio</div></div>
+      </div>
+    </div>
+
+    <section class="panel comments-card" aria-labelledby="comments-title">
+      <div class="comments-header">
+        <h2 id="comments-title" data-i18n="comments.title">Comments</h2>
+        <p data-i18n="comments.desc">Share feedback, bug reports, or feature requests.</p>
+      </div>
+      <div id="comments" data-tool-id="aspect-ratio-calculator"></div>
+      <div id="comments-setup" class="comments-setup" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer.copy">© 2026 Mini Toolkit</span>
+      <a class="coffee-link" href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" data-i18n="footer.coffee">
+        ☕ Buy Me a Coffee
+      </a>
+    </div>
+  </footer>
+
+  <script src="../shared/tools-registry.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="./app.js"></script>
+  <script type="module" src="../barcodeGen/comments.js"></script>
+</body>
+</html>

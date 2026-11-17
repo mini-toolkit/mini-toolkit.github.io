@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lorem Ipsum Generator — Mini Toolkit</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="Generate placeholder paragraphs, sentences, or words for mockups. 디자인 시안용 더미 문단, 문장, 단어를 원하는 개수만큼 생성합니다." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mini-toolkit.github.io/loremGenerator/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Toolkit" />
+  <meta property="og:title" content="Lorem Ipsum Generator (Lorem Ipsum 더미 텍스트 생성기) — Mini Toolkit" />
+  <meta property="og:description" content="Generate placeholder paragraphs, sentences, or words for mockups. 디자인 시안용 더미 문단, 문장, 단어를 원하는 개수만큼 생성합니다." />
+  <meta property="og:url" content="https://mini-toolkit.github.io/loremGenerator/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lorem Ipsum Generator (Lorem Ipsum 더미 텍스트 생성기) — Mini Toolkit" />
+  <meta name="twitter:description" content="Generate placeholder paragraphs, sentences, or words for mockups. 디자인 시안용 더미 문단, 문장, 단어를 원하는 개수만큼 생성합니다." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Lorem Ipsum Generator", "alternateName": "Lorem Ipsum 더미 텍스트 생성기", "url": "https://mini-toolkit.github.io/loremGenerator/", "description": "Generate placeholder paragraphs, sentences, or words for mockups.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <!-- /SEO Meta -->
+  <link rel="stylesheet" href="../shared/tool-common.css" />
+</head>
+<body data-tool-id="lorem-generator">
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-badge">MT</span>
+        <span>Mini Toolkit</span>
+      </a>
+      <nav class="nav-tabs" aria-label="Main Menu">
+        <a class="nav-tab active" href="../" data-i18n="nav.tools">Tools</a>
+        <a class="nav-tab" href="../index.html#blog" data-i18n="nav.blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-btn" href="../" data-i18n="back.tools">← Back to All Tools</a>
+    <div class="page-header">
+      <h1 class="page-title">Lorem Ipsum Generator</h1>
+      <p class="page-desc">Generate placeholder paragraphs, sentences, or words for mockups.</p>
+    </div>
+
+    <div class="panel">
+      <div class="toolbar">
+        <input id="lr-count" type="number" class="select-input" min="1" max="20" value="3" style="width:80px;" />
+        <select id="lr-type" class="select-input">
+          <option value="paragraphs" data-i18n="lr.para">Paragraphs</option>
+          <option value="sentences" data-i18n="lr.sent">Sentences</option>
+        </select>
+        <button class="btn btn-primary" id="lr-gen" type="button" data-i18n="common.generate">Generate</button>
+        <button class="btn" id="lr-copy" type="button" data-i18n="common.copy">Copy</button>
+      </div>
+      <textarea id="lr-out" class="code-area" readonly></textarea>
+      <div id="lr-status" class="status-bar" role="status"></div>
+    </div>
+
+    <section class="panel comments-card" aria-labelledby="comments-title">
+      <div class="comments-header">
+        <h2 id="comments-title" data-i18n="comments.title">Comments</h2>
+        <p data-i18n="comments.desc">Share feedback, bug reports, or feature requests.</p>
+      </div>
+      <div id="comments" data-tool-id="lorem-generator"></div>
+      <div id="comments-setup" class="comments-setup" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer.copy">© 2026 Mini Toolkit</span>
+      <a class="coffee-link" href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" data-i18n="footer.coffee">
+        ☕ Buy Me a Coffee
+      </a>
+    </div>
+  </footer>
+
+  <script src="../shared/tools-registry.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="./app.js"></script>
+  <script type="module" src="../barcodeGen/comments.js"></script>
+</body>
+</html>

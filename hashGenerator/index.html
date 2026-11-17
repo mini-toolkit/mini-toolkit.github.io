@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHA Hash Generator — Mini Toolkit</title>
+  <!-- SEO Meta -->
+  <meta name="description" content="Compute SHA-1, SHA-256, SHA-384, and SHA-512 hashes locally. Web Crypto API로 SHA-1, SHA-256, SHA-384, SHA-512 해시를 계산합니다." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mini-toolkit.github.io/hashGenerator/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mini Toolkit" />
+  <meta property="og:title" content="SHA Hash Generator (SHA 해시 생성기) — Mini Toolkit" />
+  <meta property="og:description" content="Compute SHA-1, SHA-256, SHA-384, and SHA-512 hashes locally. Web Crypto API로 SHA-1, SHA-256, SHA-384, SHA-512 해시를 계산합니다." />
+  <meta property="og:url" content="https://mini-toolkit.github.io/hashGenerator/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="SHA Hash Generator (SHA 해시 생성기) — Mini Toolkit" />
+  <meta name="twitter:description" content="Compute SHA-1, SHA-256, SHA-384, and SHA-512 hashes locally. Web Crypto API로 SHA-1, SHA-256, SHA-384, SHA-512 해시를 계산합니다." />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "SHA Hash Generator", "alternateName": "SHA 해시 생성기", "url": "https://mini-toolkit.github.io/hashGenerator/", "description": "Compute SHA-1, SHA-256, SHA-384, and SHA-512 hashes locally.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+  <!-- /SEO Meta -->
+  <link rel="stylesheet" href="../shared/tool-common.css" />
+</head>
+<body data-tool-id="hash-generator">
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-badge">MT</span>
+        <span>Mini Toolkit</span>
+      </a>
+      <nav class="nav-tabs" aria-label="Main Menu">
+        <a class="nav-tab active" href="../" data-i18n="nav.tools">Tools</a>
+        <a class="nav-tab" href="../index.html#blog" data-i18n="nav.blog">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-btn" href="../" data-i18n="back.tools">← Back to All Tools</a>
+    <div class="page-header">
+      <h1 class="page-title">SHA Hash Generator</h1>
+      <p class="page-desc">Compute SHA-1, SHA-256, SHA-384, and SHA-512 hashes locally.</p>
+    </div>
+
+    <div class="panel">
+      <label class="field-label" for="hg-input" data-i18n="common.input">Input</label>
+      <textarea id="hg-input" class="code-area" style="min-height:140px;" placeholder="Type or paste text to hash..."></textarea>
+      <div class="stats-row" style="grid-template-columns:1fr;margin-top:16px;">
+        <div class="stat-box"><div class="stat-label">SHA-1</div><div class="mono-output" id="hg-sha1" style="margin-top:6px;"></div></div>
+        <div class="stat-box"><div class="stat-label">SHA-256</div><div class="mono-output" id="hg-sha256" style="margin-top:6px;"></div></div>
+        <div class="stat-box"><div class="stat-label">SHA-384</div><div class="mono-output" id="hg-sha384" style="margin-top:6px;"></div></div>
+        <div class="stat-box"><div class="stat-label">SHA-512</div><div class="mono-output" id="hg-sha512" style="margin-top:6px;"></div></div>
+      </div>
+    </div>
+
+    <section class="panel comments-card" aria-labelledby="comments-title">
+      <div class="comments-header">
+        <h2 id="comments-title" data-i18n="comments.title">Comments</h2>
+        <p data-i18n="comments.desc">Share feedback, bug reports, or feature requests.</p>
+      </div>
+      <div id="comments" data-tool-id="hash-generator"></div>
+      <div id="comments-setup" class="comments-setup" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span data-i18n="footer.copy">© 2026 Mini Toolkit</span>
+      <a class="coffee-link" href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" data-i18n="footer.coffee">
+        ☕ Buy Me a Coffee
+      </a>
+    </div>
+  </footer>
+
+  <script src="../shared/tools-registry.js"></script>
+  <script src="../shared/i18n.js"></script>
+  <script src="./app.js"></script>
+  <script type="module" src="../barcodeGen/comments.js"></script>
+</body>
+</html>
