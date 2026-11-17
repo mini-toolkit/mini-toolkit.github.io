@@ -40,6 +40,9 @@ const GUARD_CONFIG = {
   storageKey: `comment_guard_${TOOL_ID}_v1`
 };
 
+// 메모리 폴백 (시크릿 모드 등에서 localStorage 차단 시)
+let memoryGuardState = { timestamps: [], lastNormalizedContent: "" };
+
 const commentsContainer = document.getElementById("comments");
 const setupNotice = document.getElementById("comments-setup");
 
@@ -406,9 +409,6 @@ function validateCommentSubmission({ author, password, content, honeypot, formIn
 
   return { ok: true };
 }
-
-// 메모리 폴백 (시크릿 모드 등에서 localStorage 차단 시)
-let memoryGuardState = { timestamps: [], lastNormalizedContent: "" };
 
 function loadGuardState() {
   const now = Date.now();
