@@ -260,6 +260,19 @@
     window.dispatchEvent(new CustomEvent("mini-toolkit-lang-change", { detail: { lang } }));
   }
 
+  function ensureSharedFooter() {
+    const footer = document.getElementById("site-footer") || document.querySelector("body > footer");
+    if (!footer) return;
+    footer.innerHTML = `
+      <div class="container footer-inner">
+        <span data-i18n="footer.copy">${t("footer.copy", "© 2026 Mini Toolkit")}</span>
+        <!-- 후원 링크 연동 후 아래 주석을 해제하세요
+        <a class="coffee-link" href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" data-i18n="footer.coffee">${t("footer.coffee", "☕ Buy Me a Coffee")}</a>
+        -->
+      </div>
+    `;
+  }
+
   function ensureHeaderCoffeeLink() {
     const navContainer = document.querySelector(".nav-tabs, .site-nav-tabs");
     if (!navContainer || navContainer.querySelector(".coffee-header")) return;
@@ -295,6 +308,7 @@
 
   function init() {
     // ensureHeaderCoffeeLink(); // TODO: 후원 링크 연동 후 활성화
+    ensureSharedFooter();
     ensureLangSwitcher();
     applyTranslations();
   }
